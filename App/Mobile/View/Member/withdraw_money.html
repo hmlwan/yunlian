@@ -1,0 +1,96 @@
+<include file="Public:header"/>
+<body>
+<div>
+    <header>
+        <div class="gwc_bt">
+            <a href="javascript:history.back()" class="gwcdd_fh"><div class="gwcbt_fh"></div></a>
+            <div class="gwcbt_mc">提款</div>
+        </div>
+    </header>
+    <div class="tkxx">
+        <div class="tk_title">提示信息</div>
+        <div class="tk_con">
+            1. 每天的提款处理时间为：<font color="red">00:00</font> 至 <font color="red">23:59</font>;<br>
+            2.提款3分钟内到账。(如遇高峰期，可能需要延迟到十分钟内到账);<br>
+            3. 用户每日最小提款<font color="red">50</font> 元，最大提款<font color="red">2000000</font>元;<br>
+            4. 今日可提款 不限制 次，已提款0 次 ;
+        </div>
+        <div class="tk_title">消费比例</div>
+        <div class="tk_con">
+            1. 出款需达投注量：<font color="red">0.00</font>,当前有效投注金额：<font color="red">0.00</font><br>
+            2. 是否能取款：<font color="red">是 </font>
+        </div>
+        <div class="tk_title">消费比例</div>
+        <div class="tk_con sqtk">
+            <div>
+                <label for=""> <i></i><span>银 行 卡</span></label>
+                <input type="text" name="bank_no"  readonly value="{$info.bank_no}"/>
+            </div>
+            <div>
+                <label for=""> <i></i><span>真实姓名</span></label>
+                <input type="text" name="be_username"  value="{$info.be_username}" />
+            </div>
+            <!--<div>-->
+                <!--<label for=""> <i></i><span>账户余额</span></label>-->
+                <!--<input type="text" name="rmb" readonly value="{$info.rmb}" />-->
+            <!--</div>-->
+            <div>
+                <label for=""> <i></i><span>取款金额</span></label>
+                <input type="text" name="qk_num"   placeholder="最少提现50元"  />
+            </div>
+            <div>
+                <label for=""> <i></i><span>游戏帐号</span></label>
+                <input type="text" name="qk_pwd"  placeholder="请输入游戏帐号" />
+            </div>
+        </div>
+
+        <div class="confirm_btn" onclick="sub()"><span>申请提现</span></div>
+    </div>
+</div>
+<script>
+    function sub(){
+
+        var qk_num = $("input[name='qk_num']").val();
+        var password = $("input[name='qk_pwd']").val();
+        var be_username = $("input[name='be_username']").val();
+        var bank_no = $("input[name='bank_no']").val();
+        var rmb = $("input[name='rmb']").val();
+        console.log(qk_num);
+        console.log(rmb);
+
+
+        if(qk_num == ""||qk_num == null){
+            layer.msg('请输入取款金额');
+            return false;
+        }
+        if(password == ""||password == null){
+            layer.msg('请输入游戏帐号');
+            return false;
+        }
+        if(qk_num<50){
+            layer.msg('取款金额不能少于50.00');
+            return false;
+        }
+        if(parseInt(qk_num) > parseInt(rmb)){
+            layer.msg('余额不足');
+            return false;
+        }
+        $.post("{:U('Member/withdraw_money')}",{
+            qk_num:qk_num,
+            password:password,
+            bank_no:bank_no,
+            be_username:be_username,
+        },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon:1});
+                window.location="/Mobile/Member/index";
+            }else{
+                layer.msg(data.info);
+                return false;
+            }
+        })
+    };
+
+</script>
+<include file="Public:footer"/>
+
