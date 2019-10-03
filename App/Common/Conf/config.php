@@ -40,7 +40,8 @@ return array (
 		
 		'APP_GROUP_LIST' => 'Admin,Common,Mobile', // 项目分组设定
 //		'APP_GROUP_LIST' => 'Home,Admin', // 项目分组设定
-        'DEFAULT_MODULE' => 'Mobile'  , // 模版
+        'DEFAULT_MODULE' => 'Admin'  , // 模版
+//        'DEFAULT_MODULE' => 'Mobile'  , // 模版
 		'TMPL_ACTION_SUCCESS' => './App/Common/jump.html',
 		'TMPL_ACTION_ERROR' => './App/Common/jump.html',
 		

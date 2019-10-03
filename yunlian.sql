@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : mysql
 Source Server Version : 50553
 Source Host           : localhost:3306
-Source Database       : dynapp
+Source Database       : yunlian
 
 Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-07-19 21:07:10
+Date: 2019-10-03 21:51:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,27 +32,7 @@ CREATE TABLE `blue_admin` (
 -- ----------------------------
 -- Records of blue_admin
 -- ----------------------------
-INSERT INTO `blue_admin` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', null, '1,4,7,8,15,12,16,23,18,41,17,50,51,52,53,54,57,58,59,60,69,19,89', '0');
-
--- ----------------------------
--- Table structure for `blue_apply_task`
--- ----------------------------
-DROP TABLE IF EXISTS `blue_apply_task`;
-CREATE TABLE `blue_apply_task` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `task_id` int(10) unsigned NOT NULL COMMENT '高单id',
-  `name` varchar(128) DEFAULT '' COMMENT '姓名',
-  `phone` varchar(50) DEFAULT '' COMMENT '手机号码',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--提交时间--',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of blue_apply_task
--- ----------------------------
-INSERT INTO `blue_apply_task` VALUES ('2', '1', 'hmlwan', '1222222222', '1560073419');
-INSERT INTO `blue_apply_task` VALUES ('3', '1', 'hmlwan', '1222222222', '1560073500');
-INSERT INTO `blue_apply_task` VALUES ('4', '1', 'hmlwan', '1222222222', '1560073507');
+INSERT INTO `blue_admin` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', null, '1,4,7,91,16,23,41,90,50,51,52,53,54,58,89', '0');
 
 -- ----------------------------
 -- Table structure for `blue_areas`
@@ -3486,41 +3466,44 @@ INSERT INTO `blue_areas` VALUES ('1020', '117', '兴义市', '3');
 -- ----------------------------
 DROP TABLE IF EXISTS `blue_article`;
 CREATE TABLE `blue_article` (
-  `article_id` int(32) NOT NULL AUTO_INCREMENT,
-  `position_id` int(32) NOT NULL,
-  `title` varchar(64) NOT NULL,
+  `article_id` int(32) NOT NULL AUTO_INCREMENT COMMENT '文章id',
+  `position_id` int(32) NOT NULL COMMENT '类别id',
+  `title` varchar(64) NOT NULL COMMENT '标题',
   `content` mediumtext NOT NULL,
   `add_time` varchar(32) NOT NULL,
-  `status` tinyint(4) NOT NULL,
-  `type` varchar(32) NOT NULL,
-  `sign` int(4) NOT NULL,
+  `status` tinyint(4) NOT NULL COMMENT '状态 1：上线0:下线',
+  `reade_num` varchar(50) NOT NULL COMMENT '阅读量',
+  `sort` tinyint(6) DEFAULT NULL COMMENT '排序',
+  `is_top` tinyint(5) DEFAULT '0' COMMENT '是否置顶 1：是 0：否',
+  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
+  `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`article_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=212 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_article
 -- ----------------------------
-INSERT INTO `blue_article` VALUES ('177', '1', 'AAA', '', '1522830159', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('181', '2', '新宇积分首期空投', '<p class=\"MsoNormal\">\r\n	新宇积分全网空投活动\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>活动时间：即日起</span>——<span>2018</span><span>年</span><span>4</span><span>月</span><span>9</span><span>日。</span>\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>官网：</span>http://www.xinyv.com.cn/\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	活动内容：凡在活动期间注册成为新宇网平台积分会员的，均空投5<span>个新宇积分。</span>\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	推荐人活动：\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>凡在活动期间成功推荐</span>1<span>人参与新宇积分免费送活动，推荐人</span>空投5<span>个新宇积分；依此类推，多推多送，上不封顶。</span>\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>开户链接：</span>http://www.xinyv.com.cn/Home/Reg/reg/Member_id/925.html\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	（开户审核通过之后系统会自动生成自己的推广链接）\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	备注：实名认证通过后为有效会员\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	&nbsp;\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	新宇网项目部\r\n</p>', '1523118579', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('182', '7', '法律声明', '', '1525099877', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('201', '127', '关于开户系统正式上线的公告', '<h2 style=\"text-align: center; \" font-weight:500;color:#333333;font-size:30px;text-align:center;\"=\"\">\r\n	关于开户系统正式上线的公告\r\n	</h2>\r\n<p style=\"text-align: center; color: rgb(51, 51, 51);\" font-size:14px;background:white;text-align:center;\"=\"\"> <span style=\"color:#FF0000;\"><span style=\"font-weight:700;\"><span style=\"font-size:19px;font-family:;\">2018</span><span style=\"font-size:19px;font-family:宋体;\">（市）第</span><span style=\"font-size:19px;font-family:;\">002</span><span style=\"font-size:19px;font-family:宋体;\">号</span></span></span> \r\n		</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">尊敬的各位投资者：&nbsp;</span></strong>\r\n	</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;友邦积分交易平台（以下简称“平台”）</span></strong>网上开户系统已完成内部测试，并于2018年5月1日正式上线。 广大投资者可以通过本所官网完成交易商帐户注册。现有注意事项如下：&nbsp;</span></strong>\r\n		</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;一、请您填写正确的个人信息，并按要求上传相关证件；&nbsp;</span></strong>\r\n	</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;二、请您仔细阅读本平台的《交易商入市协议》、《交易风险提示书》、《交易规则（暂行）》等内容。</span></strong>\r\n		</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;您在本平台开户，系统将自动默认为您已阅读并理解相关规则。 在注册过程中，如有疑问可随时与线上客服联系，我们将竭诚为您服务！</span></strong>\r\n	</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;敬请关注！ 特此公告！</span></strong>\r\n		</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong><span style=\"font-size:18px;\"><strong><strong><span style=\"line-height:2.5;\">友邦积分交易平台中心</span></strong></strong></span></strong></span></strong>\r\n	</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2018 年5月1日</span></strong><strong><span style=\"font-size:18px;\"></span></strong>\r\n		</p>', '1525117723', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('184', '60', '注册指南', '<p>\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>打开新宇网积分交易平台网址</span>www.xinyv.com.cn,<span>或者推广开户链接，然后点击注册或者免费注册</span>打开\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"553\" height=\"224\" src=\"/Public/kindeditor/attached/image/20180408/20180408042904_61742.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	然后填写相关信息<img width=\"554\" height=\"312\" src=\"/Public/kindeditor/attached/image/20180408/20180408042913_11430.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	进入下一步<img width=\"554\" height=\"291\" src=\"/Public/kindeditor/attached/image/20180408/20180408042923_22474.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	填写完相关信息后再到下一步进行实名认证\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180408/20180408042935_34417.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	实名认证需要身份证+<span>姓名</span><span>+</span><span>银行卡</span><span>+</span><span>预留手机一致才能通过，否则无法成为有效会员</span> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	最后填写验证码，然后提交\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"554\" height=\"305\" src=\"/Public/kindeditor/attached/image/20180408/20180408042951_41511.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	恭喜您成为新宇网平台的尊贵会员，请开启您的财富之门\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<br />\r\n</p>', '1523132995', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('185', '61', '交易指南', '<p class=\"MsoNormal\">\r\n	<span>打开新宇网积分交易平台网址</span>www.xinyv.com.cn,\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	然后填写账号及密码<img width=\"554\" height=\"312\" src=\"/Public/kindeditor/attached/image/20180408/20180408044128_91979.png\" />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	点击登录进入用户中心，点击交易中心，选择所需要交易的积分<img width=\"554\" height=\"291\" src=\"/Public/kindeditor/attached/image/20180408/20180408044147_96165.png\" />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	进入买卖环节，买卖都需要注意价格，数量，交易密码，确定无误后点击买入或者卖出<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180408/20180408044205_49880.png\" />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	&nbsp;\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	恭喜您完成了您的交易\r\n</p>', '1523133729', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('186', '62', '充值指南', '<p class=\"MsoNormal\">\r\n	<span>打开新宇网积分交易平台网址</span>www.xinyv.com.cn,\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	然后填写账号及密码<img width=\"554\" height=\"312\" src=\"/Public/kindeditor/attached/image/20180408/20180408045714_41714.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	点击登录进入用户中心，点击交易中心，选择充值<img width=\"554\" height=\"291\" src=\"/Public/kindeditor/attached/image/20180408/20180408045954_10068.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"553\" height=\"293\" src=\"/Public/kindeditor/attached/image/20180408/20180408050123_14935.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	进入充值界面，根基提示填写个人的银联信息以及充值数量<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180408/20180408045756_46444.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>点击生成汇款订单，根基提示在</span>30<span>分钟内用网银或支付宝转账，之后等待审核成功后充值到账，恭喜您可以进行积分的购买</span> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<br />\r\n</p>', '1523134884', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('190', '63', '提现指南', '<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	<span>打开新宇网积分交易平台网址</span>www.xinyv.com.cn,\r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	然后填写账号及密码<img width=\"554\" height=\"312\" src=\"/Public/kindeditor/attached/image/20180409/20180409025245_26397.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	点击登录进入用户中心，点击交易中心，选择提现<img width=\"554\" height=\"291\" src=\"/Public/kindeditor/attached/image/20180409/20180409025258_57581.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	<img width=\"553\" height=\"293\" src=\"/Public/kindeditor/attached/image/20180409/20180409025314_79664.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	进入提现界面，根基提示填写个人的银联信息以及提现数量<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180409/20180409025328_69048.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	点击提交，等待审核通过成功后提现到账，恭喜您提现成功\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180409/20180409025344_14474.png\" /> \r\n</p>', '1523464209', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('200', '127', '友邦积分交易平台正式上线公告', '<h4 class=\"dividend-hd\">\r\n	<span style=\"font-size:16px;line-height:24px;\"><h2 font-weight:500;color:#333333;font-size:30px;text-align:center;\"=\"\" style=\"text-align: center; white-space: normal;\">友邦积分交易平台正式上线公告\r\n		</h2>\r\n<p font-size:14px;background:white;text-align:center;\"=\"\" style=\"text-align: center; white-space: normal; color: rgb(51, 51, 51);\"><span style=\"color:#FF0000;\"><span style=\"font-weight:700;\"><span style=\"font-size:19px;\">2018</span><span style=\"font-size:19px;font-family:宋体;\">（市）第</span><span style=\"font-size:19px;\">001</span><span style=\"font-size:19px;font-family:宋体;\">号</span></span></span> \r\n			</p>\r\n</span> \r\n				</h4>\r\n				<p>\r\n					<span style=\"font-size:16px;line-height:24px;\"> </span> \r\n				</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"> <strong><span style=\"line-height:2.5;font-size:18px;\">尊敬的各位投资者： </span></strong> \r\n					</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"> <strong><span style=\"line-height:2.5;\"></span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;友邦积分交易平台（以下简称“平台”）</span></strong><span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong>区块链数字资产交易</strong></span><strong><span style=\"line-height:2.5;font-size:18px;\">已完成内部测试，并于2018年</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">5</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">月1</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">日正式上线对</span></strong><span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong>外开放测试，平台可以正常充值与提现！</strong></span> \r\n				</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\">\r\n						<span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong>&nbsp; &nbsp; &nbsp; &nbsp;在测试过程中，如有疑问可随时与线上客服联系，我们将竭诚为您服务！</strong></span> \r\n					</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\">\r\n						<span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong>&nbsp; &nbsp; &nbsp; &nbsp;特此公告！ </strong></span> \r\n				</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\">\r\n						<span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong><strong><span style=\"line-height:2.5;font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;友邦积分交易平台中心</span></strong> </strong></span> \r\n					</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\">\r\n						<span style=\"font-family:\" line-height:2.5;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2018 年5月1日 </span><br />\r\n</strong></span> \r\n				</p>\r\n				<p>\r\n					<br />\r\n				</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"> <strong><span style=\"line-height:2.5;\"></span></strong> \r\n					</p>', '1525117434', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('202', '7', '公司介绍', '', '1525164871', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('203', '127', '友邦积分交易平台交易时间时间公告', '<h4 class=\"dividend-hd\" style=\"font-weight:normal;font-size:14px;font-family:tahoma, &quot;color:#333333;background-color:#FAF9F8;\">\r\n	<span style=\"font-size:16px;line-height:24px;\"><p font-size:14px;background:white;text-align:center;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; line-height: 24px; font-size: 14px; word-break: break-all; text-align: center;\"><span style=\"color:#FF0000;\"><span style=\"font-weight:700;\"><span style=\"font-size:19px;\">2018</span><span style=\"font-family:宋体;font-size:19px;\">（市）第</span><span style=\"font-size:19px;\">003</span><span style=\"font-family:宋体;font-size:19px;\">号</span></span></span>\r\n		</p>\r\n</span>\r\n			</h4>\r\n			<p style=\"font-family:tahoma, &quot;color:#555555;font-size:14px;background-color:#FAF9F8;\">\r\n				<span style=\"font-size:16px;line-height:24px;\"></span>\r\n			</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><strong><span style=\"line-height:2.5;font-size:18px;\">尊敬的各位投资者：</span></strong>\r\n				</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><strong><span style=\"line-height:2.5;\"></span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;友邦积分交易平台（以下简称“平台”）</span></strong><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong>区块链数字资产交易</strong></span><strong><span style=\"line-height:2.5;font-size:18px;\">已完成内部测试，并于2018年</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">5</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">月1</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">日正式上线对</span></strong><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong>外开放试运营，平台可以正常充值与提现！</strong></span>\r\n			</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong>&nbsp; &nbsp; &nbsp; &nbsp;在<strong>试运营</strong>过程中，交易时间为9:30-20:00，周一到周日；客服时间：<strong>9:30-20:00，充值提现时间：10:00-18:00，18点后财务结账，</strong>如有疑问可随时与线上客服联系，我们将竭诚为您服务！</strong></span>\r\n				</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong>&nbsp; &nbsp; &nbsp; &nbsp;特此公告！</strong></span>\r\n			</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong><strong><span style=\"line-height:2.5;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;友邦积分交易平台中心</span></strong></strong></span>\r\n				</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none;\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2018 年5月1日&nbsp;</span><br />\r\n</strong></span>\r\n			</p>\r\n			<div>\r\n				<strong><br />\r\n</strong>\r\n			</div>', '1525165484', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('198', '7', '免责声明', '', '1525099895', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('199', '7', '注册协议', '', '1525099917', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('204', '127', '111111111111111111111', '1111111111', '1527208299', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('205', '127', '111111111111111111111', '222222222222222222', '1527208307', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('206', '127', '444444444444444444444444444', '444444444444444444', '1527208314', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('207', '127', '55555555555555555555555555', '555555555555555555555', '1527208322', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('208', '127', '666666666666666666666666666', '66666666666666666666666', '1527208330', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('209', '127', '7777777777777777777777777', '7777777777777777777777777', '1527208338', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('210', '127', '888888888888888888888888888', '88888888888888888888888888', '1527208346', '0', '', '0');
-INSERT INTO `blue_article` VALUES ('211', '127', '999999999999999999999999999999', '999999999999999999999999', '1527208357', '0', '', '0');
+INSERT INTO `blue_article` VALUES ('177', '1', 'AAA', '', '1522830159', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('181', '2', '新宇积分首期空投', '<p class=\"MsoNormal\">\r\n	新宇积分全网空投活动\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>活动时间：即日起</span>——<span>2018</span><span>年</span><span>4</span><span>月</span><span>9</span><span>日。</span>\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>官网：</span>http://www.xinyv.com.cn/\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	活动内容：凡在活动期间注册成为新宇网平台积分会员的，均空投5<span>个新宇积分。</span>\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	推荐人活动：\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>凡在活动期间成功推荐</span>1<span>人参与新宇积分免费送活动，推荐人</span>空投5<span>个新宇积分；依此类推，多推多送，上不封顶。</span>\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>开户链接：</span>http://www.xinyv.com.cn/Home/Reg/reg/Member_id/925.html\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	（开户审核通过之后系统会自动生成自己的推广链接）\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	备注：实名认证通过后为有效会员\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	&nbsp;\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	新宇网项目部\r\n</p>', '1523118579', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('182', '7', '法律声明', '', '1525099877', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('201', '127', '关于开户系统正式上线的公告', '<h2 style=\"text-align: center; \" font-weight:500;color:#333333;font-size:30px;text-align:center;\"=\"\">\r\n	关于开户系统正式上线的公告\r\n	</h2>\r\n<p style=\"text-align: center; color: rgb(51, 51, 51);\" font-size:14px;background:white;text-align:center;\"=\"\"> <span style=\"color:#FF0000;\"><span style=\"font-weight:700;\"><span style=\"font-size:19px;font-family:;\">2018</span><span style=\"font-size:19px;font-family:宋体;\">（市）第</span><span style=\"font-size:19px;font-family:;\">002</span><span style=\"font-size:19px;font-family:宋体;\">号</span></span></span> \r\n		</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">尊敬的各位投资者：&nbsp;</span></strong>\r\n	</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;友邦积分交易平台（以下简称“平台”）</span></strong>网上开户系统已完成内部测试，并于2018年5月1日正式上线。 广大投资者可以通过本所官网完成交易商帐户注册。现有注意事项如下：&nbsp;</span></strong>\r\n		</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;一、请您填写正确的个人信息，并按要求上传相关证件；&nbsp;</span></strong>\r\n	</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;二、请您仔细阅读本平台的《交易商入市协议》、《交易风险提示书》、《交易规则（暂行）》等内容。</span></strong>\r\n		</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;您在本平台开户，系统将自动默认为您已阅读并理解相关规则。 在注册过程中，如有疑问可随时与线上客服联系，我们将竭诚为您服务！</span></strong>\r\n	</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;敬请关注！ 特此公告！</span></strong>\r\n		</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong><span style=\"font-size:18px;\"><strong><strong><span style=\"line-height:2.5;\">友邦积分交易平台中心</span></strong></strong></span></strong></span></strong>\r\n	</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2018 年5月1日</span></strong><strong><span style=\"font-size:18px;\"></span></strong>\r\n		</p>', '1525117723', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('184', '60', '注册指南', '<p>\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>打开新宇网积分交易平台网址</span>www.xinyv.com.cn,<span>或者推广开户链接，然后点击注册或者免费注册</span>打开\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"553\" height=\"224\" src=\"/Public/kindeditor/attached/image/20180408/20180408042904_61742.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	然后填写相关信息<img width=\"554\" height=\"312\" src=\"/Public/kindeditor/attached/image/20180408/20180408042913_11430.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	进入下一步<img width=\"554\" height=\"291\" src=\"/Public/kindeditor/attached/image/20180408/20180408042923_22474.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	填写完相关信息后再到下一步进行实名认证\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180408/20180408042935_34417.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	实名认证需要身份证+<span>姓名</span><span>+</span><span>银行卡</span><span>+</span><span>预留手机一致才能通过，否则无法成为有效会员</span> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	最后填写验证码，然后提交\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"554\" height=\"305\" src=\"/Public/kindeditor/attached/image/20180408/20180408042951_41511.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	恭喜您成为新宇网平台的尊贵会员，请开启您的财富之门\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<br />\r\n</p>', '1523132995', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('185', '61', '交易指南', '<p class=\"MsoNormal\">\r\n	<span>打开新宇网积分交易平台网址</span>www.xinyv.com.cn,\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	然后填写账号及密码<img width=\"554\" height=\"312\" src=\"/Public/kindeditor/attached/image/20180408/20180408044128_91979.png\" />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	点击登录进入用户中心，点击交易中心，选择所需要交易的积分<img width=\"554\" height=\"291\" src=\"/Public/kindeditor/attached/image/20180408/20180408044147_96165.png\" />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	进入买卖环节，买卖都需要注意价格，数量，交易密码，确定无误后点击买入或者卖出<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180408/20180408044205_49880.png\" />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	&nbsp;\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	恭喜您完成了您的交易\r\n</p>', '1523133729', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('186', '62', '充值指南', '<p class=\"MsoNormal\">\r\n	<span>打开新宇网积分交易平台网址</span>www.xinyv.com.cn,\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	然后填写账号及密码<img width=\"554\" height=\"312\" src=\"/Public/kindeditor/attached/image/20180408/20180408045714_41714.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	点击登录进入用户中心，点击交易中心，选择充值<img width=\"554\" height=\"291\" src=\"/Public/kindeditor/attached/image/20180408/20180408045954_10068.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"553\" height=\"293\" src=\"/Public/kindeditor/attached/image/20180408/20180408050123_14935.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	进入充值界面，根基提示填写个人的银联信息以及充值数量<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180408/20180408045756_46444.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<span>点击生成汇款订单，根基提示在</span>30<span>分钟内用网银或支付宝转账，之后等待审核成功后充值到账，恭喜您可以进行积分的购买</span> \r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<br />\r\n</p>', '1523134884', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('190', '63', '提现指南', '<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	<span>打开新宇网积分交易平台网址</span>www.xinyv.com.cn,\r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	然后填写账号及密码<img width=\"554\" height=\"312\" src=\"/Public/kindeditor/attached/image/20180409/20180409025245_26397.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	点击登录进入用户中心，点击交易中心，选择提现<img width=\"554\" height=\"291\" src=\"/Public/kindeditor/attached/image/20180409/20180409025258_57581.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	<img width=\"553\" height=\"293\" src=\"/Public/kindeditor/attached/image/20180409/20180409025314_79664.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	进入提现界面，根基提示填写个人的银联信息以及提现数量<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180409/20180409025328_69048.png\" /> \r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	<br />\r\n</p>\r\n<p class=\"MsoNormal\" style=\"text-indent:0pt;\">\r\n	点击提交，等待审核通过成功后提现到账，恭喜您提现成功\r\n</p>\r\n<p class=\"MsoNormal\">\r\n	<img width=\"554\" height=\"367\" src=\"/Public/kindeditor/attached/image/20180409/20180409025344_14474.png\" /> \r\n</p>', '1523464209', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('200', '127', '友邦积分交易平台正式上线公告', '<h4 class=\"dividend-hd\">\r\n	<span style=\"font-size:16px;line-height:24px;\"><h2 font-weight:500;color:#333333;font-size:30px;text-align:center;\"=\"\" style=\"text-align: center; white-space: normal;\">友邦积分交易平台正式上线公告\r\n		</h2>\r\n<p font-size:14px;background:white;text-align:center;\"=\"\" style=\"text-align: center; white-space: normal; color: rgb(51, 51, 51);\"><span style=\"color:#FF0000;\"><span style=\"font-weight:700;\"><span style=\"font-size:19px;\">2018</span><span style=\"font-size:19px;font-family:宋体;\">（市）第</span><span style=\"font-size:19px;\">001</span><span style=\"font-size:19px;font-family:宋体;\">号</span></span></span> \r\n			</p>\r\n</span> \r\n				</h4>\r\n				<p>\r\n					<span style=\"font-size:16px;line-height:24px;\"> </span> \r\n				</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"> <strong><span style=\"line-height:2.5;font-size:18px;\">尊敬的各位投资者： </span></strong> \r\n					</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"> <strong><span style=\"line-height:2.5;\"></span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;友邦积分交易平台（以下简称“平台”）</span></strong><span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong>区块链数字资产交易</strong></span><strong><span style=\"line-height:2.5;font-size:18px;\">已完成内部测试，并于2018年</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">5</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">月1</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">日正式上线对</span></strong><span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong>外开放测试，平台可以正常充值与提现！</strong></span> \r\n				</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\">\r\n						<span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong>&nbsp; &nbsp; &nbsp; &nbsp;在测试过程中，如有疑问可随时与线上客服联系，我们将竭诚为您服务！</strong></span> \r\n					</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\">\r\n						<span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong>&nbsp; &nbsp; &nbsp; &nbsp;特此公告！ </strong></span> \r\n				</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\">\r\n						<span style=\"font-size: 18px;\" line-height:2.5;\"=\"\"><strong><strong><span style=\"line-height:2.5;font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;友邦积分交易平台中心</span></strong> </strong></span> \r\n					</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\">\r\n						<span style=\"font-family:\" line-height:2.5;\"=\"\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2018 年5月1日 </span><br />\r\n</strong></span> \r\n				</p>\r\n				<p>\r\n					<br />\r\n				</p>\r\n<p style=\"color:#333333;font-family:\" font-size:14px;background:white;\"=\"\"> <strong><span style=\"line-height:2.5;\"></span></strong> \r\n					</p>', '1525117434', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('202', '7', '公司介绍', '', '1525164871', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('203', '127', '友邦积分交易平台交易时间时间公告', '<h4 class=\"dividend-hd\" style=\"font-weight:normal;font-size:14px;font-family:tahoma, &quot;color:#333333;background-color:#FAF9F8;\">\r\n	<span style=\"font-size:16px;line-height:24px;\"><p font-size:14px;background:white;text-align:center;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; line-height: 24px; font-size: 14px; word-break: break-all; text-align: center;\"><span style=\"color:#FF0000;\"><span style=\"font-weight:700;\"><span style=\"font-size:19px;\">2018</span><span style=\"font-family:宋体;font-size:19px;\">（市）第</span><span style=\"font-size:19px;\">003</span><span style=\"font-family:宋体;font-size:19px;\">号</span></span></span>\r\n		</p>\r\n</span>\r\n			</h4>\r\n			<p style=\"font-family:tahoma, &quot;color:#555555;font-size:14px;background-color:#FAF9F8;\">\r\n				<span style=\"font-size:16px;line-height:24px;\"></span>\r\n			</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><strong><span style=\"line-height:2.5;font-size:18px;\">尊敬的各位投资者：</span></strong>\r\n				</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><strong><span style=\"line-height:2.5;\"></span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp;友邦积分交易平台（以下简称“平台”）</span></strong><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong>区块链数字资产交易</strong></span><strong><span style=\"line-height:2.5;font-size:18px;\">已完成内部测试，并于2018年</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">5</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">月1</span></strong><strong><span style=\"line-height:2.5;font-size:18px;\">日正式上线对</span></strong><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong>外开放试运营，平台可以正常充值与提现！</strong></span>\r\n			</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong>&nbsp; &nbsp; &nbsp; &nbsp;在<strong>试运营</strong>过程中，交易时间为9:30-20:00，周一到周日；客服时间：<strong>9:30-20:00，充值提现时间：10:00-18:00，18点后财务结账，</strong>如有疑问可随时与线上客服联系，我们将竭诚为您服务！</strong></span>\r\n				</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong>&nbsp; &nbsp; &nbsp; &nbsp;特此公告！</strong></span>\r\n			</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none; font-size: 18px;\"><strong><strong><span style=\"line-height:2.5;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;友邦积分交易平台中心</span></strong></strong></span>\r\n				</p>\r\n<p font-size:14px;background:white;\"=\"\" style=\"margin-top: 0px; margin-bottom: 20px; padding: 0px; list-style: none; font-family: tahoma, &quot;Microsoft YaHei&quot;, Arial, Helvetica, sans-serif; line-height: 24px; color: rgb(51, 51, 51); font-size: 14px; word-break: break-all; white-space: normal; background-color: rgb(250, 249, 248);\"><span line-height:2.5;\"=\"\" style=\"margin: 0px; padding: 0px; list-style: none;\"><strong><span style=\"font-size:18px;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2018 年5月1日&nbsp;</span><br />\r\n</strong></span>\r\n			</p>\r\n			<div>\r\n				<strong><br />\r\n</strong>\r\n			</div>', '1525165484', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('198', '7', '免责声明', '', '1525099895', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('199', '7', '注册协议', '', '1525099917', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('204', '127', '111111111111111111111', '1111111111', '1527208299', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('205', '127', '111111111111111111111', '222222222222222222', '1527208307', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('206', '127', '444444444444444444444444444', '444444444444444444', '1527208314', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('207', '127', '55555555555555555555555555', '555555555555555555555', '1527208322', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('208', '127', '666666666666666666666666666', '66666666666666666666666', '1527208330', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('209', '127', '7777777777777777777777777', '7777777777777777777777777', '1527208338', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('210', '127', '888888888888888888888888888', '88888888888888888888888888', '1527208346', '0', '0', null, null, null, null);
+INSERT INTO `blue_article` VALUES ('211', '127', '999999999999999999999999999999', '999999999999999999999999', '1527208357', '0', '0', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `blue_article_category`
@@ -3566,28 +3549,6 @@ INSERT INTO `blue_article_category` VALUES ('128', '行业资讯', '0', '', '0',
 INSERT INTO `blue_article_category` VALUES ('129', '项目介绍', '0', '项目介绍', '0', '0');
 
 -- ----------------------------
--- Table structure for `blue_company_info`
--- ----------------------------
-DROP TABLE IF EXISTS `blue_company_info`;
-CREATE TABLE `blue_company_info` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `name` varchar(128) DEFAULT '' COMMENT '名称',
-  `introduce` text COMMENT '简介',
-  `culture` varchar(200) DEFAULT '' COMMENT '企业文化',
-  `service` varchar(1024) NOT NULL DEFAULT '企业服务',
-  `img` varchar(2048) NOT NULL DEFAULT '' COMMENT '服务图片',
-  `status` tinyint(4) DEFAULT '1' COMMENT '状态 1：开启0：关闭',
-  `op_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--操作人--',
-  `op_man` varchar(64) NOT NULL DEFAULT '' COMMENT '--操作时间--',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of blue_company_info
--- ----------------------------
-INSERT INTO `blue_company_info` VALUES ('1', '佳禾国际', '    佳禾国际家政隶属上海佳禾家庭服务有限公司、上海市徐汇区总工会会员单位、上海市家政协会会员单位、上海市徐汇区妇女联合会执委单位、上海市家政行业第一个“五一劳动奖章”获得单位，集培训和业务为一体。登记在册阿姨数量10万+，累计培训8年+，累计培训阿姨8万+，拥有海量优质阿姨资源。培训品质一直深受客户好评，满意度达90%以上。 佳禾国际家政中国家政服务业的创新者，定制复合型家政人员。是一家提供高级育婴师、月嫂、家庭早教师家务助理、住家保姆、海外派遣、涉外保姆的国际性家政服务公司。对客户公司秉着用爱呵护、关爱千万家的宗旨,用心倾听每个客户的需求，提供、品质、贴心的家政服务。对员工公司秉着勇担重任、服务为荣的宗旨，进行细致、科学的系统培训，使员工永立潮头、不忘初心，更好地服务社会。上海佳禾真诚期待您的咨询.', '爱心+责任+奉献', ' 佳禾国际家政以“奉献爱、体验爱”为宗旨，创新“爱+呵护、爱+细心、爱+耐心、爱+安心、爱+科学喂养”的五大“爱+”服务，帮助家庭成员建立更温馨的亲子关系，激发婴儿成长发育的潜能，让爱更有力和能量、让家更为舒心。', '[\"\\/Uploads\\/Public\\/Uploads\\/2019-06-03\\/5cf4d0627cb61.jpg\",\"\\/Uploads\\/Public\\/Uploads\\/2019-06-03\\/5cf4cf5c3cfd9.jpg\",\"\\/Uploads\\/Public\\/Uploads\\/2019-06-03\\/5cf4cf5c48771.jpg\",\"\\/Uploads\\/Public\\/Uploads\\/2019-06-03\\/5cf4d093473e9.jpg\"]', '1', '1559548051', 'admin');
-
--- ----------------------------
 -- Table structure for `blue_config`
 -- ----------------------------
 DROP TABLE IF EXISTS `blue_config`;
@@ -3601,98 +3562,102 @@ CREATE TABLE `blue_config` (
 -- ----------------------------
 -- Records of blue_config
 -- ----------------------------
-INSERT INTO `blue_config` VALUES ('web_title', '佳禾家政', '1', '网站标题');
-INSERT INTO `blue_config` VALUES ('web_keywords', '家政，服务，保姆', '1', '网站关键字');
-INSERT INTO `blue_config` VALUES ('web_desc', '家政，服务类平台', '1', '网站描述');
-INSERT INTO `blue_config` VALUES ('web_logo', '/Uploads/Public/Uploads/2019-06-11/5cff98b6abfc3.png', '2', '网站LOGO');
-INSERT INTO `blue_config` VALUES ('copyright', 'Copyright © 上海伯乐家政服务有限公司 版权所有  沪ICP备18042564号-2', '1', '版权信息');
-INSERT INTO `blue_config` VALUES ('record', '上海伯乐家政服务有限公司', '1', '备案信息');
+INSERT INTO `blue_config` VALUES ('web_title', '云链口袋', '1', '网站标题');
+INSERT INTO `blue_config` VALUES ('web_keywords', '商品，卡卷', '1', '网站关键字');
+INSERT INTO `blue_config` VALUES ('web_desc', '淘宝返利,开箱折扣', '1', '网站描述');
+INSERT INTO `blue_config` VALUES ('web_logo', '/Uploads/Public/Uploads/2019-10-03/5d95bf2789ae0.png', '2', '网站LOGO');
+INSERT INTO `blue_config` VALUES ('copyright', 'Copyright © 上海 版权所有  沪ICP备18042564号-2', '1', '版权信息');
+INSERT INTO `blue_config` VALUES ('record', '上海', '1', '备案信息');
 INSERT INTO `blue_config` VALUES ('tel', '400-808-3353', '1', '官方电话');
 INSERT INTO `blue_config` VALUES ('email', '111111111', '1', '官方邮箱');
 INSERT INTO `blue_config` VALUES ('business_email', '2018 University of Washington | Seattle, WA', '1', '企业邮箱');
-INSERT INTO `blue_config` VALUES ('web_name', '佳禾国际家政', '1', '网站名称');
-INSERT INTO `blue_config` VALUES ('company_address', '上海市徐汇区徐虹北路3号2楼', '1', '公司地址');
+INSERT INTO `blue_config` VALUES ('web_name', '云链口袋', '1', '网站名称');
+INSERT INTO `blue_config` VALUES ('company_address', '上海市徐汇区', '1', '公司地址');
 INSERT INTO `blue_config` VALUES ('qq', '', '1', 'QQ');
 INSERT INTO `blue_config` VALUES ('technical_support', 'hmlwan(824398038)', '1', '技术支持');
-INSERT INTO `blue_config` VALUES ('company_qrcode', '/Uploads/Public/Uploads/2019-06-11/5cff95d6c85dc.jpg', '2', '网站二维码');
 
 -- ----------------------------
--- Table structure for `blue_jober`
+-- Table structure for `blue_currency`
 -- ----------------------------
-DROP TABLE IF EXISTS `blue_jober`;
-CREATE TABLE `blue_jober` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `type_id` int(10) unsigned NOT NULL COMMENT '工作类型',
-  `name` varchar(128) DEFAULT '' COMMENT ' 姓名',
-  `head_img` varchar(200) DEFAULT '' COMMENT '头像',
-  `life_img` varchar(200) DEFAULT '' COMMENT '生活照片',
-  `age` varchar(20) DEFAULT '' COMMENT '年龄',
-  `lang` varchar(20) DEFAULT '' COMMENT '语言',
-  `edu` varchar(20) DEFAULT '' COMMENT '教育',
-  `area` varchar(100) DEFAULT '' COMMENT '区域',
-  `place` varchar(50) DEFAULT '' COMMENT '籍贯',
-  `zodiac` varchar(50) DEFAULT '' COMMENT '属相',
-  `work_years` varchar(50) DEFAULT '' COMMENT '工作年限',
-  `certificate` varchar(1024) DEFAULT '' COMMENT '资质证书',
-  `work_exp` varchar(2048) DEFAULT '' COMMENT '工作经历',
-  `work_skill` varchar(1024) DEFAULT '' COMMENT '专业技巧',
-  `evaluate` varchar(1024) DEFAULT '' COMMENT '自我评价',
-  `status` tinyint(4) DEFAULT '1' COMMENT '状态 1：开启0：关闭',
-  `op_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--操作人--',
-  `op_man` varchar(64) NOT NULL DEFAULT '' COMMENT '--操作时间--',
-  `birth` varchar(100) DEFAULT '' COMMENT '生日',
+DROP TABLE IF EXISTS `blue_currency`;
+CREATE TABLE `blue_currency` (
+  `currency_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '货币id',
+  `currency_name` varchar(32) DEFAULT NULL COMMENT '货币名称',
+  `currency_logo` varchar(200) DEFAULT NULL COMMENT '货币logo',
+  `currency_en` varchar(32) DEFAULT NULL COMMENT '英文标识',
+  `is_lock` tinyint(4) DEFAULT '1' COMMENT '是否上线 0 否 1是',
+  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`currency_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='币种表';
+
+-- ----------------------------
+-- Records of blue_currency
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `blue_game_list`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_game_list`;
+CREATE TABLE `blue_game_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) DEFAULT NULL COMMENT '标题',
+  `desc1` varchar(400) DEFAULT NULL COMMENT '备注1',
+  `desc2` varchar(400) DEFAULT NULL COMMENT '备注2',
+  `star` tinyint(6) DEFAULT NULL COMMENT '星星数',
+  `pic` varchar(200) DEFAULT NULL,
+  `jump_url` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of blue_jober
+-- Records of blue_game_list
 -- ----------------------------
-INSERT INTO `blue_jober` VALUES ('1', '2', '李阿姨', '/Uploads/Public/Uploads/2019-06-01/5cf2569dd3d8f.jpg', '/Uploads/Public/Uploads/2019-06-01/5cf2569ddb6ae.jpg', '31', '普通话/英语', '大专', '不限', '湖北', '虎', '3-5年', '身份证/健康证/母婴护理证/高级育婴证/小儿推拿证', '2017-2018 上海 上海家庭 3口之家 145平方 月嫂\r\n2018-2018 上海 上海家庭 4口之家 150平方 专带9个月宝宝\r\n                       ', '新生儿/抚触被动操/月子餐/开车/推拿按摩', '儿童营养学，预姨防宝宝的一些阿人特别老实，有亲和力，接受过专业的高级育婴师培训 ，有专业的育儿知识和技能，懂得常见疾病的发生及护理，懂得学照料喂养宝宝，懂些宝宝的急救常识 ，擅长和宝宝互动，开发宝宝智力，建立宝宝的良好习惯 ，培养宝宝的独立性，从而使宝宝各方面得到最好的发展，经验丰富，深受客户们的一致好评。', '1', '1560181796', 'admin', '1951年');
-INSERT INTO `blue_jober` VALUES ('2', '6', '商阿姨', '/Uploads/Public/Uploads/2019-06-01/5cf25c4bf36f8.jpg', '/Uploads/Public/Uploads/2019-06-01/5cf25c4c0a86c.jpg', '48', '普通话/英语', '大专', '不限', '浙江', '牛', '3-5年', '身份证/健康证/母婴护理证/高级育婴证/早教证', '2015 上海 上海家庭 5口之家 1000平方 烧饭保洁\r\n2016 浙江 浙江家庭 4口之家 700平方 烧饭保洁\r\n2018 浙江 浙江家庭 3口之家 180平方 烧饭保洁', '做饭/保洁/熨烫/开车', '	阿姨为人随和，眼里有活，做事麻利，不斤斤计较，有亲和力，对待工作认真负责，肯吃苦耐劳，有爱心，会整理收纳规范整齐，勤勤恳恳，会做简单的家常菜，手艺好，口味好，懂些简单的营养搭配，能照料好雇主们的饮食起居，家里卫生也做的特别好，卫生打扫的很仔细，不敷衍了事，深受客户们的认可和信赖。', '1', '1560181772', 'admin', '1950年');
+INSERT INTO `blue_game_list` VALUES ('1', '摇钱树', null, null, null, '/Uploads/Public/Uploads/2019-07-23/5d37107fe93b6.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
+INSERT INTO `blue_game_list` VALUES ('2', '牛魔王', null, null, null, '/Uploads/Public/Uploads/2019-07-23/5d3710c015a9b.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
+INSERT INTO `blue_game_list` VALUES ('3', 'QQ美人鱼', null, null, null, '/Uploads/Public/Uploads/2019-07-25/5d3929a4ccd9b.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
+INSERT INTO `blue_game_list` VALUES ('4', '幸运六狮', null, null, null, '/Uploads/Public/Uploads/2019-07-25/5d3929bc088df.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
+INSERT INTO `blue_game_list` VALUES ('5', '水浒传', null, null, null, '/Uploads/Public/Uploads/2019-07-25/5d3929d1956c3.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
 
 -- ----------------------------
--- Table structure for `blue_job_type`
+-- Table structure for `blue_goods`
 -- ----------------------------
-DROP TABLE IF EXISTS `blue_job_type`;
-CREATE TABLE `blue_job_type` (
-  `type_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `type_name` varchar(128) DEFAULT '' COMMENT ' --默认标题名称',
-  `introduce` varchar(200) DEFAULT NULL COMMENT '介绍',
-  `img` varchar(200) DEFAULT NULL COMMENT '图片',
-  `status` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '--状态1：开启 0：关闭',
-  `op_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--操作人--',
-  `op_man` varchar(64) NOT NULL DEFAULT '' COMMENT '--操作时间--',
-  PRIMARY KEY (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of blue_job_type
--- ----------------------------
-INSERT INTO `blue_job_type` VALUES ('1', '育婴师', '佳禾育婴 · 爱如己出', '/Uploads/Public/Uploads/2019-06-04/5cf5e702b78e2.jpg', '1', '1559619330', 'admin');
-INSERT INTO `blue_job_type` VALUES ('2', '月嫂', '佳禾月嫂 · 呵护您和您的未来', '/Uploads/Public/Uploads/2019-06-04/5cf5e71c1af2a.jpg', '1', '1559619356', 'admin');
-INSERT INTO `blue_job_type` VALUES ('4', '家庭早教师', '佳禾早教 · 成就孩子的未来', '/Uploads/Public/Uploads/2019-06-04/5cf5e6cc9e4f1.jpg', '1', '1559619276', 'admin');
-INSERT INTO `blue_job_type` VALUES ('5', '菲佣', '佳禾家政 · 还您自由好时光', '/Uploads/Public/Uploads/2019-06-04/5cf5e6ed7ea3f.jpg', '1', '1559619309', 'admin');
-INSERT INTO `blue_job_type` VALUES ('6', '保姆', '佳禾保姆 · 成就孩子的未来', '/Uploads/Public/Uploads/2019-06-04/5cf5e72925852.jpg', '1', '1559619369', 'admin');
-
--- ----------------------------
--- Table structure for `blue_join_train`
--- ----------------------------
-DROP TABLE IF EXISTS `blue_join_train`;
-CREATE TABLE `blue_join_train` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `name` varchar(128) DEFAULT '' COMMENT '姓名',
-  `phone` varchar(50) DEFAULT '' COMMENT '手机号码',
-  `courses` varchar(1024) DEFAULT '' COMMENT '意向课程',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--提交时间--',
+DROP TABLE IF EXISTS `blue_goods`;
+CREATE TABLE `blue_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_id` int(10) DEFAULT NULL COMMENT '类别',
+  `good_name` varchar(200) DEFAULT NULL,
+  `good_brief` varchar(200) DEFAULT NULL COMMENT '简介',
+  `good_time` varchar(200) DEFAULT NULL COMMENT '商品标题',
+  `currency_id` int(11) DEFAULT NULL COMMENT '币种id',
+  `price` decimal(10,2) DEFAULT NULL COMMENT '价格',
+  `logo` varchar(200) DEFAULT NULL COMMENT 'logo',
+  `spec` varchar(2048) DEFAULT NULL COMMENT '商品规格',
+  `status` tinyint(5) DEFAULT '1' COMMENT '状态 1：正常 0：下架',
+  `sort` tinyint(4) DEFAULT '1' COMMENT '排序',
+  `is_exchange` tinyint(6) DEFAULT '1' COMMENT '是否兑换 0 否 1是',
+  `introduce` text COMMENT '商品详情',
+  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='商品卡卷表';
 
 -- ----------------------------
--- Records of blue_join_train
+-- Records of blue_goods
 -- ----------------------------
-INSERT INTO `blue_join_train` VALUES ('1', '1', '2', '1,2', '1560257796');
-INSERT INTO `blue_join_train` VALUES ('2', '2', '1', '1,3', '1560257907');
-INSERT INTO `blue_join_train` VALUES ('3', '3', '3', '1,3', '1560258072');
+
+-- ----------------------------
+-- Table structure for `blue_goods_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_goods_type`;
+CREATE TABLE `blue_goods_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_name` varchar(200) DEFAULT NULL COMMENT '商品类别名称',
+  `sort` tinyint(6) DEFAULT '1' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='商品类别表';
+
+-- ----------------------------
+-- Records of blue_goods_type
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `blue_member`
@@ -3710,56 +3675,188 @@ CREATE TABLE `blue_member` (
   `reg_time` int(32) DEFAULT NULL COMMENT '注册时间',
   `login_ip` varchar(64) DEFAULT NULL COMMENT '本次登录IP',
   `login_time` int(10) DEFAULT NULL COMMENT '登录时间',
-  `rmb` decimal(20,8) DEFAULT '0.00000000' COMMENT '人民币',
-  `forzen_rmb` decimal(20,8) DEFAULT '0.00000000' COMMENT 'forzen_rmb',
-  `is_lock` tinyint(2) DEFAULT '0' COMMENT '0是正常 1是锁定',
+  `rmb` decimal(20,2) DEFAULT '0.00' COMMENT '人民币',
+  `forzen_rmb` decimal(20,2) DEFAULT '0.00' COMMENT 'forzen_rmb',
+  `is_lock` tinyint(2) NOT NULL DEFAULT '0' COMMENT '0是正常 1是锁定',
   `status` tinyint(4) DEFAULT '0' COMMENT '0:未注册成功 1：注册成功',
-  `open_id` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`member_id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_member
 -- ----------------------------
-INSERT INTO `blue_member` VALUES ('7', '\"\\ud83d\\ude02\\ud83d\\udcaa\\ud83d\\udc4d\\u96ea\\u4e2d\\u884c\\u8005\"', null, null, '\"\\ud83d\\ude02\\ud83d\\udcaa\\ud83d\\udc4d\\u96ea\\u4e2d\\u884c\\u8005\"', null, null, '127.0.0.1', '1560431242', null, '1560431300', '0.00000000', '0.00000000', '0', '0', 'undefined');
-INSERT INTO `blue_member` VALUES ('8', '\"\\ud83d\\ude02\\ud83d\\udcaa\\ud83d\\udc4d\\u96ea\\u4e2d\\u884c\\u8005\"', null, null, '\"\\ud83d\\ude02\\ud83d\\udcaa\\ud83d\\udc4d\\u96ea\\u4e2d\\u884c\\u8005\"', null, null, '127.0.0.1', '1560431393', null, '1561536540', '0.00000000', '0.00000000', '0', '0', 'o7A4s5H5bSjUtgqNTDsO6BXivLVg');
+INSERT INTO `blue_member` VALUES ('9', '123456', 'e10adc3949ba59abbe56e057f20f883e', null, '测试', null, null, '127.0.0.1', '1563933002', '59.37.125.121', '1564459810', '50.00', '0.00', '0', '1');
+
+-- ----------------------------
+-- Table structure for `blue_member_address`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_member_address`;
+CREATE TABLE `blue_member_address` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(10) DEFAULT NULL COMMENT '用户id',
+  `receipt_name` varchar(50) DEFAULT NULL COMMENT '收货人姓名',
+  `receipt_phone` varchar(50) DEFAULT NULL COMMENT '收货电话',
+  `receipt_address` varchar(200) DEFAULT NULL COMMENT '收货地址',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户收货地址';
+
+-- ----------------------------
+-- Records of blue_member_address
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `blue_member_goods`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_member_goods`;
+CREATE TABLE `blue_member_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) DEFAULT NULL,
+  `good_id` int(11) DEFAULT NULL COMMENT '商品id',
+  `num` int(10) DEFAULT NULL COMMENT '数量',
+  `price` decimal(8,2) DEFAULT NULL COMMENT '价格',
+  `valid_num` int(10) DEFAULT NULL COMMENT '可兑换商品卡数量',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户购买商品卡表';
+
+-- ----------------------------
+-- Records of blue_member_goods
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `blue_member_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `blue_member_info`;
 CREATE TABLE `blue_member_info` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `member_id` int(10) NOT NULL DEFAULT '0' COMMENT '用户id',
-  `commision` decimal(20,2) DEFAULT '0.00' COMMENT '佣金',
-  `stars` tinyint(8) DEFAULT '0' COMMENT '星星数',
-  `deposit` decimal(20,2) DEFAULT '0.00' COMMENT '押金',
-  `is_pay_deposit` tinyint(4) DEFAULT '0' COMMENT '是否付了押金：0：未付1：已付 2:付款中 3：已退',
-  `payable` decimal(20,2) DEFAULT '0.00' COMMENT '应付款',
-  `is_pay_payable` tinyint(4) DEFAULT '0' COMMENT '是否付了应付款 0：未付 1：已付',
-  `head` varchar(200) DEFAULT NULL COMMENT '头像',
-  `alipay_logo` varchar(200) DEFAULT NULL COMMENT '支付宝logo',
-  `wechat_logo` varchar(200) DEFAULT NULL COMMENT '微信logo',
-  `left_qd_num` tinyint(10) DEFAULT '0' COMMENT '可用抢单次数',
-  `left_fk_num` tinyint(10) DEFAULT '0' COMMENT '可用付款次数',
-  `is_other_receive_payable` tinyint(4) DEFAULT '0' COMMENT '其他人是否接受了应付款 0：否 1：是',
-  `is_priority` tinyint(4) DEFAULT '0' COMMENT '是否为优先匹配者 0:否 1：是',
-  `fg_num` int(10) DEFAULT '0' COMMENT '复购次数',
-  `extra_add_stars` int(10) DEFAULT NULL COMMENT '额外新增星星数',
-  `stars_update__time` int(10) DEFAULT NULL COMMENT '刷新星星时间',
-  `is_receive_partner` tinyint(4) DEFAULT '0' COMMENT '是否达到合伙人计划 0：否 1：是',
-  `is_exceed_push_num` tinyint(4) DEFAULT '0' COMMENT '是否超过推广人数 0:否 1：是',
-  `promote_money` decimal(20,2) DEFAULT '0.00' COMMENT '推广获得金额',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) DEFAULT NULL,
+  `bank_no` varchar(200) DEFAULT NULL COMMENT '银行卡号',
+  `zfb_no` varchar(200) DEFAULT NULL COMMENT '支付宝账号',
+  `true_name` varchar(100) DEFAULT NULL COMMENT '姓名',
+  `id_card` varchar(200) DEFAULT NULL COMMENT '身份证',
+  `bank_id` int(10) DEFAULT NULL COMMENT '银行id',
+  `head_url` varchar(200) DEFAULT NULL COMMENT '头像',
+  `create_time` int(11) DEFAULT NULL COMMENT '提交时间',
+  `cert_num` tinyint(5) DEFAULT NULL COMMENT '剩余认证次数',
+  `is_cert` tinyint(4) DEFAULT '0' COMMENT '是否认证 1：是 0：否',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户个人基本信息';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_member_info
 -- ----------------------------
-INSERT INTO `blue_member_info` VALUES ('1', '1', '0.00', '3', '200.00', '1', null, '0', '/Uploads/Public/Uploads/2019-03-16/5c8cbf75022a0.jpg', '/Uploads/Public/Uploads/2019-03-28/5c9c3053f2037.jpg', '/Uploads/Public/Uploads/2019-03-16/5c8cbf7e3819a.jpg', '3', '3', '0', '1', '0', null, '1558086246', null, null, null);
-INSERT INTO `blue_member_info` VALUES ('2', '3', '20.00', '3', '0.00', '1', '0.00', '0', '/Uploads/Public/Uploads/2019-03-17/5c8de77359b22.jpg', '/Uploads/Public/Uploads/2019-03-17/5c8de7830d6b3.jpg', '/Uploads/Public/Uploads/2019-03-17/5c8de77aa31dc.jpg', '3', '3', '0', '1', '0', null, '1558086266', null, null, null);
-INSERT INTO `blue_member_info` VALUES ('4', '5', '50.00', '3', '200.00', '1', '0.00', '0', '/Uploads/Public/Uploads/2019-05-13/5cd96180d7cbe.jpg', '/Uploads/Public/Uploads/2019-05-13/5cd96199577ce.jpg', '/Uploads/Public/Uploads/2019-05-13/5cd96190a5a52.jpg', '3', '3', '0', '0', '0', null, '1557803864', '0', '0', '0.00');
+
+-- ----------------------------
+-- Table structure for `blue_message`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_message`;
+CREATE TABLE `blue_message` (
+  `message_id` int(32) NOT NULL AUTO_INCREMENT,
+  `title` varchar(32) NOT NULL COMMENT '消息标题',
+  `member_id` varchar(100) NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `content` text NOT NULL,
+  `add_time` int(10) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `message_all_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`message_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=139 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of blue_message
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `blue_message_all`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_message_all`;
+CREATE TABLE `blue_message_all` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `title` varchar(32) NOT NULL COMMENT '消息标题',
+  `u_id` varchar(100) NOT NULL,
+  `type` tinyint(4) NOT NULL COMMENT '102:理财提成 103:下注提成',
+  `content` text NOT NULL,
+  `add_time` int(10) NOT NULL,
+  `sub_id` int(10) DEFAULT NULL COMMENT '下级id',
+  `money` varchar(100) DEFAULT NULL COMMENT '提成',
+  `currency_id` int(11) DEFAULT NULL COMMENT '币种id',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3007 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of blue_message_all
+-- ----------------------------
+INSERT INTO `blue_message_all` VALUES ('2933', '照片认证奖励', '10353', '4', '照片认证通过，奖励币种5个', '1525656186', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2934', '照片认证奖励', '10353', '4', '照片认证通过，奖励币种5个', '1525675500', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2935', '照片认证奖励', '10353', '4', '照片认证通过，奖励币种5个', '1525675506', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2936', '照片认证奖励', '10352', '4', '照片认证通过，奖励币种5个', '1525675520', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2937', '照片认证奖励', '10353', '4', '照片认证通过，奖励币种5个', '1525675564', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2938', '照片认证奖励', '10354', '4', '照片认证通过，奖励币种5个', '1525676234', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2939', '照片认证奖励', '1', '4', '照片认证通过，奖励币种5个', '1525676794', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2940', '照片认证奖励', '10356', '4', '照片认证通过，奖励币种5个', '1525681081', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2941', '照片认证奖励', '10357', '4', '照片认证通过，奖励币种5个', '1525681409', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2942', '照片认证奖励', '10357', '4', '照片认证通过，奖励币种5个', '1525681452', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2943', '照片认证奖励', '10357', '4', '照片认证通过，奖励币种5个', '1525681530', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2944', '照片认证奖励', '10357', '4', '照片认证通过，奖励币种5个', '1525681556', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2945', '照片认证奖励', '10358', '4', '照片认证通过，奖励币种5个', '1525683314', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2946', '照片认证奖励', '10358', '4', '照片认证通过，奖励币种5个', '1525683323', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2947', '照片认证奖励', '10358', '4', '照片认证通过，奖励币种5个', '1525683385', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2948', '照片认证奖励', '10358', '4', '照片认证通过，奖励币种5个', '1525683427', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2949', '照片认证奖励', '10359', '4', '照片认证通过，奖励币种5个', '1525683799', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2950', '照片认证奖励', '10359', '4', '照片认证通过，奖励币种测试币5个', '1525684316', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2951', '照片认证奖励', '10360', '4', '照片认证通过，奖励币种测试币5个', '1525763156', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2952', '下级照片认证奖励', '1', '4', '下级UID10360照片认证通过，奖励币种测试币3个', '1525763156', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2953', '照片认证奖励', '10363', '4', '照片认证通过，奖励币种测试币5个', '1526097344', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2954', '下级照片认证奖励', '1', '4', '下级UID10363照片认证通过，奖励币种测试币3个', '1526097344', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2955', '照片认证奖励', '10363', '4', '照片认证通过，奖励币种测试币5个', '1526098000', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2956', '下级照片认证奖励', '1', '4', '下级UID10363照片认证通过，奖励币种测试币1.00个', '1526098001', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2957', '照片认证奖励', '10363', '4', '照片认证通过，奖励币种测试币5个', '1526105301', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2958', '下级照片认证奖励', '1', '4', '下级UID10363照片认证通过，奖励币种测试币1.00个', '1526105301', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2959', '推广注册奖励', '1', '101', '下级UID10365注册成功，奖励币种10.00个', '1526107980', '10365', '10', '52');
+INSERT INTO `blue_message_all` VALUES ('2960', '认购成功', '10363', '-2', '您参与的众筹项目ERF已成功,扣除交易币99,获取众筹币100', '1526110952', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2961', '认购成功', '10363', '-2', '您参与的众筹项目ERF已成功,扣除交易币99,获取众筹币100', '1526111286', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2962', '认购成功', '10363', '-2', '您参与的众筹项目ERF已成功,扣除交易币99,获取众筹币100', '1526112409', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2963', '认购成功', '10363', '-2', '您参与的众筹项目ERF已成功,扣除交易币99,获取众筹币100', '1526441263', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2964', 'CNY提现失败', '10363', '-2', '很抱歉您提现失败，请重新操作或联系客服！', '1526541301', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2965', '认购成功', '10363', '-2', '您参与的众筹项目ERF已成功,扣除交易币198,获取众筹币100', '1526613704', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2966', '认购成功', '10363', '-2', '您参与的众筹项目ERF已成功,扣除交易币198,获取众筹币100', '1526613996', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2967', '认购成功', '10363', '-2', '您参与的众筹项目ERF,扣除交易币200,获取众筹币100', '1527176180', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2968', 'CNY提现成功', '10363', '-2', '恭喜您提现300.00成功！', '1527176221', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2969', '人工充值成功', '10373', '-2', '您申请的人工充值已成功，充值金额为', '1531331727', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2970', '推广注册奖励', '10365', '101', '下级UID10376注册成功，奖励币种2.00个', '1533309746', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2971', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种测试币59.72447868136个', '1533610924', '10375', '59.72447868136', '52');
+INSERT INTO `blue_message_all` VALUES ('2972', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种测试币119.44895736272个', '1533610924', '10375', '119.44895736272', '52');
+INSERT INTO `blue_message_all` VALUES ('2973', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种IM币283.25403863545个', '1533610924', '10375', '283.25403863545', '53');
+INSERT INTO `blue_message_all` VALUES ('2974', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种IM币566.5080772709个', '1533610924', '10375', '566.5080772709', '53');
+INSERT INTO `blue_message_all` VALUES ('2975', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种莱特币0.03634501272个', '1533610924', '10375', '0.03634501272', '54');
+INSERT INTO `blue_message_all` VALUES ('2976', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种莱特币0.07269002544个', '1533610924', '10375', '0.07269002544', '54');
+INSERT INTO `blue_message_all` VALUES ('2977', '下注一级奖励', '1', '103', '下级UID10375下注成功，奖励币种IM币1.5个', '1533611050', '10375', '1.5', '53');
+INSERT INTO `blue_message_all` VALUES ('2978', '下注二级奖励', '10359', '103', '下级UID10375下注成功，奖励币种IM币3个', '1533611050', '10375', '3', '53');
+INSERT INTO `blue_message_all` VALUES ('2979', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种测试币6761886.70146个', '1538317954', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2980', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种测试币13523773.4029个', '1538317955', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2981', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种IM币2.74622509604E+12个', '1538317955', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2982', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种IM币5.49245019208E+12个', '1538317955', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2983', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种莱特币223979.175652个', '1538317955', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2984', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种莱特币447958.351304个', '1538317955', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2985', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种测试币13429710.4701个', '1538801144', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2986', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种测试币26859420.9401个', '1538801144', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2987', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种莱特币857126.127901个', '1538801144', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2988', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种莱特币1714252.2558个', '1538801144', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2989', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种测试币4038391.10369个', '1538885109', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2990', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种测试币8076782.20737个', '1538885109', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2991', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种莱特币324331.638314个', '1538885109', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2992', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种莱特币648663.276629个', '1538885109', null, null, null);
+INSERT INTO `blue_message_all` VALUES ('2993', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种测试币31984057.541201个', '1539078184', '10375', '31984057.541201', '52');
+INSERT INTO `blue_message_all` VALUES ('2994', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种测试币21322705.027467个', '1539078184', '10375', '21322705.027467', '52');
+INSERT INTO `blue_message_all` VALUES ('2995', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种莱特币2909254.7956795个', '1539078184', '10375', '2909254.7956795', '54');
+INSERT INTO `blue_message_all` VALUES ('2996', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种莱特币1939503.1971196个', '1539078184', '10375', '1939503.1971196', '54');
+INSERT INTO `blue_message_all` VALUES ('3000', '推广注册奖励', '1', '101', '下级UID10364注册成功，奖励币种8.00个', '1526107980', '10364', '8', '53');
+INSERT INTO `blue_message_all` VALUES ('3001', '推广注册奖励', '1', '101', '下级UID10366注册成功，奖励币种8.00个', '1526107980', '10361', '15', '53');
+INSERT INTO `blue_message_all` VALUES ('3002', '推广注册奖励', '1', '101', '下级UID10375注册成功，奖励币种8.00个', '1526107980', '10375', '10', '54');
+INSERT INTO `blue_message_all` VALUES ('3003', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种测试币20935019.481514个', '1539144811', '10375', '20935019.481514', '52');
+INSERT INTO `blue_message_all` VALUES ('3004', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种测试币13956679.654342个', '1539144811', '10375', '13956679.654342', '52');
+INSERT INTO `blue_message_all` VALUES ('3005', '理财一级奖励', '1', '102', '下级UID10375理财成功，奖励币种莱特币2137669.8281297个', '1539144811', '10375', '2137669.8281297', '54');
+INSERT INTO `blue_message_all` VALUES ('3006', '理财二级奖励', '10359', '102', '下级UID10375理财成功，奖励币种莱特币1425113.2187531个', '1539144811', '10375', '1425113.2187531', '54');
 
 -- ----------------------------
 -- Table structure for `blue_nav`
@@ -3772,7 +3869,7 @@ CREATE TABLE `blue_nav` (
   `nav_url` varchar(64) NOT NULL COMMENT 'url路径',
   `cat_id` varchar(32) NOT NULL COMMENT '类别',
   PRIMARY KEY (`nav_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_nav
@@ -3780,183 +3877,174 @@ CREATE TABLE `blue_nav` (
 INSERT INTO `blue_nav` VALUES ('1', '系统配置', '&#xe642;', '/Config/index', 'sys');
 INSERT INTO `blue_nav` VALUES ('4', '官方公告管理', '&#xe6f7;', '/Art/index/article_category_id/1', 'article');
 INSERT INTO `blue_nav` VALUES ('7', '会员列表', '&#x3434;', '/Member/index', 'user');
-INSERT INTO `blue_nav` VALUES ('15', '工作类型管理', '&#xe6f7;', '/Job/index', 'job');
-INSERT INTO `blue_nav` VALUES ('12', '阿姨管理', '&#xe6f7;', '/Job/ayi', 'job');
-INSERT INTO `blue_nav` VALUES ('16', '师资管理', '&#xe6f7;', '/Train/teacher', 'train');
+INSERT INTO `blue_nav` VALUES ('91', '收款方式', '&#xe6f7;', '/Web/receipt', 'web');
+INSERT INTO `blue_nav` VALUES ('16', '游戏类目', '&#xe6f7;', '/Web/game', 'web');
 INSERT INTO `blue_nav` VALUES ('23', '菜单配置', '&#xe608;', '/Menu/index', 'sys');
-INSERT INTO `blue_nav` VALUES ('18', '全站统计信息', '&#xe73e;', '/Index/infoStatistics', 'common');
 INSERT INTO `blue_nav` VALUES ('41', '管理员管理', '&#xe64d;', '/Manage/index', 'admin');
-INSERT INTO `blue_nav` VALUES ('17', '课程管理', '&#xe608;', '/Train/course', 'train');
+INSERT INTO `blue_nav` VALUES ('90', '会员银行卡', '&#xe6f7;', '/Web/bank', 'web');
 INSERT INTO `blue_nav` VALUES ('50', '帮助中心', '&#xe6f7;', '/Art/helpindex/article_category_id/6', 'article');
 INSERT INTO `blue_nav` VALUES ('51', '快速链接', '&#xe6f7;', '/Art/index/article_category_id/7', 'article');
 INSERT INTO `blue_nav` VALUES ('52', '官方公告', '&#xe6f7;', '/Art/index/article_category_id/127', 'article');
 INSERT INTO `blue_nav` VALUES ('53', '行业资讯', '&#xe6f7;', '/Art/index/article_category_id/128', 'article');
 INSERT INTO `blue_nav` VALUES ('54', '项目介绍', '&#xe6f7;', '/Art/index/article_category_id/129', 'article');
-INSERT INTO `blue_nav` VALUES ('57', '预约阿姨', '&#xe6f7;', '/Record/order_ayi', 'record');
-INSERT INTO `blue_nav` VALUES ('58', '我要培训', '&#xe6f7;', '/Record/join_train', 'record');
-INSERT INTO `blue_nav` VALUES ('59', '特色服务内容', '&#xe6f7;', '/Company/special', 'company');
-INSERT INTO `blue_nav` VALUES ('60', '公司信息', '&#xe6f7;', '/Company/info', 'company');
-INSERT INTO `blue_nav` VALUES ('69', '分公司管理', '&#xe6f7;', '/Company/index', 'company');
-INSERT INTO `blue_nav` VALUES ('19', '高单管理', '&#xe608;', '/Job/pub_task', 'job');
-INSERT INTO `blue_nav` VALUES ('89', '我要应聘', '&#xe6f7;', '/Record/apply_task', 'record');
+INSERT INTO `blue_nav` VALUES ('58', '提现记录', '&#xe6f7;', '/Record/tixian', 'record');
+INSERT INTO `blue_nav` VALUES ('89', '充值记录', '&#xe6f7;', '/Record/recharge', 'record');
 
 -- ----------------------------
--- Table structure for `blue_order_ayi`
+-- Table structure for `blue_order`
 -- ----------------------------
-DROP TABLE IF EXISTS `blue_order_ayi`;
-CREATE TABLE `blue_order_ayi` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `name` varchar(128) DEFAULT '' COMMENT '姓名',
-  `phone` varchar(50) DEFAULT '' COMMENT '手机号码',
-  `jober_id` int(10) unsigned NOT NULL COMMENT '预约阿姨id',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--提交时间--',
+DROP TABLE IF EXISTS `blue_order`;
+CREATE TABLE `blue_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `good_id` int(11) DEFAULT NULL,
+  `member_id` int(11) DEFAULT NULL,
+  `good_name` varchar(200) DEFAULT NULL COMMENT '商品名称',
+  `spec` varchar(200) DEFAULT NULL COMMENT '规格',
+  `price` decimal(8,2) DEFAULT NULL COMMENT '商品单价',
+  `num` int(10) DEFAULT NULL COMMENT '购买数量',
+  `total_price` decimal(8,2) DEFAULT NULL COMMENT '总价',
+  `status` tinyint(8) DEFAULT '0' COMMENT '状态 0：等待发货中  1：已收货 2：已发货 3退款',
+  `remark` varchar(200) DEFAULT NULL COMMENT '后台退货备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户购买商品订单表';
 
 -- ----------------------------
--- Records of blue_order_ayi
+-- Records of blue_order
 -- ----------------------------
-INSERT INTO `blue_order_ayi` VALUES ('8', '1', '2', '0', '1560256998');
-INSERT INTO `blue_order_ayi` VALUES ('9', '77', '88', '0', '1560261963');
-INSERT INTO `blue_order_ayi` VALUES ('10', '测试', '111111', '1', '1561623054');
 
 -- ----------------------------
--- Table structure for `blue_pub_task`
+-- Table structure for `blue_outside_ad`
 -- ----------------------------
-DROP TABLE IF EXISTS `blue_pub_task`;
-CREATE TABLE `blue_pub_task` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `title` varchar(100) NOT NULL COMMENT '工作类型',
-  `work_years` varchar(100) DEFAULT NULL COMMENT '工作年限',
-  `live_ask` varchar(100) DEFAULT NULL COMMENT '居住要求',
-  `city` varchar(50) DEFAULT '' COMMENT '城市',
-  `content` varchar(200) DEFAULT '' COMMENT '工作内容',
-  `ask_skill` varchar(200) DEFAULT '' COMMENT '阿姨要求',
-  `salary` varchar(200) DEFAULT '' COMMENT '薪资待遇',
-  `contact_person` varchar(100) DEFAULT '' COMMENT '联系人',
-  `address` varchar(200) DEFAULT '' COMMENT '总部地址',
-  `bus_route` varchar(200) DEFAULT '' COMMENT '乘车路线',
-  `contact_phone` varchar(50) DEFAULT '' COMMENT '联系电话',
-  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态 1：开启 0 关闭',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '发布时间',
-  `op_man` varchar(64) NOT NULL DEFAULT '' COMMENT '--操作时间--',
+DROP TABLE IF EXISTS `blue_outside_ad`;
+CREATE TABLE `blue_outside_ad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT NULL COMMENT '标题',
+  `subtitle` varchar(200) DEFAULT NULL COMMENT '简介',
+  `tag_json` varchar(1024) DEFAULT NULL COMMENT '标签',
+  `ad_url` varchar(200) DEFAULT NULL COMMENT '广告地址',
+  `is_recommend` tinyint(4) DEFAULT '1' COMMENT '是否推荐 1：是 0：否',
+  `detail` text COMMENT '详情',
+  `status` tinyint(5) DEFAULT '1' COMMENT '状态 1：正常 0下线 2：已删除',
+  `read_num` varchar(50) DEFAULT NULL COMMENT '阅读量',
+  `click_num` varchar(50) DEFAULT NULL COMMENT '点击t跳转量',
+  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
+  `update_time` int(11) DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='站外广告';
 
 -- ----------------------------
--- Records of blue_pub_task
+-- Records of blue_outside_ad
 -- ----------------------------
-INSERT INTO `blue_pub_task` VALUES ('1', '烧饭保洁', '1-3年,3-5年', '住家', '上海', '烧饭保洁，搭手接送宝宝上下学', '勤快，可以跟老人相处', '6000-8000/26天（新手六千）', '佳禾婷婷老师', '上海市徐汇区徐虹北路3号2楼整层（老百姓大药房楼上）', '地铁3、4、9号线宜山路站下，4号线5号口出步行50米', '18516339538', '1', '1559382393', 'admin');
 
 -- ----------------------------
--- Table structure for `blue_recommend_record`
+-- Table structure for `blue_receipt_type`
 -- ----------------------------
-DROP TABLE IF EXISTS `blue_recommend_record`;
-CREATE TABLE `blue_recommend_record` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `train_name` varchar(128) DEFAULT '' COMMENT '培训人姓名',
-  `train_phone` varchar(50) DEFAULT '' COMMENT '培训人号码',
-  `recommend_name` varchar(128) DEFAULT '' COMMENT '推荐人姓名',
-  `recommend_phone` varchar(50) DEFAULT '' COMMENT '推荐人号码',
-  `recommend_zfb` varchar(128) DEFAULT '' COMMENT '推荐人支付宝',
-  `recommend_wx` varchar(128) DEFAULT '' COMMENT '推荐人微信',
-  `recommend_bank` varchar(128) DEFAULT '' COMMENT '推荐人银行',
-  `type` tinyint(4) DEFAULT NULL COMMENT '类型 1：客户 2 学员',
-  `op_name` varchar(128) DEFAULT '' COMMENT '操作人',
-  `sub_time` int(10) unsigned DEFAULT '0' COMMENT '--提交时间--',
-  `open_id` varchar(200) DEFAULT NULL,
+DROP TABLE IF EXISTS `blue_receipt_type`;
+CREATE TABLE `blue_receipt_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` tinyint(5) NOT NULL COMMENT '收款类型 1：支付宝 2：微信 3：银行卡',
+  `bank_name` varchar(100) DEFAULT NULL COMMENT '名称',
+  `receipt_name` varchar(100) DEFAULT NULL COMMENT '收款姓名',
+  `receipt_account` varchar(400) DEFAULT NULL COMMENT '银行账户',
+  `account_addr` varchar(200) DEFAULT NULL COMMENT '开户网点',
+  `url` varchar(400) DEFAULT NULL COMMENT '跳转链接',
+  `logo_img` varchar(200) DEFAULT NULL,
+  `op_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='收款方式';
 
 -- ----------------------------
--- Records of blue_recommend_record
+-- Records of blue_receipt_type
 -- ----------------------------
-INSERT INTO `blue_recommend_record` VALUES ('15', '1', '2', '3', '4', '6', '5', '7', '2', '\"\\ud83d\\ude02\\ud83d\\udcaa\\ud83d\\udc4d\\u96ea\\u4e2d\\u884c\\u8005\"', '1560063035', 'o7A4s5H5bSjUtgqNTDsO6BXivLVg');
-INSERT INTO `blue_recommend_record` VALUES ('16', '1', '2', '3', '4', '6', '5', '7', '1', '\"\\ud83d\\ude02\\ud83d\\udcaa\\ud83d\\udc4d\\u96ea\\u4e2d\\u884c\\u8005\"', '1560064730', 'undefined');
-INSERT INTO `blue_recommend_record` VALUES ('17', '1', '2', '3', '4', '6', '5', '7', '1', '\"\\ud83d\\ude02\\ud83d\\udcaa\\ud83d\\udc4d\\u96ea\\u4e2d\\u884c\\u8005\"', '1560064741', 'o7A4s5H5bSjUtgqNTDsO6BXivLVg');
-INSERT INTO `blue_recommend_record` VALUES ('18', '2', '3', '4', '5', '7', '6', '8', '2', '\"\\ud83d\\ude02\\ud83d\\udcaa\\ud83d\\udc4d\\u96ea\\u4e2d\\u884c\\u8005\"', '1560264580', 'o7A4s5H5bSjUtgqNTDsO6BXivLVg');
+INSERT INTO `blue_receipt_type` VALUES ('1', '1', '支付宝充值', '宏银百货', '', '', 'https://yb6.me/img/RCjO/ifQ2ovGti.png', '/Uploads/Public/Uploads/2019-07-23/5d370addbc636.png', '1563979098');
+INSERT INTO `blue_receipt_type` VALUES ('5', '3', '建设银行', '林佳丽', '6217001830039250777', '', 'https://yb6.me/img/RCjO/ifQkydF3p.png', '/Uploads/Public/Uploads/2019-07-24/5d386f05d2fe5.png', '1563979602');
+INSERT INTO `blue_receipt_type` VALUES ('2', '2', '微信充值', '测试2', '', '', 'http://wfe.wsd.com/wfe3/interface', '/Uploads/Public/Uploads/2019-07-23/5d370d250ad93.png', '1563888933');
+INSERT INTO `blue_receipt_type` VALUES ('3', '1', '建设银行', '林佳丽', '6217001830039250777', '', '', '/Uploads/Public/Uploads/2019-07-25/5d3980ab07cc8.png', '1564049579');
 
 -- ----------------------------
--- Table structure for `blue_special_service`
+-- Table structure for `blue_record`
 -- ----------------------------
-DROP TABLE IF EXISTS `blue_special_service`;
-CREATE TABLE `blue_special_service` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `name` varchar(128) DEFAULT '' COMMENT '名称',
-  `img` varchar(2048) NOT NULL DEFAULT '' COMMENT '图片',
-  `op_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--操作人--',
-  `op_man` varchar(64) NOT NULL DEFAULT '' COMMENT '--操作时间--',
+DROP TABLE IF EXISTS `blue_record`;
+CREATE TABLE `blue_record` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `member_id` int(10) DEFAULT NULL,
+  `receipt_id` int(10) DEFAULT NULL,
+  `num` decimal(20,2) DEFAULT NULL COMMENT '充值金额',
+  `record_type` tinyint(4) DEFAULT NULL COMMENT '类型 1：充值2：提现',
+  `username` varchar(100) DEFAULT NULL COMMENT '存款人姓名',
+  `type` tinyint(4) DEFAULT NULL COMMENT '收款类型 1：支付宝 2：微信 3：银行卡''',
+  `bank_name` varchar(200) DEFAULT NULL COMMENT '名称',
+  `receipt_name` varchar(200) DEFAULT NULL COMMENT '收款人',
+  `receipt_account` varchar(200) DEFAULT NULL COMMENT '银行账号',
+  `account_addr` varchar(200) DEFAULT NULL COMMENT '开户网点',
+  `url` varchar(200) DEFAULT NULL COMMENT '跳转链接',
+  `status` tinyint(6) DEFAULT '0' COMMENT '状态  0：未审核 1：成功 2：失败',
+  `create_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of blue_special_service
+-- Records of blue_record
 -- ----------------------------
-INSERT INTO `blue_special_service` VALUES ('1', '起居照顾', '/Uploads/Public/Uploads/2019-06-03/5cf5192e250bc.png', '1559566638', 'admin');
-INSERT INTO `blue_special_service` VALUES ('2', '常见疾病预防', '/Uploads/Public/Uploads/2019-06-03/5cf519514a664.jpg', '1559566673', 'admin');
-INSERT INTO `blue_special_service` VALUES ('3', '科学喂养', '/Uploads/Public/Uploads/2019-06-03/5cf519609171c.jpg', '1559566688', 'admin');
+INSERT INTO `blue_record` VALUES ('1', '9', '1', '100.00', '1', '收款1', '1', '支付宝充值', '测试', '', '', 'https://www.baidu.com/', '1', '1563954780');
+INSERT INTO `blue_record` VALUES ('2', '18', '5', '50.00', '1', 'a254025', '3', '建设银行', '林佳丽', '6217001830039250777', '', 'https://yb6.me/img/RCjO/ifQkydF3p.png', '1', '1565414217');
 
 -- ----------------------------
--- Table structure for `blue_sub_company`
+-- Table structure for `blue_sign_conf`
 -- ----------------------------
-DROP TABLE IF EXISTS `blue_sub_company`;
-CREATE TABLE `blue_sub_company` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `name` varchar(128) DEFAULT '' COMMENT '名称',
-  `address` varchar(200) DEFAULT '' COMMENT '地址',
-  `contact` varchar(50) NOT NULL DEFAULT '联系人',
-  `phone` varchar(50) NOT NULL DEFAULT '' COMMENT '联系电话',
-  `status` tinyint(4) DEFAULT '1' COMMENT '状态 1：开启 0：关闭',
-  `op_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--操作人--',
-  `op_man` varchar(64) NOT NULL DEFAULT '' COMMENT '--操作时间--',
+DROP TABLE IF EXISTS `blue_sign_conf`;
+CREATE TABLE `blue_sign_conf` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `currency_id` int(11) DEFAULT NULL COMMENT '币种id',
+  `parama_arr` varchar(1024) DEFAULT NULL COMMENT '配置参数',
+  `create_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='签到配置';
 
 -- ----------------------------
--- Records of blue_sub_company
+-- Records of blue_sign_conf
 -- ----------------------------
-INSERT INTO `blue_sub_company` VALUES ('1', '上海总公司', '上海市徐汇区徐虹北路3号2楼', '张老师', '3062761000（微信同步）', '1', '1559537393', 'admin');
 
 -- ----------------------------
--- Table structure for `blue_teacher_power`
+-- Table structure for `blue_sign_record`
 -- ----------------------------
-DROP TABLE IF EXISTS `blue_teacher_power`;
-CREATE TABLE `blue_teacher_power` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `name` varchar(128) DEFAULT '' COMMENT '姓名',
-  `img` varchar(200) DEFAULT '' COMMENT '头像',
-  `position` varchar(100) DEFAULT '' COMMENT '职位',
-  `introduce` varchar(1024) DEFAULT '' COMMENT '介绍',
-  `status` tinyint(4) DEFAULT '1' COMMENT '状态 1：开启 0：关闭',
-  `op_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--操作人--',
-  `op_man` varchar(64) NOT NULL DEFAULT '' COMMENT '--操作时间--',
+DROP TABLE IF EXISTS `blue_sign_record`;
+CREATE TABLE `blue_sign_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) DEFAULT NULL,
+  `currency_name` varchar(50) DEFAULT NULL COMMENT '币种名称',
+  `currency_en` varchar(50) DEFAULT NULL COMMENT '币种英文标识',
+  `currency_num` decimal(8,2) DEFAULT NULL COMMENT '币种数量',
+  `num` tinyint(10) DEFAULT NULL COMMENT '余数',
+  `timestamp` varchar(100) DEFAULT NULL COMMENT '时间戳',
+  `create_time` int(11) DEFAULT NULL COMMENT '时间戳',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='签到记录表';
 
 -- ----------------------------
--- Records of blue_teacher_power
+-- Records of blue_sign_record
 -- ----------------------------
-INSERT INTO `blue_teacher_power` VALUES ('1', '李慧茹', '/Uploads/Public/Uploads/2019-06-03/5cf49aa62f9f7.jpg', '培训部主管', '毕业于杭州医学院康复治疗专业，主修儿童康复医学、儿童心理学、0-6岁儿童行为智力水平发育评估、语言训练、感觉统合训练等，持有国家职业鉴定保健按摩师四级、蒙台梭利高级亲子教师资格证、劳动局母婴护理证等职业资格证书；教学深入浅出、寓教于乐，能因材施教、与时俱进、注重学以致用等。', '1', '1559534246', 'admin');
 
 -- ----------------------------
--- Table structure for `blue_train_course`
+-- Table structure for `blue_withdraw_record`
 -- ----------------------------
-DROP TABLE IF EXISTS `blue_train_course`;
-CREATE TABLE `blue_train_course` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '--自增--',
-  `course_name` varchar(128) DEFAULT '' COMMENT '课程姓名',
-  `course_img` varchar(200) DEFAULT '' COMMENT '课程图片',
-  `introduce` varchar(1024) DEFAULT '' COMMENT '介绍',
-  `status` tinyint(4) DEFAULT '1' COMMENT '状态 1：开启 0关闭',
-  `op_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '--操作人--',
-  `op_man` varchar(64) NOT NULL DEFAULT '' COMMENT '--操作时间--',
+DROP TABLE IF EXISTS `blue_withdraw_record`;
+CREATE TABLE `blue_withdraw_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) DEFAULT NULL,
+  `num` decimal(20,2) DEFAULT NULL,
+  `status` tinyint(5) DEFAULT NULL COMMENT '状态 0：未审核 1：成功 2：失败',
+  `bank_no` varchar(200) DEFAULT NULL,
+  `be_username` varchar(100) DEFAULT NULL,
+  `create_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of blue_train_course
+-- Records of blue_withdraw_record
 -- ----------------------------
-INSERT INTO `blue_train_course` VALUES ('1', '母婴护理', '/Uploads/Public/Uploads/2019-06-03/5cf49d8ae0c3f.jpg', '月嫂是爱心行业，更是朝阳产业，加强月子护理的意识，可以帮助新妈妈的身体良好康复，有利于宝宝的健康成长。课程主要包括针对产妇产褥期的护理常识，以及新生儿科学的喂养及', '1', '1560256542', 'admin');
-INSERT INTO `blue_train_course` VALUES ('2', '小儿推拿', '/Uploads/Public/Uploads/2019-06-11/5cffa034a99c6.jpg', '催乳师是从事产褥期妇女乳房护理和乳房保健，通过专业手法和技巧，排除或减轻产妇容易出现乳房胀痛，乳汁淤积，乳腺管堵塞等引起乳汁分泌不畅的症状，催乳包括，对产妇进行心理疏导，饮食搭配，穴位按摩，产妇适当运动指导...', '1', '1560256564', 'admin');
-INSERT INTO `blue_train_course` VALUES ('3', '催乳', '/Uploads/Public/Uploads/2019-06-11/5cffa0126276e.jpg', '催乳师是从事产褥期妇女乳房护理和乳房保健，通过专业手法和技巧，排除或减轻产妇容易出现乳房胀痛，乳汁淤积，乳腺管堵塞等引起乳汁分泌不畅的症状，催乳包括，对产妇进行心', '1', '1560256530', 'admin');
-INSERT INTO `blue_train_course` VALUES ('4', '育婴师', '/Uploads/Public/Uploads/2019-06-11/5cff9fb231d5d.jpg', '小儿推拿是在中医基础理论的指导下通过一定的手法，在特定的穴位上通过疏通经络，调理气血达到防病治病的目的。课程包括小儿推拿学的概念，中医基础理论，小儿呼吸系统和消化', '1', '1560256434', 'admin');
+INSERT INTO `blue_withdraw_record` VALUES ('1', '9', '120.00', '0', '1111111111111111', '测试', '1563960538');
+INSERT INTO `blue_withdraw_record` VALUES ('2', '9', '50.00', '1', '1111111111111111', '测试', '1563963791');
+INSERT INTO `blue_withdraw_record` VALUES ('3', '10', '0.00', '0', '123', 'a', '1563972536');
+INSERT INTO `blue_withdraw_record` VALUES ('4', '10', '0.00', '0', '123', 'a', '1563972586');
+INSERT INTO `blue_withdraw_record` VALUES ('5', '10', '0.00', '1', '123', 'a', '1563972862');
