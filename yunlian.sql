@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-10-03 21:51:34
+Date: 2019-10-04 21:51:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `blue_admin` (
 -- ----------------------------
 -- Records of blue_admin
 -- ----------------------------
-INSERT INTO `blue_admin` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', null, '1,4,7,91,16,23,41,90,50,51,52,53,54,58,89', '0');
+INSERT INTO `blue_admin` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', null, '1,4,7,23,41,101,50,51,52,53,54,58,89,92,93,94,95,96,97,98,99,100', '0');
 
 -- ----------------------------
 -- Table structure for `blue_areas`
@@ -3549,6 +3549,26 @@ INSERT INTO `blue_article_category` VALUES ('128', '行业资讯', '0', '', '0',
 INSERT INTO `blue_article_category` VALUES ('129', '项目介绍', '0', '项目介绍', '0', '0');
 
 -- ----------------------------
+-- Table structure for `blue_bank`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_bank`;
+CREATE TABLE `blue_bank` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bank_name` varchar(100) DEFAULT NULL COMMENT '银行卡名称',
+  `bank_en` varchar(100) DEFAULT NULL COMMENT '英文标识',
+  `sort` tinyint(5) DEFAULT NULL COMMENT '排序',
+  `status` tinyint(5) DEFAULT '1' COMMENT '状态 1：上线 0：下线',
+  `op_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='银行卡列表表';
+
+-- ----------------------------
+-- Records of blue_bank
+-- ----------------------------
+INSERT INTO `blue_bank` VALUES ('1', '工商银行', 'ICBC', '1', '1', '1570178045');
+INSERT INTO `blue_bank` VALUES ('2', '中国银行', 'BOC', '2', '1', '1570178038');
+
+-- ----------------------------
 -- Table structure for `blue_config`
 -- ----------------------------
 DROP TABLE IF EXISTS `blue_config`;
@@ -3585,38 +3605,16 @@ CREATE TABLE `blue_currency` (
   `currency_name` varchar(32) DEFAULT NULL COMMENT '货币名称',
   `currency_logo` varchar(200) DEFAULT NULL COMMENT '货币logo',
   `currency_en` varchar(32) DEFAULT NULL COMMENT '英文标识',
-  `is_lock` tinyint(4) DEFAULT '1' COMMENT '是否上线 0 否 1是',
+  `is_lock` tinyint(4) DEFAULT '0' COMMENT '是否上线 0 是 1否',
+  `sort` tinyint(4) DEFAULT '1' COMMENT '排序',
   `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`currency_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='币种表';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='币种表';
 
 -- ----------------------------
 -- Records of blue_currency
 -- ----------------------------
-
--- ----------------------------
--- Table structure for `blue_game_list`
--- ----------------------------
-DROP TABLE IF EXISTS `blue_game_list`;
-CREATE TABLE `blue_game_list` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(200) DEFAULT NULL COMMENT '标题',
-  `desc1` varchar(400) DEFAULT NULL COMMENT '备注1',
-  `desc2` varchar(400) DEFAULT NULL COMMENT '备注2',
-  `star` tinyint(6) DEFAULT NULL COMMENT '星星数',
-  `pic` varchar(200) DEFAULT NULL,
-  `jump_url` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of blue_game_list
--- ----------------------------
-INSERT INTO `blue_game_list` VALUES ('1', '摇钱树', null, null, null, '/Uploads/Public/Uploads/2019-07-23/5d37107fe93b6.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
-INSERT INTO `blue_game_list` VALUES ('2', '牛魔王', null, null, null, '/Uploads/Public/Uploads/2019-07-23/5d3710c015a9b.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
-INSERT INTO `blue_game_list` VALUES ('3', 'QQ美人鱼', null, null, null, '/Uploads/Public/Uploads/2019-07-25/5d3929a4ccd9b.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
-INSERT INTO `blue_game_list` VALUES ('4', '幸运六狮', null, null, null, '/Uploads/Public/Uploads/2019-07-25/5d3929bc088df.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
-INSERT INTO `blue_game_list` VALUES ('5', '水浒传', null, null, null, '/Uploads/Public/Uploads/2019-07-25/5d3929d1956c3.jpg', 'http://xlx10dai.swrcd88.vip:1828/dafayule/html/Hall.html');
+INSERT INTO `blue_currency` VALUES ('2', '云链币', '/Uploads/Public/Uploads/2019-10-04/5d96fab939a76.png', 'YLB', '0', '1', '1570175685');
 
 -- ----------------------------
 -- Table structure for `blue_goods`
@@ -3626,23 +3624,24 @@ CREATE TABLE `blue_goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(10) DEFAULT NULL COMMENT '类别',
   `good_name` varchar(200) DEFAULT NULL,
-  `good_brief` varchar(200) DEFAULT NULL COMMENT '简介',
-  `good_time` varchar(200) DEFAULT NULL COMMENT '商品标题',
+  `good_title` varchar(200) DEFAULT NULL COMMENT '商品标题',
   `currency_id` int(11) DEFAULT NULL COMMENT '币种id',
   `price` decimal(10,2) DEFAULT NULL COMMENT '价格',
   `logo` varchar(200) DEFAULT NULL COMMENT 'logo',
   `spec` varchar(2048) DEFAULT NULL COMMENT '商品规格',
-  `status` tinyint(5) DEFAULT '1' COMMENT '状态 1：正常 0：下架',
+  `status` tinyint(5) DEFAULT '0' COMMENT '状态 1：发布 0：未发布',
   `sort` tinyint(4) DEFAULT '1' COMMENT '排序',
   `is_exchange` tinyint(6) DEFAULT '1' COMMENT '是否兑换 0 否 1是',
   `introduce` text COMMENT '商品详情',
   `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
+  `op_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='商品卡卷表';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='商品卡卷表';
 
 -- ----------------------------
 -- Records of blue_goods
 -- ----------------------------
+INSERT INTO `blue_goods` VALUES ('1', '2', 'honor荣耀 荣耀10青春版', '景斗云2.0会员预售优享价', '2', '1200.00', '/Uploads/Public/Uploads/2019-10-04/5d973c2c52e87.jpg', '{\"spec_name\":\"颜色\",\"spec_val\":[\"绿色\",\"蓝色\",\"红色\"]}', '1', '1', '1', '&lt;img src=&quot;/Public/kindeditor/attached/image/20191004/20191004122753_35257.jpg&quot; alt=&quot;&quot; /&gt;', null, '1570194024');
 
 -- ----------------------------
 -- Table structure for `blue_goods_type`
@@ -3652,12 +3651,16 @@ CREATE TABLE `blue_goods_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_name` varchar(200) DEFAULT NULL COMMENT '商品类别名称',
   `sort` tinyint(6) DEFAULT '1' COMMENT '排序',
+  `status` tinyint(6) DEFAULT '1' COMMENT '状态 1：正常 0：下线',
+  `op_time` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='商品类别表';
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='商品类别表';
 
 -- ----------------------------
 -- Records of blue_goods_type
 -- ----------------------------
+INSERT INTO `blue_goods_type` VALUES ('1', '精美商品', '1', '1', '1570179922');
+INSERT INTO `blue_goods_type` VALUES ('2', '充值服务', '2', '1', '1570179962');
 
 -- ----------------------------
 -- Table structure for `blue_member`
@@ -3712,10 +3715,16 @@ DROP TABLE IF EXISTS `blue_member_goods`;
 CREATE TABLE `blue_member_goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL COMMENT '商品类别',
+  `type_name` varchar(200) DEFAULT NULL COMMENT '商品类别名称',
   `good_id` int(11) DEFAULT NULL COMMENT '商品id',
+  `good_name` varchar(200) DEFAULT NULL COMMENT '商品名称',
   `num` int(10) DEFAULT NULL COMMENT '数量',
   `price` decimal(8,2) DEFAULT NULL COMMENT '价格',
   `valid_num` int(10) DEFAULT NULL COMMENT '可兑换商品卡数量',
+  `is_used` tinyint(5) DEFAULT '0' COMMENT '是否用完 1：是 0：否',
+  `is_exchange` tinyint(5) DEFAULT NULL COMMENT '是否可兑换实物',
+  `create_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户购买商品卡表';
 
@@ -3868,27 +3877,35 @@ CREATE TABLE `blue_nav` (
   `nav_e` varchar(32) NOT NULL COMMENT '英文标识',
   `nav_url` varchar(64) NOT NULL COMMENT 'url路径',
   `cat_id` varchar(32) NOT NULL COMMENT '类别',
+  `nav_sort` tinyint(6) DEFAULT '1' COMMENT '排序',
   PRIMARY KEY (`nav_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_nav
 -- ----------------------------
-INSERT INTO `blue_nav` VALUES ('1', '系统配置', '&#xe642;', '/Config/index', 'sys');
-INSERT INTO `blue_nav` VALUES ('4', '官方公告管理', '&#xe6f7;', '/Art/index/article_category_id/1', 'article');
-INSERT INTO `blue_nav` VALUES ('7', '会员列表', '&#x3434;', '/Member/index', 'user');
-INSERT INTO `blue_nav` VALUES ('91', '收款方式', '&#xe6f7;', '/Web/receipt', 'web');
-INSERT INTO `blue_nav` VALUES ('16', '游戏类目', '&#xe6f7;', '/Web/game', 'web');
-INSERT INTO `blue_nav` VALUES ('23', '菜单配置', '&#xe608;', '/Menu/index', 'sys');
-INSERT INTO `blue_nav` VALUES ('41', '管理员管理', '&#xe64d;', '/Manage/index', 'admin');
-INSERT INTO `blue_nav` VALUES ('90', '会员银行卡', '&#xe6f7;', '/Web/bank', 'web');
-INSERT INTO `blue_nav` VALUES ('50', '帮助中心', '&#xe6f7;', '/Art/helpindex/article_category_id/6', 'article');
-INSERT INTO `blue_nav` VALUES ('51', '快速链接', '&#xe6f7;', '/Art/index/article_category_id/7', 'article');
-INSERT INTO `blue_nav` VALUES ('52', '官方公告', '&#xe6f7;', '/Art/index/article_category_id/127', 'article');
-INSERT INTO `blue_nav` VALUES ('53', '行业资讯', '&#xe6f7;', '/Art/index/article_category_id/128', 'article');
-INSERT INTO `blue_nav` VALUES ('54', '项目介绍', '&#xe6f7;', '/Art/index/article_category_id/129', 'article');
-INSERT INTO `blue_nav` VALUES ('58', '提现记录', '&#xe6f7;', '/Record/tixian', 'record');
-INSERT INTO `blue_nav` VALUES ('89', '充值记录', '&#xe6f7;', '/Record/recharge', 'record');
+INSERT INTO `blue_nav` VALUES ('1', '系统配置', '&#xe642;', '/Config/index', 'sys', '1');
+INSERT INTO `blue_nav` VALUES ('4', '官方公告管理', '&#xe6f7;', '/Art/index/article_category_id/1', 'article', '1');
+INSERT INTO `blue_nav` VALUES ('7', '会员列表', '&#x3434;', '/Member/index', 'user', '1');
+INSERT INTO `blue_nav` VALUES ('23', '菜单配置', '&#xe608;', '/Menu/index', 'sys', '2');
+INSERT INTO `blue_nav` VALUES ('41', '管理员管理', '&#xe64d;', '/Manage/index', 'admin', '1');
+INSERT INTO `blue_nav` VALUES ('101', '商品类型', '&#xe6f7;', '/Good/type', 'good', '2');
+INSERT INTO `blue_nav` VALUES ('50', '帮助中心', '&#xe6f7;', '/Art/helpindex/article_category_id/6', 'article', '2');
+INSERT INTO `blue_nav` VALUES ('51', '快速链接', '&#xe6f7;', '/Art/index/article_category_id/7', 'article', '3');
+INSERT INTO `blue_nav` VALUES ('52', '官方公告', '&#xe6f7;', '/Art/index/article_category_id/127', 'article', '4');
+INSERT INTO `blue_nav` VALUES ('53', '行业资讯', '&#xe6f7;', '/Art/index/article_category_id/128', 'article', '5');
+INSERT INTO `blue_nav` VALUES ('54', '项目介绍', '&#xe6f7;', '/Art/index/article_category_id/129', 'article', '6');
+INSERT INTO `blue_nav` VALUES ('58', '提现记录', '&#xe6f7;', '/Record/tixian', 'record', null);
+INSERT INTO `blue_nav` VALUES ('89', '充值记录', '&#xe6f7;', '/Record/recharge', 'record', null);
+INSERT INTO `blue_nav` VALUES ('92', '商品列表', '&#xe6f7;', '/Good/index', 'good', '1');
+INSERT INTO `blue_nav` VALUES ('93', '币种列表', '&#xe6f7;', '/Currency/index', 'currency', '1');
+INSERT INTO `blue_nav` VALUES ('94', '银行列表', '&#xe637;', '/Bank/index', 'bank', '1');
+INSERT INTO `blue_nav` VALUES ('95', '用户购买商品卡', '&#xe6f7;', '/Good/usergoods', 'good', '23');
+INSERT INTO `blue_nav` VALUES ('96', '订单记录', '&#xe6f7;', '/Order/record', 'order', '1');
+INSERT INTO `blue_nav` VALUES ('97', '签到配置', '&#xe6f7;', '/Sign/conf', 'sign', '1');
+INSERT INTO `blue_nav` VALUES ('98', '签到记录', '&#xe6f7;', '/Sign/record', 'sign', '2');
+INSERT INTO `blue_nav` VALUES ('99', '系统发布消息', '&#xe6f7;', '/Message/sys', 'message', '1');
+INSERT INTO `blue_nav` VALUES ('100', '消息记录', '&#xe6f7;', '/Message/record', 'message', '2');
 
 -- ----------------------------
 -- Table structure for `blue_order`
@@ -4024,27 +4041,3 @@ CREATE TABLE `blue_sign_record` (
 -- ----------------------------
 -- Records of blue_sign_record
 -- ----------------------------
-
--- ----------------------------
--- Table structure for `blue_withdraw_record`
--- ----------------------------
-DROP TABLE IF EXISTS `blue_withdraw_record`;
-CREATE TABLE `blue_withdraw_record` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `member_id` int(11) DEFAULT NULL,
-  `num` decimal(20,2) DEFAULT NULL,
-  `status` tinyint(5) DEFAULT NULL COMMENT '状态 0：未审核 1：成功 2：失败',
-  `bank_no` varchar(200) DEFAULT NULL,
-  `be_username` varchar(100) DEFAULT NULL,
-  `create_time` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of blue_withdraw_record
--- ----------------------------
-INSERT INTO `blue_withdraw_record` VALUES ('1', '9', '120.00', '0', '1111111111111111', '测试', '1563960538');
-INSERT INTO `blue_withdraw_record` VALUES ('2', '9', '50.00', '1', '1111111111111111', '测试', '1563963791');
-INSERT INTO `blue_withdraw_record` VALUES ('3', '10', '0.00', '0', '123', 'a', '1563972536');
-INSERT INTO `blue_withdraw_record` VALUES ('4', '10', '0.00', '0', '123', 'a', '1563972586');
-INSERT INTO `blue_withdraw_record` VALUES ('5', '10', '0.00', '1', '123', 'a', '1563972862');

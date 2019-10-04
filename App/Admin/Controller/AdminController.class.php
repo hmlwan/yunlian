@@ -28,15 +28,18 @@ class AdminController extends CommonController {
 		if(empty($rules)){
 			$this->error('此账号尚未分配权限',$URL_MODULE_MAP.'/Login/login');
 		}
-		$rules=explode(',', $rules);
+		$rules = explode(',', $rules);
 
-		foreach ($rules as $k=>$v){
-			$list[]=M("Nav")->where('nav_id='.$v)->find();
-		}
+//		foreach ($rules as $k=>$v){
+//			$list[]= M("Nav")->where('nav_id='.$v)->find();
+//		}
+        $list = M("Nav")->where(array('nav_id'=>array('in',$rules)))->order('cat_id desc ,nav_sort asc')->select();
+
 		foreach ($list as $k=>$v){
 			$v['nav_url'] = '/'.$URL_MODULE_MAP.$v['nav_url'];
 			$value[$v['cat_id']][]=$v;
 		}
+
 		foreach ($value as $k=>$v){
 			$this->assign($k."_nav",$v);
 		}

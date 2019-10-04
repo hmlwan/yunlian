@@ -3,7 +3,7 @@
  * 后台理财管理
  */
 namespace Admin\Controller;
-use Admin\Controller\AdminController;
+
 class CompanyController extends AdminController {
     // 空操作
     public function _empty() {

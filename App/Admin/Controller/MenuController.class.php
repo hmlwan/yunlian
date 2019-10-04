@@ -19,7 +19,7 @@ class MenuController extends AdminController {
         if($string){
             $where['_string'] = "`cat_id`='{$string}' OR `nav_name` like '%{$string}%'";
         }
-        $list = M('nav')->where($where)->order('nav_id desc')->select();
+        $list = M('nav')->where($where)->order('cat_id asc ,nav_sort asc')->select();
         $this->assign('list',$list);
         $this->display();
      }
@@ -31,11 +31,13 @@ class MenuController extends AdminController {
 	        $nav_e = I('post.nav_e','','');
 	        $nav_url = I('post.nav_url','','');
 	        $cat_id = I('post.cat_id','','');
+	        $nav_sort = I('post.nav_sort','','');
 
 	        $save_data = array(
 	            'nav_name' => $nav_name,
                 'nav_e' => $nav_e ? $nav_e :"&#xe6f7;",
                 'nav_url' => $nav_url,
+                'nav_sort' => $nav_sort,
                 'cat_id' => $cat_id
             );
 

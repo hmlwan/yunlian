@@ -37,6 +37,7 @@
                         <th>ip</th>
                         <th>注册时间</th>
                         <th>最近登录时间</th>
+                        <th>状态</th>
                         <th>操作</th>
                     </tr>
                     <volist name='list' id='vo'>
@@ -47,19 +48,26 @@
                             <td>{$vo['ip']}</td>
                             <td>{$vo['reg_time']|date='Y-m-d H:i:s',###}</td>
                             <td>{$vo['login_time']|date='Y-m-d H:i:s',###}</td>
+                            <td>
+                                <if condition="$vo['is_lock'] eq 1 ">
+                                    锁定
+                                <else />
+                                    正常
+                                </if>
+                            </td>
 
                             <td>
                                 <a class="link-update" href="{:U('Member/saveMember',array('member_id'=>$vo['member_id']))}">修改|</a>
-                                <!--<a class="link-del" href="{:U('Member/delMember',array('member_id'=>$vo['member_id']))}" onclick="return confirm('确认删除吗？')">删除</a>-->
+                                <a class="link-del" href="{:U('Member/delMember',array('member_id'=>$vo['member_id']))}" onclick="return confirm('确认删除吗？')">删除</a>
 
-                                <!--<if condition="$vo['is_lock'] eq 0">-->
-                                    <!--<a class="link-lock" href="{:U('Member/lockMember',array('member_id'=>$vo['member_id'],'is_lock'=>1))}"  onclick="return confirm('确认禁用吗？')">禁用</a>-->
-                                <!--</if>-->
-                                <!--<if condition="$vo['is_lock'] eq 1">-->
-                                    <!--<a class="link-lock" href="{:U('Member/lockMember',array('member_id'=>$vo['member_id'],'is_lock'=>0))}"  onclick="return confirm('确认解封吗？')">解封</a>-->
-                                <!--</if>-->
-                                <!--<br>-->
-                                <!--<a class="link-update" href="{:U('Member/show',array('member_id'=>$vo['member_id']))}">查看会员信息</a><br>-->
+                                <if condition="$vo['is_lock'] eq 0">
+                                    <a class="link-lock" href="{:U('Member/lockMember',array('member_id'=>$vo['member_id'],'is_lock'=>1))}"  onclick="return confirm('确认禁用吗？')">禁用</a>
+                                </if>
+                                <if condition="$vo['is_lock'] eq 1">
+                                    <a class="link-lock" href="{:U('Member/lockMember',array('member_id'=>$vo['member_id'],'is_lock'=>0))}"  onclick="return confirm('确认解封吗？')">解封</a>
+                                </if>
+                                <br>
+                                <a class="link-update" href="{:U('Member/show',array('member_id'=>$vo['member_id']))}">查看会员信息</a><br>
                             </td>
                         </tr>
                     </volist>

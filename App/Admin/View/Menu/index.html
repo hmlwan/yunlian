@@ -35,6 +35,7 @@
                     <th>菜单名称</th>
                     <th>图标icon</th>
                     <th>nav_url</th>
+                    <th>排序</th>
                     <th>类别</th>
                     <th>操作</th>
                 </tr>
@@ -42,14 +43,15 @@
                     <tr>
                         <td>{$vo['nav_id']}</td>
                         <td>{$vo['nav_name']}</td>
-                        <td><i class="iconfont">{$vo.nav_e}</i></td>
+                        <td><i class="iconfont">{$vo['nav_e']}</i></td>
                         <td>{$vo['nav_url']}</td>
+                        <td>{$vo['nav_sort']}</td>
                         <td>{$vo['cat_id']}</td>
                         <td>
                             <a class="link-update" href="{:U('Menu/edit#1#0',array('nav_id'=>$vo['nav_id']))}#0#0">修改|</a>
                             <a href="javascript:void(0)" class="link-del" onclick="cexiao('{$vo.nav_id}')">删除</a>
                         </td>
-                    </tr>
+                    </tr>
                 </volist>
 
             </table>
