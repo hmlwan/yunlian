@@ -119,14 +119,5 @@
             layer.msg('已取消');
         });
     }
-function setlimit(id){
-	$.post("{:U('Currency/savePrice')}",{id:id,price_up:$("#price_up").val(),price_down:$("#price_down").val()},function(data){
-		 if(data<0){
-			layer.msg(data.info);
-		 }else{
-			layer.msg(data.info);
-			setTimeout("location.reload()",2000);
-		 }
-	});
-}
+
 </script>
