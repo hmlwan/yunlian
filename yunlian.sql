@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-10-05 22:11:36
+Date: 2019-10-06 22:15:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3566,12 +3566,14 @@ INSERT INTO `blue_config` VALUES ('web_logo', '/Uploads/Public/Uploads/2019-10-0
 INSERT INTO `blue_config` VALUES ('copyright', 'Copyright © 上海 版权所有  沪ICP备18042564号-2', '1', '版权信息');
 INSERT INTO `blue_config` VALUES ('record', '上海', '1', '备案信息');
 INSERT INTO `blue_config` VALUES ('tel', '400-808-3353', '1', '官方电话');
-INSERT INTO `blue_config` VALUES ('email', '111111111', '1', '官方邮箱');
+INSERT INTO `blue_config` VALUES ('email', '824398038@qq.com', '1', '官方邮箱');
 INSERT INTO `blue_config` VALUES ('business_email', '2018 University of Washington | Seattle, WA', '1', '企业邮箱');
 INSERT INTO `blue_config` VALUES ('web_name', '云链口袋', '1', '网站名称');
 INSERT INTO `blue_config` VALUES ('company_address', '上海市徐汇区', '1', '公司地址');
-INSERT INTO `blue_config` VALUES ('qq', '', '1', 'QQ');
+INSERT INTO `blue_config` VALUES ('qq', '824398038', '1', 'QQ');
 INSERT INTO `blue_config` VALUES ('technical_support', 'hmlwan(824398038)', '1', '技术支持');
+INSERT INTO `blue_config` VALUES ('cert_num', '5', '1', '认证次数');
+INSERT INTO `blue_config` VALUES ('set_user_currency', '2', '1', '设置用户币种');
 
 -- ----------------------------
 -- Table structure for `blue_currency`
@@ -3592,6 +3594,24 @@ CREATE TABLE `blue_currency` (
 -- Records of blue_currency
 -- ----------------------------
 INSERT INTO `blue_currency` VALUES ('2', '云链币', '/Uploads/Public/Uploads/2019-10-04/5d96fab939a76.png', 'YLB', '0', '1', '1570175685');
+
+-- ----------------------------
+-- Table structure for `blue_currency_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_currency_user`;
+CREATE TABLE `blue_currency_user` (
+  `cu_id` int(32) NOT NULL AUTO_INCREMENT,
+  `member_id` int(32) NOT NULL COMMENT '用户id',
+  `currency_id` int(32) NOT NULL COMMENT '货币id',
+  `num` decimal(10,2) NOT NULL COMMENT '数量',
+  `forzen_num` decimal(10,2) NOT NULL COMMENT '冻结数量',
+  `status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`cu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of blue_currency_user
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `blue_goods`
@@ -3665,12 +3685,14 @@ CREATE TABLE `blue_luckdraw_conf_detail` (
   `num` varchar(50) DEFAULT NULL,
   `luckdraw_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_luckdraw_conf_detail
 -- ----------------------------
 INSERT INTO `blue_luckdraw_conf_detail` VALUES ('1', '2', '0');
+INSERT INTO `blue_luckdraw_conf_detail` VALUES ('2', '1', '1');
+INSERT INTO `blue_luckdraw_conf_detail` VALUES ('3', '2', '1');
 
 -- ----------------------------
 -- Table structure for `blue_member`
@@ -3694,12 +3716,12 @@ CREATE TABLE `blue_member` (
   `status` tinyint(4) DEFAULT '0' COMMENT '0:未注册成功 1：注册成功',
   PRIMARY KEY (`member_id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_member
 -- ----------------------------
-INSERT INTO `blue_member` VALUES ('9', '123456', 'e10adc3949ba59abbe56e057f20f883e', null, '测试', null, null, '127.0.0.1', '1563933002', '59.37.125.121', '1564459810', '50.00', '0.00', '0', '1');
+INSERT INTO `blue_member` VALUES ('9', '123456', 'e10adc3949ba59abbe56e057f20f883e', '1000000', '测试', null, '15179811531', '127.0.0.1', '1563933002', '127.0.0.1', '1570360441', '50.00', '0.00', '0', '1');
 
 -- ----------------------------
 -- Table structure for `blue_member_address`
@@ -3710,13 +3732,14 @@ CREATE TABLE `blue_member_address` (
   `member_id` int(10) DEFAULT NULL COMMENT '用户id',
   `receipt_name` varchar(50) DEFAULT NULL COMMENT '收货人姓名',
   `receipt_phone` varchar(50) DEFAULT NULL COMMENT '收货电话',
-  `receipt_address` varchar(200) DEFAULT NULL COMMENT '收货地址',
+  `receipt_address` varchar(600) DEFAULT NULL COMMENT '收货地址',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户收货地址';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户收货地址';
 
 -- ----------------------------
 -- Records of blue_member_address
 -- ----------------------------
+INSERT INTO `blue_member_address` VALUES ('1', '9', 'hmlwan', '15179811532', '深圳市南山区腾讯大厦');
 
 -- ----------------------------
 -- Table structure for `blue_member_goods`
@@ -3750,6 +3773,7 @@ CREATE TABLE `blue_member_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` int(11) DEFAULT NULL,
   `bank_no` varchar(200) DEFAULT NULL COMMENT '银行卡号',
+  `nick_name` varchar(200) DEFAULT NULL COMMENT '账号昵称',
   `zfb_no` varchar(200) DEFAULT NULL COMMENT '支付宝账号',
   `true_name` varchar(100) DEFAULT NULL COMMENT '姓名',
   `id_card` varchar(200) DEFAULT NULL COMMENT '身份证',
@@ -3759,11 +3783,12 @@ CREATE TABLE `blue_member_info` (
   `cert_num` tinyint(5) DEFAULT NULL COMMENT '剩余认证次数',
   `is_cert` tinyint(4) DEFAULT '0' COMMENT '是否认证 1：是 0：否',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_member_info
 -- ----------------------------
+INSERT INTO `blue_member_info` VALUES ('3', '9', '252255225522', '雪中行者', '15179822523', '刘德华', '3625225225522555', '2', null, '1570358334', '5', '1');
 
 -- ----------------------------
 -- Table structure for `blue_message`

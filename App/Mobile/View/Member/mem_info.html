@@ -1,0 +1,112 @@
+<include file="Public:header"/>
+<body>
+
+<div>
+    <header>
+        <div class="header_bt">
+            <div class="header_f"><a href="{:U('Member/index')}" class="header_fh"></a></div>
+            <div class="header_c">我的资料</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="wdzl">
+        <div class="wdzl_con">
+            <div class="wdzl_head wdzl_line">
+                <span>头像</span>
+                <span>
+                    <i>
+                        <if condition="$member_info['head_url']">
+                            <img src="{$member_info['head_url']}" class="wd_head" alt="">
+                        <else />
+                            <img src="__IMG__/touxiang.png" class="wd_head" alt="">
+                        </if>
+                    </i>
+                    <em></em>
+                </span>
+            </div>
+            <div class="wdzl_line">
+                <span>实名</span>
+                <span>{$member_info.true_name}</span>
+            </div>
+            <div>
+                <span>手机号</span>
+                <span>{$member_info.phone}</span>
+            </div>
+            <div>
+                <span>银行卡</span>
+                <span>{$member_info.bank_no}({$member_info.bank_name})</span>
+            </div>
+            <div class="wdzl_line">
+                <a href="{:U('Member/update_nickname')}">
+                    <span>昵称</span>
+                    <span>
+                    <i>{$member_info.nick_name}</i>
+                    <em></em>
+                </span>
+                </a>
+            </div>
+            <div>
+                <a href="{:U('Member/update_zfb')}">
+                    <span>支付宝账号</span>
+                    <span>
+                    <i>{$member_info.zfb_no}</i>
+                    <em></em>
+                </span>
+                </a>
+            </div>
+            <div>
+                <a href="{:U('Member/update_passwd')}">
+                    <span>登录密码</span>
+                    <span>
+                    <i>修改密码</i>
+                    <em></em>
+                </span>
+                </a>
+            </div>
+            <div>
+                <a href="{:U('Member/update_address')}">
+                    <span>收货地址</span>
+                    <span>
+                    <i>修改地址</i>
+                    <em></em>
+                </span>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div style="height: .9rem;"></div>
+<div class="footer_main">
+    <ul>
+        <li class="footer_fl">
+            <a href="index.html">
+                省券
+            </a>
+        </li>
+        <li class="footer_f2">
+            <a href="b2c_fenlei_01.html">
+                福利
+            </a>
+        </li>
+        <li class="footer_f3">
+            <a href="b2c_fenlei_01.html">
+                兑换
+            </a>
+        </li>
+        <li class="footer_f4">
+            <a href="b2c_fenlei_01.html">
+                开箱
+            </a>
+        </li>
+        <li class="footer_f5 footer_active_f5">
+            <a href="{:U('Member/index')}">
+                我的
+            </a>
+        </li>
+    </ul>
+</div>
+<include file="Public:footer"/>
+

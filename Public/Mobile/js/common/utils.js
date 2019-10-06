@@ -35,6 +35,24 @@ Utils.isEmpty = function(val) {
   }
 }
 
+
+Utils.check_require = function(obj) {
+    var msg = '';
+    var is_require = 1;
+    var arr = {};
+    obj.find('input.require').each(function () {
+        if($(this).val() == ''){
+            is_require = 0;
+            msg = $(this).attr('placeholder');
+            return false;
+        }
+    });
+    arr = {
+        is_require :is_require,
+        msg:msg
+    };
+    return arr;
+};
 Utils.isNumber = function(val) {
   var reg = /^[\d|\.|,]+$/;
   return reg.test(val);
@@ -53,10 +71,13 @@ Utils.isEmail = function(email) {
   var reg1 = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)/;
 
   return reg1.test( email );
+};
+Utils.isPasswd = function (passwd) {
+    var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/;
+    return reg.test( passwd );
 }
-
 Utils.isTel = function (tel) {
-  var reg = /^[\d|\-|\s|\_]+$/; //只允许使用数字-空格等
+  var reg = /^1(3|4|5|6|7|8|9)\d{9}$/; //只允许使用数字-空格等
 
   return reg.test( tel );
 }

@@ -55,6 +55,8 @@ class LuckdrawController extends AdminController
             $info['info'] ='删除失败';
             $this->ajaxReturn($info);
         }
+        /*删除奖励数值*/
+        M("luckdraw_conf_detail")->where(array('luckdraw_id'=>$id))->delete();
         $info['status'] = 1;
         $info['info'] ='删除成功';
         $this->ajaxReturn($info);
@@ -143,5 +145,25 @@ class LuckdrawController extends AdminController
             $this->assign('luckdraw_id',$luckdraw_id);
             $this->display();
         }
+    }
+    public function detaildel(){
+        if(empty($_POST['id'])){
+            $info['status'] = -1;
+            $info['info'] ='传入参数有误';
+            $this->ajaxReturn($info);
+        }
+
+        $id = I('post.id','','intval');
+        $model = I('post.model','','');
+        $r = M($model)->delete($id);
+
+        if(!$r){
+            $info['status'] = 0;
+            $info['info'] ='删除失败';
+            $this->ajaxReturn($info);
+        }
+        $info['status'] = 1;
+        $info['info'] ='删除成功';
+        $this->ajaxReturn($info);
     }
 }

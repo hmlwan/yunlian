@@ -3,14 +3,13 @@ namespace Mobile\Controller;
 
 use Common\Controller\CommonController;
 class RegController extends CommonController {
+
     /**
      * 显示注册界面
      */
     public function index(){
-        if(session('USER_KEY_ID')){
-            $this->redirect('Index/index');
-            return;
-        }
+        $pid = I('get.Member_id','','intval');
+        $this->assign('pid',$pid);
         $this->display();
     }
     /* 验证码生成 */
@@ -35,25 +34,23 @@ class RegController extends CommonController {
 
         if(IS_POST){
             //增加添加时间,IP
-            $sub_data = array();
-            if($_POST['password'] != $_POST['repwd']){
+            $_POST['reg_time'] = time();
+            $_POST['ip'] = get_client_ip();
+            $_POST['status'] = 1;
+            $_POST['is_lock'] = 0;
+            $_POST['code'] = 1234;
+            $_SESSION['code'] = 1234;
+            if($_POST['code']!= $_SESSION['code']){
                 $data['status'] = 0;
-                $data['info'] = '2次输入的密码不一样';
+                $data['info'] = '验证码错误';
                 $this->ajaxReturn($data);
             }
-            $sub_data['reg_time'] = time();
-            $sub_data['ip'] = get_client_ip();
-            $sub_data['status'] = 1;
-            $sub_data['username'] = $_POST['username'];
-            $sub_data['nick'] = $_POST['username'];
-            $sub_data['pwd'] = md5($_POST['password']);
 
             $M_member = D('Member');
-            $username_info = M('Member')->where(array('username'=>$_POST['username']))->find();
-
-            if($username_info){
+            $info = M('Member')->where(array('phone'=>$_POST['phone']))->find();
+            if($info){
                 $data['status'] = 2;
-                $data['info'] = "用户名已经存在";
+                $data['info'] = "手机号码已经存在";
                 $this->ajaxReturn($data);
             }
             if (!$M_member->create()){
@@ -63,14 +60,11 @@ class RegController extends CommonController {
                 $this->ajaxReturn($data);
                 return;
             }else{
-                $r = $M_member->add($sub_data);
+                $r = $M_member->add();
                 if($r){
-                    session('USER_KEY_ID',$r);
-                    session('USER_KEY',$_POST['username']);
-                    session('STATUS',1);//用户状态
-
+//                    session('procedure',1);//SESSION 跟踪第一步
                     $data['status'] = 1;
-                    $data['info'] = '注册成功';
+                    $data['info'] = '注册成功，请去登录';
                     $this->ajaxReturn($data);
                 }else{
                     $data['status'] = 0;
@@ -80,8 +74,49 @@ class RegController extends CommonController {
             }
         }
     }
+    /*step2: 发送验证码*/
+    public function get_code(){
+        $mobile = I('get.phone','');
+        if(!$mobile){
+           $this->redirect('Reg/reg');
+        }
+        $this->assign('phone',$mobile);
+        $this->display();
+    }
+    /*注册成功操作*/
+    public function op_reg(){
+        if(IS_POST){
+            $phone = I('phone');
+            $procedure = $_SESSION['procedure'];
+            if($procedure != 1){
+                $data['status'] = 2;
+                $data['info'] = '请先去输入手机号码';
+                $this->ajaxReturn($data);
+            }
+            if($_POST['code']!=$_SESSION['code']){
+                $data['status'] = 0;
+                $data['info'] = '验证码错误';
+                $this->ajaxReturn($data);
+            }
+            $res = M('Member')->where(array('phone'=> $phone))->find();
+            if(!$res){
+                $data['status'] = 2;
+                $data['info'] = '请先去输入手机号码';
+                $this->ajaxReturn($data);
+            }
+            $save_res = M('Member')->where(array('phone'=> $phone))->save(array('status'=>1));
+            if(false !== $save_res){
+                $data['status'] = 1;
+                $data['info'] = '注册成功';
+                $this->ajaxReturn($data);
+            }else{
+                $data['status'] = 0;
+                $data['info'] = '注册失败';
+                $this->ajaxReturn($data);
+            }
+        }
 
-
+    }
     /**
      * 添加个人信息
      */
@@ -117,11 +152,13 @@ class RegController extends CommonController {
                     $data['status'] = 1;
                     $data['info'] = "提交成功";
                     $this->ajaxReturn($data);
+//                    $this->redirect('Reg/regSuccess');
                 }else{
                     $data['status'] = 0;
                     $data['info'] = '服务器繁忙,请稍后重试';
                     $this->ajaxReturn($data);
-
+//                    $this->error('服务器繁忙,请稍后重试');
+//                    return;
                 }
             }
         }else{
@@ -133,6 +170,20 @@ class RegController extends CommonController {
      */
     public function regSuccess(){
 		 $this->display();
+/*
+        if(session('USER_KEY_ID')){
+            $this->redirect('User/regSuccess');
+            return;
+        }
+        //判断步骤并重置
+        if(session('procedure')==2){
+            session('procedure',null);
+            $this->display();
+        }
+        if(session('procedure')==1){
+            $this->redirect('Reg/reg');
+        }
+*/
     }
 
     /**

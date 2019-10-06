@@ -28,16 +28,15 @@ class HomeController extends CommonController {
   		}
   		$this->assign('auth',$this->auth);
  		
-  		$this->trade=M('Trade');
  		//修正会员各个币种信息  currency_user
  		$currency=M('Currency')->select();
- 		foreach ($currency as $k=>$v){
- 			$rs=$this->getCurrencyUser($_SESSION['USER_KEY_ID'], $v['currency_id']);
- 			if(!$rs){
- 				$this->addCurrencyUser($_SESSION['USER_KEY_ID'],$v['currency_id']);
- 			}
- 		}
- 		$this->jiedong();
+// 		foreach ($currency as $k=>$v){
+// 			$rs=$this->getCurrencyUser($_SESSION['USER_KEY_ID'], $v['currency_id']);
+// 			if(!$rs){
+// 				$this->addCurrencyUser($_SESSION['USER_KEY_ID'],$v['currency_id']);
+// 			}
+// 		}
+// 		$this->jiedong();
 	}
     public function get_member_id(){
         return $_SESSION['USER_KEY_ID'];

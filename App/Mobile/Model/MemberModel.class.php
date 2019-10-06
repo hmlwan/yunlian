@@ -52,7 +52,15 @@ class MemberModel extends Model{
             return false;
         }
     }
-
+    public function logCheckPhone($phone){
+        $where['phone'] = $phone;
+        $info = $this->where($where)->find();
+        if($info){
+            return $info;
+        }else{
+            return false;
+        }
+    }
     public function logCheckMo($mo){
         $where['phone'] = $mo;
         $info = $this->where($where)->find();

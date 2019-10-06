@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--申明当前页面的编码集-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--网页标题-->
+    <title>邀请好友</title>
+    <script type="text/javascript" src="js/fontSize.js"></script>
+    <!--网页关键词-->
+    <meta name="keywords" content="" />
+    <!--网页描述-->
+    <meta name="description" content="" />
+    <!--适配当前屏幕-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!--禁止自动识别电话号码-->
+    <meta name="format-detection" content="telephone=no" />
+    <!--禁止自动识别邮箱-->
+    <meta content="email=no" name="format-detection" />
+    <!--iphone中safari私有meta标签,
+        允许全屏模式浏览,隐藏浏览器导航栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--iphone中safari顶端的状态条的样式black(黑色)-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!--如果用户装了谷歌浏览器，用ie浏览时使用谷歌内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!--css文件-->
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/reset.css" />
+    <script src="js/jquery1.10.2.min.js"></script>
+</head>
+<body>
+
+<div>
+    <header>
+        <div class="header_bt">
+            <div class="header_f"><a href="javascript:history.back()" class="header_fh"></a></div>
+            <div class="header_c">邀请好友</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="yqhy">
+        <div class="yqhy_h">
+            <p>邀请好友玩云链</p>
+            <p>赚人脉奖励</p>
+        </div>
+        <div class="yqhy_num">
+            <div class="haoyou">
+                <p>3</p>
+                <p>我邀请的好友</p>
+            </div>
+            <i></i>
+            <div class="haoyou">
+                <p>5</p>
+                <p>累积收益</p>
+            </div>
+        </div>
+        <div class="yqhy_js">
+            <p><i></i><span>好友注册完成实名后, 你都得能获得一个邀请大礼包（内含1-100云链）</span></p>
+            <p><i></i><span>邀请奖励算3级, 如你推荐A, A又推荐了10人，B10人又推荐了10人并且都实名了, 你将获得1+10+100次抽奖机会</span></p>
+        </div>
+        <div class="yqhy_b">
+            <table>
+                <tr>
+                    <th>下线好友手机号(关系)</th>
+                    <th>邀请时间</th>
+                    <th>实名奖励</th>
+                </tr>
+                <tr>
+                    <td>18056478453(徒弟)</td>
+                    <td>1分钟前</td>
+                    <td class="red">未实名</td>
+                </tr>
+                <tr>
+                    <td>18056478453(徒弟)</td>
+                    <td>2019-9-30 12:27</td>
+                    <td>+125.99云链</td>
+                </tr>
+                <tr>
+                    <td>18056478453(徒弟)</td>
+                    <td>2019-9-30 12:27</td>
+                    <td class="yellow">可领取</td>
+                </tr>
+                <tr>
+                    <td>18056478453(徒弟)</td>
+                    <td>2019-9-30 12:27</td>
+                    <td class="yellow" onclick="linqu(this)">可领取</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<a href="fxzq.html">
+    <div class="yqhy_btn">
+        邀请好友
+    </div>
+</a>
+
+<div class="zhezhao_c"></div>
+<div class="mrrw" style="display: none">
+    <p class="close"></p>
+    <div>
+        <i></i>
+        <p class="rw_title"></p>
+        <p class="rw_jl">恭喜你翻到<span>0.5云链</span></p>
+        <p class="rw_btn">立即返回</p>
+    </div>
+</div>
+
+
+<div style="height: .9rem;"></div>
+<div class="footer_main">
+    <ul>
+        <li class="footer_fl">
+            <a href="index.html">
+                省券
+            </a>
+        </li>
+        <li class="footer_f2">
+            <a href="b2c_fenlei_01.html">
+                福利
+            </a>
+        </li>
+        <li class="footer_f3">
+            <a href="b2c_fenlei_01.html">
+                兑换
+            </a>
+        </li>
+        <li class="footer_f4">
+            <a href="b2c_fenlei_01.html">
+                开箱
+            </a>
+        </li>
+        <li class="footer_f5 footer_active_f5">
+            <a href="grzx.html">
+                我的
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    $(".wdxx").find(".xx_r i").click(function () {
+         var classname = $(this).attr('class');
+         if(classname == 'active'){
+             $(this).closest(".xx_c").next(".xx_b").hide();
+             $(this).attr("class",'');
+         }else{
+             $(this).closest(".xx_c").next(".xx_b").show();
+             $(this).attr("class",'active');
+         }
+
+    });
+    function linqu(obj) {
+        $(".mrrw").show();
+        $(".zhezhao_c").attr('class','zhezhao_c zhezhao')
+    }
+    $(".mrrw,.close").click(function () {
+        $(".mrrw").hide();
+        $(".zhezhao_c").attr('class','zhezhao_c')
+    });
+
+</script>

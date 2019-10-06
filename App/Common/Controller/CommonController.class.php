@@ -10,17 +10,16 @@ class CommonController extends Controller {
     protected $dividendConfig;
     public function _initialize(){
 
-//        if(isMobile() && strtolower(MODULE_NAME) == 'admin'  && strtolower(CONTROLLER_NAME) == 'index' && strtolower(ACTION_NAME) == 'index')
-//        {
-//            header("Location: ".U('Mobile/index/index'));
-//            exit();
-//         }
-//         if(!isMobile() && strtolower(MODULE_NAME) == 'mobile'  && strtolower(CONTROLLER_NAME) == 'index' && strtolower(ACTION_NAME) == 'index')
-//        {
-//            header("Location: ".U('admin/index/index'));
-//            exit();
-//         }
-
+        if(isMobile() && strtolower(MODULE_NAME) == 'admin'  && strtolower(CONTROLLER_NAME) == 'index' && strtolower(ACTION_NAME) == 'index')
+        {
+            header("Location: ".U('Mobile/index/index'));
+            exit();
+         }
+         if(!isMobile() && strtolower(MODULE_NAME) == 'mobile'  && strtolower(CONTROLLER_NAME) == 'index' && strtolower(ACTION_NAME) == 'index')
+        {
+            header("Location: ".U('admin/index/index'));
+            exit();
+         }
          if($_POST){
              foreach ($_POST as $v){
                  // 正则表达式 判断是否有selert语句 如果有提示错误
@@ -54,7 +53,7 @@ class CommonController extends Controller {
             }
         }
 
-        $list=M("Config")->select();
+        $list= M("Config")->select();
         $conf_list = [];
 		foreach ($list as $k=>$v){
             $conf_list[$v['key']]=$v['value'];
