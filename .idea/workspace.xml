@@ -2,144 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84e4a43f-317f-4d3b-be44-a91d75319f0c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/ad.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/aq.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/b1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/b2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/b3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/br.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/bx.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/bz1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/close.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/coind.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/dh-wxz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/dh-xz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/downj.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/dui.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/fh1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/fl-wxz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/fl-xz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/fxzq.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/hw1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/hw2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/hw3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/kj1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/kj2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/kj3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/kq.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/kq1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/kx-wxz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/kx-xz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/laba.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/line.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/lock.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/lpk.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/mai.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/phone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/qb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/qbao.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/qd.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/rw1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/rw2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/select.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/selected.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/shizi.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/sms.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/spxq.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/tc1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/tx.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/up.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/upj.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/wd-wxz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/wd-xz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/wh.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/xx.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/xxia.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/y.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/yc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/yd.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/yhj-wxz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/yhj-xz.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/yq1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/yq_btn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/yqbr.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/yqm.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/yx.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/zw1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/zw2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/images/zw3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Mobile/Controller/WalletController.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Mobile/View/Login/setphone.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Mobile/View/Member/cert.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Mobile/View/Member/mem_info.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Mobile/View/Member/update_address.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Mobile/View/Member/update_nickname.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Mobile/View/Member/update_passwd.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Mobile/View/Member/update_zfb.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/Mobile/View/Wallet/wallet.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Mobile/css/common/swiper.min.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/App/Mobile/View/Member/addbank.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/App/Mobile/View/Member/pay_select_way.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/App/Mobile/View/Member/pay_success.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/App/Mobile/View/Member/withdraw_money.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/1280-720logo左上(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/backw.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/banner-3-yqs_02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/cz.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/details11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/details333.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/download11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/download111.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/footer_fl.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/footer_hyzx.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/footer_syact.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/footer_tg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/ico-bank.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/ico-bot.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/ico-modifyPas.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/ico-money.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/ico-nickname.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/ico-wallet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/lALPBbCc1rNZIrnNAtDNBQA.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/login_pass.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/login_peo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/logo1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/mem_bgk.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/qrcode.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/star.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/tk.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/tupiansucai_11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/tupiansucai_13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/tupiansucai_15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/tupiansucai_32.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/tupiansucai_34.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/wx.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/images/zfb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Mobile/js/common/fontSize1.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/Mobile/images/coin.png" afterPath="$PROJECT_DIR$/Public/Mobile/images/coin.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/Mobile/images/left.png" afterPath="$PROJECT_DIR$/Public/Mobile/images/left.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/Mobile/images/right.png" afterPath="$PROJECT_DIR$/Public/Mobile/images/right.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/Mobile/images/touxiang.png" afterPath="$PROJECT_DIR$/Public/Mobile/images/touxiang.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/Controller/LuckdrawController.class.php" afterPath="$PROJECT_DIR$/App/Admin/Controller/LuckdrawController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/Luckdraw/detail.html" afterPath="$PROJECT_DIR$/App/Admin/View/Luckdraw/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Admin/View/Luckdraw/index.html" afterPath="$PROJECT_DIR$/App/Admin/View/Luckdraw/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Common/Controller/CommonController.class.php" afterPath="$PROJECT_DIR$/App/Common/Controller/CommonController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/Controller/HomeController.class.php" afterPath="$PROJECT_DIR$/App/Mobile/Controller/HomeController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/Controller/LoginController.class.php" afterPath="$PROJECT_DIR$/App/Mobile/Controller/LoginController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/Controller/MemberController.class.php" afterPath="$PROJECT_DIR$/App/Mobile/Controller/MemberController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/Controller/RegController.class.php" afterPath="$PROJECT_DIR$/App/Mobile/Controller/RegController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/Model/MemberModel.class.php" afterPath="$PROJECT_DIR$/App/Mobile/Model/MemberModel.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/View/Login/index.html" afterPath="$PROJECT_DIR$/App/Mobile/View/Login/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/View/Member/index.html" afterPath="$PROJECT_DIR$/App/Mobile/View/Member/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/View/Public/header.html" afterPath="$PROJECT_DIR$/App/Mobile/View/Public/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/View/Login/setphone.html" afterPath="$PROJECT_DIR$/App/Mobile/View/Login/setphone.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Mobile/View/Reg/index.html" afterPath="$PROJECT_DIR$/App/Mobile/View/Reg/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/Mobile/css/common/reset.css" afterPath="$PROJECT_DIR$/Public/Mobile/css/common/reset.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/Mobile/css/project/style.css" afterPath="$PROJECT_DIR$/Public/Mobile/css/project/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/Mobile/js/common/fontSize.js" afterPath="$PROJECT_DIR$/Public/Mobile/js/common/fontSize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/Mobile/js/common/utils.js" afterPath="$PROJECT_DIR$/Public/Mobile/js/common/utils.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Public/Mobile/images/footer_active.png" afterPath="$PROJECT_DIR$/Public/Mobile/images/rightc.png" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -163,8 +31,8 @@
           <file leaf-file-name="HomeController.class.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/HomeController.class.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-861">
-                  <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+                <state relative-caret-position="555">
+                  <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -173,8 +41,8 @@
           <file leaf-file-name="CommonController.class.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="354">
-                  <caret line="885" column="35" lean-forward="false" selection-start-line="885" selection-start-column="31" selection-end-line="885" selection-end-column="35" />
+                <state relative-caret-position="13245">
+                  <caret line="885" column="35" selection-start-line="885" selection-start-column="31" selection-end-line="885" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -183,8 +51,8 @@
           <file leaf-file-name="MemberModel.class.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/Model/MemberModel.class.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1596">
-                  <caret line="81" column="34" lean-forward="false" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="34" />
+                <state relative-caret-position="1140">
+                  <caret line="81" column="34" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="34" />
                   <folding />
                 </state>
               </provider>
@@ -193,8 +61,8 @@
           <file leaf-file-name="cert.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/cert.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="663">
-                  <caret line="152" column="6" lean-forward="false" selection-start-line="152" selection-start-column="6" selection-end-line="152" selection-end-column="6" />
+                <state relative-caret-position="2280">
+                  <caret line="152" column="6" selection-start-line="152" selection-start-column="6" selection-end-line="152" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -203,18 +71,18 @@
           <file leaf-file-name="MemberController.class.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/MemberController.class.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+                <state relative-caret-position="300">
+                  <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="WalletController.class.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="WalletController.class.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/WalletController.class.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="483">
-                  <caret line="28" column="61" lean-forward="false" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
+                <state relative-caret-position="345">
+                  <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
                   <folding />
                 </state>
               </provider>
@@ -223,20 +91,19 @@
           <file leaf-file-name="RegController.class.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/RegController.class.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="384">
-                  <caret line="46" column="13" lean-forward="true" selection-start-line="42" selection-start-column="11" selection-end-line="46" selection-end-column="13" />
+                <state relative-caret-position="690">
+                  <caret line="46" column="13" selection-start-line="42" selection-start-column="11" selection-end-line="46" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/App/Mobile/View/Reg/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="606">
-                  <caret line="116" column="3" lean-forward="false" selection-start-line="116" selection-start-column="3" selection-end-line="167" selection-end-column="6" />
+                <state relative-caret-position="270">
+                  <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
                   <folding>
-                    <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
                     <element signature="e#2621#3886#0" expanded="false" />
                     <element signature="e#3905#5256#0" expanded="false" />
                   </folding>
@@ -247,22 +114,52 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Public/Mobile/js/common/utils.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="756">
-                  <caret line="78" column="11" lean-forward="false" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="11" />
+                <state relative-caret-position="1170">
+                  <caret line="78" column="11" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="11" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="wallet.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="wallet.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/View/Wallet/wallet.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="63">
-                  <caret line="12" column="123" lean-forward="false" selection-start-line="12" selection-start-column="123" selection-end-line="12" selection-end-column="123" />
+                  <caret line="12" column="123" selection-start-line="12" selection-start-column="123" selection-end-line="12" selection-end-column="123" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="forgetpwd.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/App/Mobile/View/Login/forgetpwd.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="setphone.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/App/Mobile/View/Login/setphone.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="270">
+                  <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/App/Mobile/View/Login/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="270">
+                  <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
                   <folding />
                 </state>
               </provider>
@@ -271,8 +168,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="39" />
+                <state relative-caret-position="225">
+                  <caret line="15" column="39" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="39" />
                   <folding>
                     <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#3;n#body#0;n#!!top" expanded="true" />
@@ -281,11 +178,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Public/Mobile/css/project/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="321">
-                  <caret line="345" column="15" lean-forward="false" selection-start-line="345" selection-start-column="15" selection-end-line="345" selection-end-column="15" />
+                <state relative-caret-position="570">
+                  <caret line="455" column="19" selection-start-line="455" selection-start-column="19" selection-end-line="455" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -347,7 +244,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/App/Admin/View/Member/index.html" />
         <option value="$PROJECT_DIR$/App/Admin/Controller/CompanyController.class.php" />
         <option value="$PROJECT_DIR$/App/Admin/View/Currency/index.html" />
         <option value="$PROJECT_DIR$/App/Admin/View/Currency/edit.html" />
@@ -382,11 +278,7 @@
         <option value="$PROJECT_DIR$/App/Mobile/View/Public/header.html" />
         <option value="$PROJECT_DIR$/Public/Mobile/js/common/utils.js" />
         <option value="$PROJECT_DIR$/App/Common/Controller/CommonController.class.php" />
-        <option value="$PROJECT_DIR$/App/Mobile/View/Login/index.html" />
-        <option value="$PROJECT_DIR$/App/Mobile/View/Reg/index.html" />
-        <option value="$PROJECT_DIR$/App/Mobile/View/Login/setphone.html" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Member/updatezfb.html" />
-        <option value="$PROJECT_DIR$/Public/Mobile/css/project/style.css" />
         <option value="$PROJECT_DIR$/App/Mobile/Controller/RegController.class.php" />
         <option value="$PROJECT_DIR$/App/Mobile/Controller/MemberController.class.php" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Member/update_address.html" />
@@ -398,6 +290,11 @@
         <option value="$PROJECT_DIR$/App/Mobile/View/Member/index.html" />
         <option value="$PROJECT_DIR$/App/Mobile/Controller/WalletController.class.php" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Wallet/wallet.html" />
+        <option value="$PROJECT_DIR$/App/Common/Conf/db.php" />
+        <option value="$PROJECT_DIR$/App/Mobile/View/Login/setphone.html" />
+        <option value="$PROJECT_DIR$/App/Mobile/View/Login/index.html" />
+        <option value="$PROJECT_DIR$/App/Mobile/View/Reg/index.html" />
+        <option value="$PROJECT_DIR$/Public/Mobile/css/project/style.css" />
       </list>
     </option>
   </component>
@@ -412,12 +309,20 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="width" value="1929" />
+    <option name="x" value="39" />
+    <option name="y" value="23" />
+    <option name="width" value="1881" />
     <option name="height" value="1056" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
     <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -441,10 +346,6 @@
               <option name="myItemId" value="yunlian" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yunlian" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -453,10 +354,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="yunlian" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -532,49 +429,13 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yunlian" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yunlian" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yunlian" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yunlian" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="View" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reg" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -590,7 +451,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
+              <option name="myItemId" value="Mobile" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -598,14 +459,54 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Member" />
+              <option name="myItemId" value="Login" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yunlian" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yunlian" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yunlian" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yunlian" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Conf" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -642,23 +543,6 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
-      <PhpTestRunnerSettings />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
-      <node-interpreter value="project" />
-      <working-dir value="" />
-      <envs />
-      <scope-kind value="ALL" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -676,10 +560,6 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
-    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
-      <PhpTestRunnerSettings />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -690,7 +570,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
+      <command value="run-script" />
       <scripts />
       <node-interpreter value="project" />
       <envs />
@@ -734,33 +614,34 @@
       <workItem from="1569295941817" duration="421000" />
       <workItem from="1570093585786" duration="38278000" />
       <workItem from="1570339727203" duration="22067000" />
+      <workItem from="1570419114796" duration="1054000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187618000" />
+    <option name="totallyTimeSpent" value="188672000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1929" height="1056" extended-state="0" />
+    <frame x="39" y="23" width="1881" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12145533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1517129" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -857,7 +738,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/App/Mobile/View/Member/update_passwd.html</url>
           <line>112</line>
-          <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
@@ -866,51 +746,31 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/App/Admin/View/Luckdraw/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="49" column="33" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Admin/Controller/LuckdrawController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="824">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public/Mobile/css/common/swiper.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Public/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/dl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
+          <caret line="22" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/zc.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
-          <caret line="25" column="41" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
+          <caret line="25" column="41" selection-start-line="0" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -927,233 +787,168 @@
     <entry file="file://$PROJECT_DIR$/Public/Mobile/css/common/reset.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding />
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Mobile/js/common/fontSize.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/zwxq.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-441">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/bzzx.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-315">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/dhqr.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1134">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/flxq.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-126">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/fxzq.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-189">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/public.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/smrz.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1521">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/spkj.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-252">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/wd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-504">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/wddd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/wdxx.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/wdzl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-189">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/xgdz.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-231">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="17" />
-          <folding />
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/xgzfb.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-315">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/ylqb.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-252">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/yqhy.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-252">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Admin/View/Good/type.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-63">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Admin/View/Good/typeedit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Mobile/View/Login/setphone.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Mobile/View/Login/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="20" column="61" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/LoginController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
-          <caret line="460" column="5" lean-forward="true" selection-start-line="460" selection-start-column="5" selection-end-line="460" selection-end-column="5" />
-          <folding>
-            <element signature="e#114#153#0#PHP" expanded="true" />
-          </folding>
+          <caret line="460" column="5" selection-start-line="460" selection-start-column="5" selection-end-line="460" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Public/header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
-          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-          <folding />
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/xgdlmm.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Mobile/css/project/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="345" column="15" lean-forward="false" selection-start-line="345" selection-start-column="15" selection-end-line="345" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Mobile/View/Reg/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="116" column="3" lean-forward="false" selection-start-line="116" selection-start-column="3" selection-end-line="167" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="e#2621#3886#0" expanded="false" />
-            <element signature="e#3905#5256#0" expanded="false" />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/RegController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="46" column="13" lean-forward="true" selection-start-line="42" selection-start-column="11" selection-end-line="46" selection-end-column="13" />
+        <state relative-caret-position="690">
+          <caret line="46" column="13" selection-start-line="42" selection-start-column="11" selection-end-line="46" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1161,23 +956,21 @@
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/mem_info.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="63" />
-          <folding />
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/update_nickname.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="6" column="66" lean-forward="false" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
-          <folding />
+          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/update_passwd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
-          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="66" />
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="66" />
           <folding>
             <element signature="e#2383#3642#0" expanded="false" />
           </folding>
@@ -1187,15 +980,14 @@
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/update_address.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="66" />
-          <folding />
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Mobile/js/common/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="78" column="11" lean-forward="false" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="11" />
+        <state relative-caret-position="1170">
+          <caret line="78" column="11" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1203,55 +995,54 @@
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/update_zfb.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="6" column="66" lean-forward="false" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
-          <folding />
+          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/cert.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="152" column="6" lean-forward="false" selection-start-line="152" selection-start-column="6" selection-end-line="152" selection-end-column="6" />
+        <state relative-caret-position="2280">
+          <caret line="152" column="6" selection-start-line="152" selection-start-column="6" selection-end-line="152" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/Model/MemberModel.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="81" column="34" lean-forward="false" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="34" />
+        <state relative-caret-position="1140">
+          <caret line="81" column="34" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="885" column="35" lean-forward="false" selection-start-line="885" selection-start-column="31" selection-end-line="885" selection-end-column="35" />
+        <state relative-caret-position="13245">
+          <caret line="885" column="35" selection-start-line="885" selection-start-column="31" selection-end-line="885" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/HomeController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-861">
-          <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+        <state relative-caret-position="555">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/MemberController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Member/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="39" />
+        <state relative-caret-position="225">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#body#0;n#!!top" expanded="true" />
@@ -1259,18 +1050,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/WalletController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="28" column="61" lean-forward="false" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Admin/View/Member/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-189">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Common/Conf/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1278,7 +1068,58 @@
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Wallet/wallet.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
-          <caret line="12" column="123" lean-forward="false" selection-start-line="12" selection-start-column="123" selection-end-line="12" selection-end-column="123" />
+          <caret line="12" column="123" selection-start-line="12" selection-start-column="123" selection-end-line="12" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Mobile/View/Login/forgetpwd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Mobile/View/Login/setphone.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Mobile/View/Login/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/WalletController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Mobile/View/Reg/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+          <folding>
+            <element signature="e#2621#3886#0" expanded="false" />
+            <element signature="e#3905#5256#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/Mobile/css/project/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="455" column="19" selection-start-line="455" selection-start-column="19" selection-end-line="455" selection-end-column="19" />
           <folding />
         </state>
       </provider>
