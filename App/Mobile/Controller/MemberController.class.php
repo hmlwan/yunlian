@@ -15,10 +15,22 @@ class MemberController extends HomeController {
 
         $db = D('member');
         $member_id = session('USER_KEY_ID');
-
         $member_info = $db->get_info_by_id($member_id);
 
+        /*是否签到*/
+        $sign_where = array(
+            'member_id' => $member_id,
+            'type' => 1,
+            'add_time' => array('between',array(strtotime(date("Y-m-d 00:00:00",time())),strtotime(date("Y-m-d 23:59:59",time()))))
+        );
+       $sign_record = M("luckdraw_record")->where($sign_where)->find();
+       $is_sign = 0;
+        if($sign_record){
+            $is_sign = 1;
+        }
+
         $this->assign('member_info',$member_info);
+        $this->assign('is_sign',$is_sign);
 	    $this->display();
     }
     /*实名认证*/

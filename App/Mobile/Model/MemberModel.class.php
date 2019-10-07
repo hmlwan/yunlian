@@ -110,9 +110,24 @@ class MemberModel extends Model{
             }
         }
         return $str;
-
-
     }
+    public function rechilds ($id){
+        $str = '';
+        $i = 0;
+        $ids = $this->where(array('pid'=>$id))->field('member_id,unique_code')->select();
+        if($ids){
+            $i = $i+1;
 
+            foreach ($ids as $value){
+                $str .= "," . $value['member_id'];
+                if($i < 2){
+                    $str .= $this->childs($value['unique_code']);
+                }
+
+            }
+
+        }
+        return $str;
+    }
 
 }

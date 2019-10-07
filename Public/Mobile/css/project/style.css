@@ -76,7 +76,7 @@
 .wd_header .wd_r{
     float: right;
     height: 1rem;
-    width: .3rem;
+    width: .26rem;
     background: url("../../images/rightc.png") no-repeat center;
     background-size: 50%;
 }
@@ -194,7 +194,7 @@
 }
 .wd_con .wd_con_info a em{
     float: right;
-    width: .3rem;
+    width: .26rem;
     background: url("../../images/rightc.png") no-repeat center;
     height: 1rem;;
     background-size: 50%;
@@ -1088,7 +1088,8 @@ div::-webkit-scrollbar {
 }
 .mrrw div .rw_jl{
     font-size: .26rem;
-    margin: .5rem 0;
+    margin-top: .4rem ;
+    height: .9rem;
     color:#3e403f
 }
 .mrrw div .rw_jl span{
@@ -1153,7 +1154,7 @@ div::-webkit-scrollbar {
     background: url("../../images/rightc.png") no-repeat center;
     background-size: 50%;
     height: .5rem;
-    width: .2rem;
+    width: .24rem;
     display: inline-block;
     vertical-align: middle;
 }
@@ -1161,7 +1162,7 @@ div::-webkit-scrollbar {
     background: url("../../images/xxia.png") no-repeat center;
     background-size: 100%;
     height: .5rem;
-    width: .2rem;
+    width: .24rem;
     display: inline-block;
     vertical-align: middle;
 }
@@ -1188,7 +1189,7 @@ div::-webkit-scrollbar {
 .yqhy .yqhy_h p:first-child{
     font-size: .4rem;
     font-weight: bold;
-    margin: .3rem 0 .2rem;
+    margin: .5rem 0 .2rem;
 }
 .yqhy .yqhy_h p:last-child{
     font-size: .3rem;
@@ -1237,7 +1238,7 @@ div::-webkit-scrollbar {
 }
 .yqhy .yqhy_js p{
     margin: .25rem;
-    font-size: .24rem;
+    font-size: .23rem;
     color:#161616
 }
 .yqhy .yqhy_b{
@@ -1258,8 +1259,8 @@ div::-webkit-scrollbar {
     font-size: .26rem;
 }
 .yqhy_b table tr th:nth-child(1),.yqhy_b table tr td:nth-child(1){
-    width: 50%;
-    text-align: center;
+    width: 45%;
+    text-align: left;
 
 }
 .yqhy_b table tr th:nth-child(2),.yqhy_b table tr td:nth-child(2){
@@ -1267,7 +1268,7 @@ div::-webkit-scrollbar {
     text-align: center;
 }
 .yqhy_b table tr th:nth-child(3),.yqhy_b table tr td:nth-child(3){
-    width: 25%;
+    width: 30%;
     text-align: right;
 }
 
@@ -1366,7 +1367,7 @@ div::-webkit-scrollbar {
 }
 .bzzx_c ul li i{
     height: .75rem;
-    width: .2rem;
+    width: .24rem;
     float: right;
     background: url("../../images/rightc.png") no-repeat center;
     background-size: 50%;
@@ -1376,7 +1377,7 @@ div::-webkit-scrollbar {
 }
 .bzzx_c ul li .active{
     height: .75rem;
-    width: .2rem;
+    width: .24rem;
     float: right;
     background: url("../../images/xxia.png") no-repeat center;
     background-size: 100%;
@@ -1389,6 +1390,7 @@ div::-webkit-scrollbar {
     color:#8e8e8e;
     margin: 0 .25rem;
     display: none;
+    padding-bottom: 10px;
 }
 /*福利*/
 .fl_item{

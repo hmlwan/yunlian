@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-10-06 22:15:21
+Date: 2019-10-07 20:56:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3574,6 +3574,10 @@ INSERT INTO `blue_config` VALUES ('qq', '824398038', '1', 'QQ');
 INSERT INTO `blue_config` VALUES ('technical_support', 'hmlwan(824398038)', '1', '技术支持');
 INSERT INTO `blue_config` VALUES ('cert_num', '5', '1', '认证次数');
 INSERT INTO `blue_config` VALUES ('set_user_currency', '2', '1', '设置用户币种');
+INSERT INTO `blue_config` VALUES ('sign_luckdraw_title', '每日签到', '1', '签到抽奖规则');
+INSERT INTO `blue_config` VALUES ('init_recomment_code', '1000000', '1', '初始推荐码');
+INSERT INTO `blue_config` VALUES ('first_promotion', '一级推广', '1', '一级推广');
+INSERT INTO `blue_config` VALUES ('second_promotion', '二级推广', '1', '二级推广');
 
 -- ----------------------------
 -- Table structure for `blue_currency`
@@ -3628,6 +3632,7 @@ CREATE TABLE `blue_goods` (
   `spec` varchar(2048) DEFAULT NULL COMMENT '商品规格',
   `status` tinyint(5) DEFAULT '0' COMMENT '状态 1：发布 0：未发布',
   `sort` tinyint(4) DEFAULT '1' COMMENT '排序',
+  `luckdraw_num` varchar(50) DEFAULT NULL COMMENT '抽奖数值（唯一）',
   `is_exchange` tinyint(6) DEFAULT '1' COMMENT '是否兑换 0 否 1是',
   `introduce` text COMMENT '商品详情',
   `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
@@ -3638,7 +3643,7 @@ CREATE TABLE `blue_goods` (
 -- ----------------------------
 -- Records of blue_goods
 -- ----------------------------
-INSERT INTO `blue_goods` VALUES ('1', '2', 'honor荣耀 荣耀10青春版', '景斗云2.0会员预售优享价', '2', '1200.00', '/Uploads/Public/Uploads/2019-10-04/5d973c2c52e87.jpg', '{\"spec_name\":\"颜色\",\"spec_val\":[\"绿色\",\"蓝色\",\"红色\"]}', '1', '1', '1', '&lt;img src=&quot;/Public/kindeditor/attached/image/20191004/20191004122753_35257.jpg&quot; alt=&quot;&quot; /&gt;', null, '1570194024');
+INSERT INTO `blue_goods` VALUES ('1', '2', 'honor荣耀 荣耀10青春版', '景斗云2.0会员预售优享价', '2', '1200.00', '/Uploads/Public/Uploads/2019-10-04/5d973c2c52e87.jpg', '{\"spec_name\":\"颜色\",\"spec_val\":[\"绿色\",\"蓝色\",\"红色\"]}', '1', '1', null, '1', '&lt;img src=&quot;/Public/kindeditor/attached/image/20191004/20191004122753_35257.jpg&quot; alt=&quot;&quot; /&gt;', null, '1570194024');
 
 -- ----------------------------
 -- Table structure for `blue_goods_type`
@@ -3695,6 +3700,31 @@ INSERT INTO `blue_luckdraw_conf_detail` VALUES ('2', '1', '1');
 INSERT INTO `blue_luckdraw_conf_detail` VALUES ('3', '2', '1');
 
 -- ----------------------------
+-- Table structure for `blue_luckdraw_record`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_luckdraw_record`;
+CREATE TABLE `blue_luckdraw_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL COMMENT '商品类型',
+  `type_name` varchar(100) DEFAULT NULL COMMENT '类型名称',
+  `good_id` varchar(50) DEFAULT NULL COMMENT '商品id -1表示未中奖',
+  `good_name` varchar(100) DEFAULT NULL,
+  `num` decimal(10,0) DEFAULT '0' COMMENT '数量',
+  `price` decimal(8,2) DEFAULT NULL,
+  `type` tinyint(4) DEFAULT NULL COMMENT '抽奖类型 1：签到 2:推广',
+  `micrtimes` varchar(200) DEFAULT NULL COMMENT '时间戳 微秒',
+  `mod` varchar(100) DEFAULT NULL COMMENT '余数',
+  `add_time` int(11) DEFAULT NULL COMMENT '时间',
+  `sub_id` int(11) DEFAULT NULL COMMENT '下级id',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='签到记录表';
+
+-- ----------------------------
+-- Records of blue_luckdraw_record
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `blue_member`
 -- ----------------------------
 DROP TABLE IF EXISTS `blue_member`;
@@ -3714,6 +3744,7 @@ CREATE TABLE `blue_member` (
   `forzen_rmb` decimal(20,2) DEFAULT '0.00' COMMENT 'forzen_rmb',
   `is_lock` tinyint(2) NOT NULL DEFAULT '0' COMMENT '0是正常 1是锁定',
   `status` tinyint(4) DEFAULT '0' COMMENT '0:未注册成功 1：注册成功',
+  `unique_code` varchar(50) DEFAULT NULL COMMENT '唯一值',
   PRIMARY KEY (`member_id`),
   KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
@@ -3721,7 +3752,7 @@ CREATE TABLE `blue_member` (
 -- ----------------------------
 -- Records of blue_member
 -- ----------------------------
-INSERT INTO `blue_member` VALUES ('9', '123456', 'e10adc3949ba59abbe56e057f20f883e', '1000000', '测试', null, '15179811531', '127.0.0.1', '1563933002', '127.0.0.1', '1570360441', '50.00', '0.00', '0', '1');
+INSERT INTO `blue_member` VALUES ('9', '123456', 'e10adc3949ba59abbe56e057f20f883e', '1000000', '测试', null, '15179811531', '127.0.0.1', '1563933002', '127.0.0.1', '1570360441', '50.00', '0.00', '0', '1', '1000000');
 
 -- ----------------------------
 -- Table structure for `blue_member_address`
@@ -3748,21 +3779,39 @@ DROP TABLE IF EXISTS `blue_member_goods`;
 CREATE TABLE `blue_member_goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` int(11) DEFAULT NULL,
+  `good_id` int(11) DEFAULT NULL COMMENT '商品id',
+  `num` int(10) DEFAULT '0' COMMENT '总数量',
+  `good_name` varchar(200) DEFAULT NULL COMMENT '商品名称',
+  `price` decimal(10,2) DEFAULT NULL,
+  `valid_num` int(10) DEFAULT NULL COMMENT '可兑换商品卡数量',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户购买商品卡表';
+
+-- ----------------------------
+-- Records of blue_member_goods
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `blue_member_goods_detail`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_member_goods_detail`;
+CREATE TABLE `blue_member_goods_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) DEFAULT NULL,
   `type_id` int(11) DEFAULT NULL COMMENT '商品类别',
   `type_name` varchar(200) DEFAULT NULL COMMENT '商品类别名称',
   `good_id` int(11) DEFAULT NULL COMMENT '商品id',
   `good_name` varchar(200) DEFAULT NULL COMMENT '商品名称',
   `num` int(10) DEFAULT NULL COMMENT '数量',
   `price` decimal(8,2) DEFAULT NULL COMMENT '价格',
-  `valid_num` int(10) DEFAULT NULL COMMENT '可兑换商品卡数量',
-  `is_used` tinyint(5) DEFAULT '0' COMMENT '是否用完 1：是 0：否',
   `is_exchange` tinyint(5) DEFAULT NULL COMMENT '是否可兑换实物',
+  `origin_type` tinyint(6) DEFAULT '1' COMMENT '来源 1：购买2：签到抽奖3:推广',
   `create_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户购买商品卡表';
 
 -- ----------------------------
--- Records of blue_member_goods
+-- Records of blue_member_goods_detail
 -- ----------------------------
 
 -- ----------------------------
@@ -3798,7 +3847,7 @@ CREATE TABLE `blue_message` (
   `message_id` int(32) NOT NULL AUTO_INCREMENT,
   `title` varchar(32) NOT NULL COMMENT '消息标题',
   `member_id` varchar(100) NOT NULL,
-  `type` tinyint(4) NOT NULL COMMENT '类型：1：系统消息',
+  `type` tinyint(4) NOT NULL COMMENT '类型：1：系统消息2签到3推广',
   `content` text NOT NULL,
   `add_time` int(10) NOT NULL,
   `is_read` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否已读 0：否 1：是',
@@ -3983,24 +4032,4 @@ CREATE TABLE `blue_sign_conf` (
 
 -- ----------------------------
 -- Records of blue_sign_conf
--- ----------------------------
-
--- ----------------------------
--- Table structure for `blue_sign_record`
--- ----------------------------
-DROP TABLE IF EXISTS `blue_sign_record`;
-CREATE TABLE `blue_sign_record` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `member_id` int(11) DEFAULT NULL,
-  `currency_name` varchar(50) DEFAULT NULL COMMENT '币种名称',
-  `currency_en` varchar(50) DEFAULT NULL COMMENT '币种英文标识',
-  `currency_num` decimal(8,2) DEFAULT NULL COMMENT '币种数量',
-  `num` tinyint(10) DEFAULT NULL COMMENT '余数',
-  `timestamp` varchar(100) DEFAULT NULL COMMENT '时间戳',
-  `create_time` int(11) DEFAULT NULL COMMENT '时间戳',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='签到记录表';
-
--- ----------------------------
--- Records of blue_sign_record
 -- ----------------------------

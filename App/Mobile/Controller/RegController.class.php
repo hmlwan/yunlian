@@ -62,7 +62,14 @@ class RegController extends CommonController {
             }else{
                 $r = $M_member->add();
                 if($r){
-//                    session('procedure',1);//SESSION 跟踪第一步
+                    $last_mem = M('Member')->order('member_id desc')->limit(1)->find();
+                    if($last_mem){
+                         $unique_code = $last_mem['unique_code'] + rand(1, 20);
+                    }else{
+                         $unique_code = $this->config['init_recomment_code'];
+                     }
+                    $M_member->where(array('member_id'=>$r))->save(array('unique_code'=>$unique_code));
+
                     $data['status'] = 1;
                     $data['info'] = '注册成功，请去登录';
                     $this->ajaxReturn($data);
@@ -84,7 +91,8 @@ class RegController extends CommonController {
         $this->display();
     }
     /*注册成功操作*/
-    public function op_reg(){
+    public function op_reg()
+    {
         if(IS_POST){
             $phone = I('phone');
             $procedure = $_SESSION['procedure'];

@@ -716,3 +716,11 @@ function array_value_minus()
     }
     return $res;
 }
+
+
+
+function microtime_float()
+{
+    list($usec, $sec) = explode(" ", microtime());
+    return number_format(((float)$usec + (float)$sec)*10000,0,'','');
+}

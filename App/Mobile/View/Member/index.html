@@ -45,7 +45,7 @@
     <div class="wd_mid">
         <ul>
            <li>
-               <a href="{:U('Wallet/wallet')}">
+               <a href="{:U('Sys/wallet')}">
                    <img src="__IMG__/qb.png" alt="">
                     <span> 云链钱包</span>
                </a>
@@ -57,13 +57,13 @@
                </a>
            </li>
            <li>
-               <a href="">
+               <a href="javascript:;" class="day_sign" data-is_sign="{$is_sign}" onclick="sign()">
                    <img src="__IMG__/qd.png" alt="">
                    <span>每日签到</span>
                </a>
            </li>
             <li>
-                <a href="wdxx.html">
+                <a href="{:U('Sys/message')}">
                     <img src="__IMG__/xx.png" alt="">
                     <span>我的消息</span>
                     <i>new</i>
@@ -80,8 +80,8 @@
             <div><a href="wyqd.html"><img src="__IMG__/rw1.png" alt=""><span>每日任务 <em></em></span></a> </div>
             <div><a href="wdyj.html"><img src="__IMG__/kq1.png" alt=""><span>省券返利 <em></em></span></a> </div>
             <div><a href="wddd.html"><img src="__IMG__/rw2.png" alt=""><span>我的订单 <em></em></span></a> </div>
-            <div><a href="yqhy.html"><img src="__IMG__/yq1.png" alt=""><span class="yqhy">邀请好友 <em></em><i class="hot"><i>HOT</i></i></span></a> </div>
-            <div><a href="bzzxhtml"><img src="__IMG__/bz1.png" alt=""><span>帮助中心<em></em></span> </a> </div>
+            <div><a href="{:U('invite/index')}"><img src="__IMG__/yq1.png" alt=""><span class="yqhy">邀请好友 <em></em><i class="hot"><i>HOT</i></i></span></a> </div>
+            <div><a href="{:U('Help/index')}"><img src="__IMG__/bz1.png" alt=""><span>帮助中心<em></em></span> </a> </div>
             <div><a href="{:U('Login/loginOut')}"><img src="__IMG__/tc1.png" alt=""><span>退出登录 <em></em></span></a> </div>
         </div>
     </div>
@@ -132,7 +132,7 @@
     </ul>
 </div>
 <script>
-    $(".close").click(function () {
+    $(".close,.mrrw .rw_btn").click(function () {
         $(".mrrw").hide();
         $(".zhezhao_c").attr("class","zhezhao_c");
 
@@ -142,6 +142,30 @@
         $(".smjl").show();
         $(".zhezhao_c").attr("class","zhezhao_c zhezhao");
     }
+
+    function sign(){
+        var is_sign = $(".day_sign").data('is_sign');
+        if(is_sign == 1){ //已签到
+            layer.msg("今日已签到，明天再来",{icon:1});
+            return  false;
+        }
+        $.post("{:U('Sys/sign')}",{
+        },function(data){
+            $(".mrrw").show();
+            $(".zhezhao_c").attr("class","zhezhao_c zhezhao");
+            $(".mrrw").find(".rw_jl").html(data.info);
+            $(".day_sign").data('is_sign',1)
+//            if(data.status==1){
+//                $(".mrrw").show();
+//                $(".zhezhao_c").attr("class","zhezhao_c zhezhao");
+//                $(".mrrw").find(".rw_jl").html(data.info);
+//            }else{
+//                layer.msg(data.info);
+//                return false;
+//            }
+        })
+    }
+
 
 </script>
 <include file="Public:footer"/>
