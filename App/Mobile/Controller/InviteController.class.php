@@ -118,7 +118,6 @@ class InviteController extends HomeController
     public function get_reward(){
 
         $member_id = session('USER_KEY_ID');
-
         $level = I('level');
         if($level == 1){ /*一级推广*/
             $sign_luckdraw_title = $this->config['first_promotion'];
