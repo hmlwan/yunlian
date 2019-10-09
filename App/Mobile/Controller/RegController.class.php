@@ -70,6 +70,18 @@ class RegController extends CommonController {
                      }
                     $M_member->where(array('member_id'=>$r))->save(array('unique_code'=>$unique_code));
 
+                    /*添加用户币种*/
+                    $cur_list = M('currency')->where(array('is_lock'=>0))->select();
+                    $user_cur_data = array(
+                        'member_id'=>$r,
+                        'num' => 0,
+                        'forzen_num' => 0,
+                        'status' => 1,
+                    );
+                    foreach ($cur_list as $c_value){
+                        $user_cur_data['currency_id'] = $c_value['currency_id'];
+                        M('currency_user')->add($user_cur_data);
+                    }
                     $data['status'] = 1;
                     $data['info'] = '注册成功，请去登录';
                     $this->ajaxReturn($data);

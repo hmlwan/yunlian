@@ -72,7 +72,9 @@ class ArticleController extends AdminController{
     	$article_category_id = I('article_category_id');
         if(IS_POST){
             $data['title']=I('post.title');//标题
-            $data['content'] =  html_entity_decode(I('post.content'));//内容
+//            $data['content'] =  html_entity_decode(I('post.content'));//内容
+            $data['content'] = stripslashes(htmlspecialchars_decode($_POST['content']));
+
             $data['position_id'] = I('post.category_id');//类型  根据类型表的id 对比
             $data['add_time'] = time();//添加时间
             $data['is_top'] =I('is_top');//是否置顶

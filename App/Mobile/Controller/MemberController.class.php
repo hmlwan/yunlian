@@ -195,7 +195,6 @@ class MemberController extends HomeController {
             $is_exist = $db->where(array('member_id'=>$member_id))->find();
             if($is_exist){
                 $res = $db->where(array('member_id'=>$member_id))->save($save_data);
-
             }else{
                 $save_data['member_id'] =$member_id;
                 $res = $db->add($save_data);

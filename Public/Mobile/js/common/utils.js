@@ -288,6 +288,7 @@ Utils.clipboard = function (opts) {
         time : 500
     }, opts || {});
     if(opts.target === undefined || !$(opts.target.length) || typeof Clipboard == 'undefined') return;
+    console.log();
     var clipboard = new Clipboard(opts.target);
     clipboard.on('success', function(e) {
         e.clearSelection();

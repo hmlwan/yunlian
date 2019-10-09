@@ -4,7 +4,13 @@
 <div>
     <header>
         <div class="header_bt">
-            <div class="header_f"><a href="{:U('Member/mem_info')}" class="header_fh"></a></div>
+            <div class="header_f">
+                <if condition="$Think.get.type eq 1">
+                    <a href="{:U('Order/mem_goods_detail',array('id'=>$_GET['id']))}" class="header_fh"></a>
+                <else />
+                    <a href="{:U('Member/mem_info')}" class="header_fh"></a>
+                </if>
+            </div>
             <div class="header_c">修改我的地址</div>
         </div>
         <div style="height: .74rem;clear: both;"></div>
@@ -47,7 +53,7 @@
             </a>
         </li>
         <li class="footer_f2">
-            <a href="b2c_fenlei_01.html">
+            <a href="{:U('Welfare/outindex')}">
                 福利
             </a>
         </li>
@@ -62,7 +68,7 @@
             </a>
         </li>
         <li class="footer_f5 footer_active_f5">
-            <a href="grzx.html">
+            <a href="{:U('Member/index')}">
                 我的
             </a>
         </li>
@@ -92,9 +98,9 @@
         },function(data){
             if(data.status==1){
                 layer.msg(data.info,{icon:1});
-                window.setTimeout(function(){
-                    window.location="{:U('Member/mem_info')}";
-                },1000);
+//                window.setTimeout(function(){
+//                    window.location="{:U('Member/mem_info')}";
+//                },1000);
             }else{
                 layer.msg(data.info);
                 return false;

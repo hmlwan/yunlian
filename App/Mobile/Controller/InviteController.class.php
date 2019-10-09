@@ -196,6 +196,7 @@ class InviteController extends HomeController
                     'good_id' => $good_info['id'],
                     'price' => $good_info['price'],
                     'good_name' => $good_info['good_name'],
+                    'add_time' => time()
                 );
                 if($member_goods_info){
                     $mem_goods_data['num'] = $member_goods_info['num'] + 1;
@@ -237,6 +238,4 @@ class InviteController extends HomeController
             $this->ajaxReturn($data);
         }
     }
-
-
 }

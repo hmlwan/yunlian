@@ -63,8 +63,10 @@ class MessageController extends AdminController {
 
 			$data ['status'] = 0;
 			$data ['title'] = I ( 'post.title' );
-			$data ['content'] = I ( 'post.content', '', 'html_entity_decode' );
-			$data ['type'] = 1;
+//			$data ['content'] = I ( 'post.content', '', 'html_entity_decode' );
+            $data['content'] = stripslashes(htmlspecialchars_decode($_POST['content']));
+
+            $data ['type'] = 1;
 			$M_Message_all = D ( 'Message_all' );
 			if (! $M_Message_all->create ( $data )) {
 				$this->error ( $M_Message_all->getError () );

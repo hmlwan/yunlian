@@ -726,7 +726,7 @@ div::-webkit-scrollbar {
 .spkj li .spkj_b  .sy_btn{
     float: right;
     color:#363636;
-    padding: .06rem .45rem;
+    padding: .06rem .35rem;
     background-color: #f2d95b;
     border-radius:20px;
 }
@@ -779,7 +779,7 @@ div::-webkit-scrollbar {
 }
 .dhqr .tjdz_c p{
     font-weight: bold;
-    font-size: .3rem;
+    font-size: .26rem;
     color:#292929;
     margin-top: .2rem;
     float: left;
@@ -885,11 +885,11 @@ div::-webkit-scrollbar {
     margin-top: .2rem;
 }
 .spec p span{
-    padding: .1rem .25rem;
+    padding: .1rem .4rem;
     background-color: #f2f2f2;
     border-radius: 20px;
     color:#1f1f1f;
-    margin-right: .15rem;
+    margin-right: .25rem;
     font-size: .23rem;
     margin-bottom: .2rem;
     display: inline-block;
@@ -898,7 +898,7 @@ div::-webkit-scrollbar {
 .spec p .active{
     color:#b53e3e;
     background-color: #fceceb;
-    border: 1px solid #b53e3e;
+    border: .01rem solid #b53e3e;
 }
 .psong,.tj_c{
     width: 90%;
@@ -976,15 +976,16 @@ div::-webkit-scrollbar {
     overflow: hidden;
 }
 .spk_m .spk_c{
-    width: 90%;
+    width: 92%;
     margin: .2rem auto;
-    font-size: .24rem;
+    font-size: .23rem;
     overflow: hidden;
 }
 .spk_c .spk_l{
     float: left;
     color:#7e7e7e;
-    width: 80%;
+    width: 78%;
+    font-size: .23rem;
 }
 .spk_c .spk_l img{
     height: 1.5rem;
@@ -998,10 +999,16 @@ div::-webkit-scrollbar {
 }
 .spk_c .spk_l .title{
     color:#3d3d3d;
-    margin-bottom: .1rem;
+    margin-bottom: .2rem;
+}
+.spk_c .spk_l p{
+    width: 60%;
+    float: left;
+    margin-bottom: .2rem;
 }
 .spk_c .lpk_r{
     float: right;
+    font-size: .23rem;
 }
 .spk_c .lpk_r i{
     height: .3rem;
@@ -1013,8 +1020,8 @@ div::-webkit-scrollbar {
 }
 .wddd_c_1 .spk_f{
     width: 90%;
-    height: 1rem;
-    line-height: 1rem;
+    height: .8rem;
+    line-height: .8rem;
     margin: 0 auto;
     font-size: .25rem;
     overflow: hidden;
@@ -1027,7 +1034,7 @@ div::-webkit-scrollbar {
     float: right;
 }
 .wddd_c_1 .spk_f .copy i{
-    padding: .1rem .15rem;
+    padding: .08rem .15rem;
     border: .01rem solid #afafaf;
     color:#afafaf;
     border-radius: 5px;
@@ -1582,8 +1589,8 @@ div::-webkit-scrollbar {
 
 }
 .gmsp .gmsl_btn{
-    height: .8rem;
-    line-height: .8rem;
+    height: .75rem;
+    line-height: .75rem;
     background-color: #f2ca3d;
     font-size: .25rem;
     font-weight: bold;
