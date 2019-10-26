@@ -18,7 +18,7 @@
                         <if condition="$member_info['head_url']">
                             <img src="{$member_info['head_url']}" class="wd_head" alt="">
                         <else />
-                            <img src="__IMG__/touxiang.png" class="wd_head" alt="">
+                            <img src="__IMG__/tx1.png" class="wd_head" alt="">
                         </if>
                     </i>
                     <em></em>
@@ -71,13 +71,31 @@
                     <em></em>
                 </span>
                 </a>
-
             </div>
-
         </div>
     </div>
 </div>
-
+<div class="zhezhao_c"></div>
+<div class="chose_head" >
+    <p class="close"></p>
+    <div class="swiper-container chose_head_l" >
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="__IMG__/tx1.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx2.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx3.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx4.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx5.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx6.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx7.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx8.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx9.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx10.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx11.png" alt=""><i></i></div>
+            <div class="swiper-slide"><img src="__IMG__/tx12.png" alt=""><i></i></div>
+        </div>
+    </div>
+    <div class="btn" onclick="sub()">确定修改</div>
+</div>
 <div style="height: .9rem;"></div>
 <div class="footer_main">
     <ul>
@@ -108,5 +126,45 @@
         </li>
     </ul>
 </div>
+<script>
+    var mySwiper = new Swiper('.chose_head_l',{
+        slidesPerView :'3',
+    });
+    $(".chose_head_l").find(".swiper-slide").click(function () {
+        $(this).attr('class','swiper-slide active');
+        $(this).siblings(".swiper-slide").attr('class','swiper-slide');
+    });
+    function sub(){
+        var obj = $(".chose_head_l").find(".swiper-slide[class='swiper-slide active']");
+        if(!obj){
+            layer.msg('请选择头像');
+            return false
+        }
+        var head_url = obj.find('img').attr('src');
+        $.post("{:U('Member/change_head')}",{
+            head_url:head_url,
+        },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon:1});
+                window.setTimeout(function(){
+                    window.location="{:U('Member/mem_info')}";
+                },1000);
+            }else{
+                layer.msg(data.info);
+                return false;
+            }
+        })
+    };
+    $(".chose_head").hide();
+    $(".wdzl_head").click(function () {
+        $(".chose_head").show();
+        $(".zhezhao_c").attr("class","zhezhao_c zhezhao");
+    });
+    $(".close,.mrrw .rw_btn").click(function () {
+        $(".chose_head").hide();
+        $(".zhezhao_c").attr("class","zhezhao_c");
+
+    });
+</script>
 <include file="Public:footer"/>
 

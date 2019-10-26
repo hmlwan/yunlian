@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-10-09 21:50:17
+Date: 2019-10-26 21:28:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `blue_admin` (
 -- ----------------------------
 -- Records of blue_admin
 -- ----------------------------
-INSERT INTO `blue_admin` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', null, '1,103,7,23,41,101,50,105,106,58,89,92,93,104,94,95,96,97,98,99,100', '0');
+INSERT INTO `blue_admin` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', null, '1,103,7,23,41,101,50,105,106,108,109,58,89,92,93,104,94,95,96,97,98,99,100,110,111', '0');
 
 -- ----------------------------
 -- Table structure for `blue_areas`
@@ -3636,7 +3636,130 @@ CREATE TABLE `blue_currency_user` (
 -- ----------------------------
 -- Records of blue_currency_user
 -- ----------------------------
-INSERT INTO `blue_currency_user` VALUES ('2', '9', '2', '4000.00', '0.00', '1');
+INSERT INTO `blue_currency_user` VALUES ('2', '9', '2', '4001.00', '0.00', '1');
+
+-- ----------------------------
+-- Table structure for `blue_exchange_freeze`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_exchange_freeze`;
+CREATE TABLE `blue_exchange_freeze` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `freeze_reson` tinyint(4) DEFAULT NULL COMMENT '冻结原因 1官方封禁 2交易纠纷',
+  `freeze_time` int(11) DEFAULT NULL COMMENT '冻结时间',
+  `desc` varchar(1024) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of blue_exchange_freeze
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `blue_exchange_order`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_exchange_order`;
+CREATE TABLE `blue_exchange_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pub_id` int(11) DEFAULT NULL COMMENT '挂单发布id',
+  `order_no` varchar(200) DEFAULT NULL,
+  `type` tinyint(4) DEFAULT NULL COMMENT '1:买单 2：卖单',
+  `buy_mem_id` int(11) DEFAULT NULL COMMENT '买家id',
+  `buy_mem_phone` int(11) DEFAULT NULL COMMENT '买家手机号',
+  `sale_mem_id` int(11) DEFAULT NULL COMMENT '卖家id',
+  `sale_mem_phone` int(11) DEFAULT NULL COMMENT '卖家手机号',
+  `currency_id` int(11) DEFAULT NULL COMMENT '币种id',
+  `zfb_no` varchar(200) DEFAULT NULL COMMENT '卖家支付宝',
+  `zfb_username` varchar(50) DEFAULT NULL COMMENT '卖家姓名',
+  `price` decimal(20,2) DEFAULT NULL COMMENT '价格',
+  `num` int(11) DEFAULT NULL COMMENT '数量',
+  `status` tinyint(6) DEFAULT NULL COMMENT '1:买家打款中 2:卖家确认中 3：交易完成 4：争执中 5:',
+  `add_time` int(11) DEFAULT NULL COMMENT '下单时间',
+  `pay_time` int(11) DEFAULT NULL COMMENT '付款时间',
+  `dispute_time` int(11) DEFAULT NULL COMMENT '争执时间',
+  `complete_time` int(11) DEFAULT NULL COMMENT '完成时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='兑换交易订单';
+
+-- ----------------------------
+-- Records of blue_exchange_order
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `blue_exchange_orde_dispute_result`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_exchange_orde_dispute_result`;
+CREATE TABLE `blue_exchange_orde_dispute_result` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `exchange_order_id` int(11) DEFAULT NULL,
+  `buy_result` tinyint(4) DEFAULT NULL COMMENT '1：买家 2：卖家',
+  `sale_result` tinyint(3) DEFAULT NULL COMMENT '是否收到款 ，是否付款1：是 0：否',
+  `buy_reason` varchar(500) DEFAULT NULL COMMENT '买家投诉理由',
+  `sale_reason` varchar(500) DEFAULT NULL COMMENT '卖家申诉理由',
+  `buy_add_time` int(11) DEFAULT NULL COMMENT '买家投诉时间',
+  `sale_add_time` int(11) DEFAULT NULL COMMENT '卖家申诉时间',
+  `status` tinyint(4) DEFAULT NULL COMMENT '1:买家投诉中2：卖家申诉中3：系统评判中 5：买方胜6：卖方胜',
+  `sys_reson` varchar(500) DEFAULT NULL COMMENT '系统判定理由',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of blue_exchange_orde_dispute_result
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `blue_exchange_pub`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_exchange_pub`;
+CREATE TABLE `blue_exchange_pub` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_no` varchar(100) DEFAULT NULL COMMENT '订单号',
+  `type` tinyint(4) DEFAULT NULL COMMENT '1:挂买单 2：挂卖单',
+  `member_id` int(11) DEFAULT NULL COMMENT '用户id',
+  `phone` int(11) DEFAULT NULL COMMENT '发布者手机号',
+  `currency_id` int(11) DEFAULT NULL COMMENT '币种id',
+  `zfb_no` varchar(100) DEFAULT NULL COMMENT '卖单支付宝账号',
+  `zfb_username` varchar(50) DEFAULT NULL COMMENT '姓名',
+  `price` decimal(20,2) DEFAULT NULL COMMENT '价格',
+  `num` int(11) DEFAULT '0' COMMENT '数量',
+  `status` tinyint(4) DEFAULT NULL COMMENT '1:发布中（刚发布未产生交易）2:进行中（正在交易） 3:取消挂单（主动买卖家取消挂单）4:交易成功5:交易失败',
+  `add_time` int(11) DEFAULT NULL COMMENT '发布时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='兑换挂单发布管理';
+
+-- ----------------------------
+-- Records of blue_exchange_pub
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `blue_exhange_config`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_exhange_config`;
+CREATE TABLE `blue_exhange_config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `currency_id` int(11) DEFAULT NULL COMMENT '币种id',
+  `sale_rate` decimal(20,2) DEFAULT NULL COMMENT '直接卖需要支付币数量(单位：100)',
+  `buy_rate` decimal(20,2) DEFAULT NULL COMMENT '直接买，到账币数量（单位：100）',
+  `hang_sale_rate` decimal(20,2) DEFAULT NULL COMMENT '挂卖单,需支付币数量（单位：100）',
+  `bang_buy_rate` decimal(20,2) DEFAULT NULL COMMENT '挂买单,实际到账数量（单位：100）',
+  `deal_start_time` varchar(50) DEFAULT NULL COMMENT '交易开始时间',
+  `deal_end_time` varchar(50) DEFAULT NULL COMMENT '交易结束时间',
+  `unit_price` decimal(20,2) DEFAULT NULL COMMENT '单价 1币的单价',
+  `num_json` varchar(1024) DEFAULT NULL COMMENT '数量限额 ',
+  `invalid_time` varchar(50) DEFAULT NULL COMMENT '失效时间 发布订单多少小时后该订单将会自动下架',
+  `limit_order_ticket_nums` varchar(50) DEFAULT NULL COMMENT '委托单数量',
+  `is_open_single_deal` tinyint(4) DEFAULT '1' COMMENT '是否开启单一交易开关 1：开启 0关闭',
+  `is_open_deal` tinyint(4) DEFAULT '1' COMMENT '是否开启交易 1：开启 0：关闭',
+  `op_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='兑换设置表';
+
+-- ----------------------------
+-- Records of blue_exhange_config
+-- ----------------------------
+INSERT INTO `blue_exhange_config` VALUES ('1', '2', '100.00', '100.00', '100.00', '100.00', '9:00', '24:00', '1.00', '[\"100\",\"300\",\"500\",\"1000\",\"3000\",\"5000\",\"10000\"]', '24', '3', '1', '1', '1572080461');
+INSERT INTO `blue_exhange_config` VALUES ('2', '2', '100.00', '100.00', '100.00', '100.00', '9:00', '24:00', '1.00', null, '24', '3', '1', '1', null);
 
 -- ----------------------------
 -- Table structure for `blue_goods`
@@ -3773,7 +3896,7 @@ CREATE TABLE `blue_member` (
 -- ----------------------------
 -- Records of blue_member
 -- ----------------------------
-INSERT INTO `blue_member` VALUES ('9', '123456', 'e10adc3949ba59abbe56e057f20f883e', '1000000', '测试', null, '15179811531', '127.0.0.1', '1563933002', '127.0.0.1', '1570360441', '50.00', '0.00', '0', '1', '1000000');
+INSERT INTO `blue_member` VALUES ('9', '123456', 'e10adc3949ba59abbe56e057f20f883e', '1000000', '测试', null, '15179811531', '127.0.0.1', '1563933002', '127.0.0.1', '1571478651', '50.00', '0.00', '0', '1', '1000000');
 
 -- ----------------------------
 -- Table structure for `blue_member_address`
@@ -3861,7 +3984,7 @@ CREATE TABLE `blue_member_info` (
 -- ----------------------------
 -- Records of blue_member_info
 -- ----------------------------
-INSERT INTO `blue_member_info` VALUES ('3', '9', '252255225522', '雪中行者', '15179822523', '刘德华', '3625225225522555', '2', null, '1570358334', '5', '1');
+INSERT INTO `blue_member_info` VALUES ('3', '9', '252255225522', '雪中行者', '15179822523', '刘德华', '3625225225522555', '2', '/Public/Mobile/images/tx3.png', '1570358334', '5', '1');
 
 -- ----------------------------
 -- Table structure for `blue_message`
@@ -3877,13 +4000,15 @@ CREATE TABLE `blue_message` (
   `is_read` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否已读 0：否 1：是',
   `message_all_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`message_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=141 DEFAULT CHARSET=utf8 COMMENT='会员消息记录表';
+) ENGINE=MyISAM AUTO_INCREMENT=143 DEFAULT CHARSET=utf8 COMMENT='会员消息记录表';
 
 -- ----------------------------
 -- Records of blue_message
 -- ----------------------------
 INSERT INTO `blue_message` VALUES ('139', '测试', '9', '1', '测试测试测试测试测试测试测试测试测试', '1570267167', '0', '3007');
-INSERT INTO `blue_message` VALUES ('140', '兑换商品', '9', '4', '您兑换的商品<span style=\"color: #FF0000;\">honor荣耀 荣耀10青春版</span>发货中，请耐心等待', '1570625555', '0', null);
+INSERT INTO `blue_message` VALUES ('140', '兑换商品', '9', '4', '您兑换的商品<span style=\"color: #FF0000;\">honor荣耀 荣耀10青春版</span>发货中，请耐心等待', '1570625555', '1', null);
+INSERT INTO `blue_message` VALUES ('141', '兑换商品', '9', '4', '您兑换的商品<span style=\"color: #FF0000;\">honor荣耀 荣耀10青春版</span>已发货，快递单号:12312123123212', '1570678689', '1', null);
+INSERT INTO `blue_message` VALUES ('142', '兑换商品', '9', '4', '您兑换的商品<span style=\"color: #FF0000;\">honor荣耀 荣耀10青春版</span>已退货，理由:缺货', '1570678820', '0', null);
 
 -- ----------------------------
 -- Table structure for `blue_message_all`
@@ -3919,7 +4044,7 @@ CREATE TABLE `blue_nav` (
   `cat_id` varchar(32) NOT NULL COMMENT '类别',
   `nav_sort` tinyint(6) DEFAULT '1' COMMENT '排序',
   PRIMARY KEY (`nav_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_nav
@@ -3933,6 +4058,8 @@ INSERT INTO `blue_nav` VALUES ('101', '商品类型', '&#xe6f7;', '/Good/type', 
 INSERT INTO `blue_nav` VALUES ('50', '帮助中心', '&#xe6f7;', '/Article/help', 'article', '1');
 INSERT INTO `blue_nav` VALUES ('105', '站外福利', '&#xe6f7;', '/Good/outside_ad', 'good', '3');
 INSERT INTO `blue_nav` VALUES ('106', '轮播图配置', '&#xe6f7;', '/Config/carousel', 'sys', '3');
+INSERT INTO `blue_nav` VALUES ('108', '兑换设置', '&#xe642;', '/Exchange/config', 'exchange', '1');
+INSERT INTO `blue_nav` VALUES ('109', '发布管理', '&#xe6f7;', '/Exchange/pub', 'exchange', '2');
 INSERT INTO `blue_nav` VALUES ('58', '提现记录', '&#xe6f7;', '/Record/tixian', 'record', null);
 INSERT INTO `blue_nav` VALUES ('89', '充值记录', '&#xe6f7;', '/Record/recharge', 'record', null);
 INSERT INTO `blue_nav` VALUES ('92', '商品列表', '&#xe6f7;', '/Good/index', 'good', '2');
@@ -3940,11 +4067,13 @@ INSERT INTO `blue_nav` VALUES ('93', '币种列表', '&#xe6f7;', '/Currency/inde
 INSERT INTO `blue_nav` VALUES ('104', '财务列表', '&#xe6f7;', '/Finance/index', 'finance', '1');
 INSERT INTO `blue_nav` VALUES ('94', '银行列表', '&#xe637;', '/Bank/index', 'bank', '1');
 INSERT INTO `blue_nav` VALUES ('95', '用户商品卡', '&#xe6f7;', '/Good/usergoods', 'good', '4');
-INSERT INTO `blue_nav` VALUES ('96', '订单记录', '&#xe6f7;', '/Order/record', 'order', '1');
-INSERT INTO `blue_nav` VALUES ('97', '签到配置', '&#xe6f7;', '/Sign/conf', 'sign', '1');
+INSERT INTO `blue_nav` VALUES ('96', '订单记录', '&#xe6f7;', '/Order/index', 'order', '1');
+INSERT INTO `blue_nav` VALUES ('97', '签到配置', '&#xe642;', '/Sign/conf', 'sign', '1');
 INSERT INTO `blue_nav` VALUES ('98', '签到记录', '&#xe6f7;', '/Sign/record', 'sign', '2');
 INSERT INTO `blue_nav` VALUES ('99', '系统发布消息', '&#xe6f7;', '/Message/index', 'message', '1');
 INSERT INTO `blue_nav` VALUES ('100', '消息记录', '&#xe6f7;', '/Message/record', 'message', '2');
+INSERT INTO `blue_nav` VALUES ('110', '订单交易', '&#xe6f7;', '/Exchange/order', 'exchange', '3');
+INSERT INTO `blue_nav` VALUES ('111', '冻结管理', '&#xe6f7;', '/Exchange/freeze_account', 'exchange', '4');
 
 -- ----------------------------
 -- Table structure for `blue_order`
@@ -3954,6 +4083,7 @@ CREATE TABLE `blue_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `good_id` int(11) DEFAULT NULL,
   `member_id` int(11) DEFAULT NULL,
+  `currency_id` int(11) DEFAULT NULL COMMENT '币种id',
   `good_name` varchar(200) DEFAULT NULL COMMENT '商品名称',
   `logo` varchar(200) DEFAULT NULL,
   `spec` varchar(200) DEFAULT NULL COMMENT '规格',
@@ -3974,7 +4104,7 @@ CREATE TABLE `blue_order` (
 -- ----------------------------
 -- Records of blue_order
 -- ----------------------------
-INSERT INTO `blue_order` VALUES ('1', '1', '9', 'honor荣耀 荣耀10青春版', '/Uploads/Public/Uploads/2019-10-04/5d973c2c52e87.jpg', '颜色:蓝色', '1200.00', '1', null, null, '1', 'hmlwan', '深圳市南山区腾讯大厦17', '15179811532', '0', null, '1570625555');
+INSERT INTO `blue_order` VALUES ('1', '1', '9', '2', 'honor荣耀 荣耀10青春版', '/Uploads/Public/Uploads/2019-10-04/5d973c2c52e87.jpg', '颜色:蓝色', '1200.00', '1', '12312123123212', null, '1', 'hmlwan', '深圳市南山区腾讯大厦17', '15179811532', '3', '缺货', '1570625555');
 
 -- ----------------------------
 -- Table structure for `blue_outside_ad`

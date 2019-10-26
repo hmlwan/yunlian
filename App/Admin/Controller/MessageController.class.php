@@ -182,6 +182,7 @@ class MessageController extends AdminController {
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
 		$list = $M_member_all->where ( $where )->alias ( 'a' )->field ( 'a.*, b.phone' )->join ( C("DB_PREFIX")."member as b on a.member_id = b.member_id " )->order ( " a.add_time desc " )->limit ( $Page->firstRow . ',' . $Page->listRows )->select ();
         // 查询消息类型
+
         $this->assign ( 'list', $list ); // 赋值数据集
         $this->assign ( 'page', $show ); // 赋值分页输出
         $this->display (); // 输出模板

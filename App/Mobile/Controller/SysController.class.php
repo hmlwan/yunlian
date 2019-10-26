@@ -174,8 +174,8 @@ class SysController extends HomeController
             }
 
         }else{
-            $list = $db->where(array('message_id'=>$member_id))
-                ->order('add_time desc,is_read asc')
+            $list = $db->where(array('member_id'=>$member_id))
+                ->order('is_read asc,add_time desc')
                 ->select();
             $this->assign('list',$list);
             $this->display();

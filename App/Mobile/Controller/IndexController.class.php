@@ -12,12 +12,10 @@ class IndexController extends CommonController {
 		$this->display('Public:404');
 	}
 	public function index(){
-        $model = M('game_list');
+
+	    $this->redirect("Mobile/Member/Index/index");
         $member_id = $_SESSION['USER_KEY_ID'];
 
-        $list = $model->select();
-        $this->assign('list',$list);
-        $this->assign('member_id',$member_id);
         $this->display();
      }
 

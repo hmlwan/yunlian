@@ -214,9 +214,26 @@ class MemberController extends HomeController {
             $this->display();
         }
     }
-
-
-
+    /*更改头像*/
+    public function change_head(){
+        $head_url = I('head_url');
+        if(!$head_url){
+            $data['status']= 0;
+            $data['info']="请选择头像";
+            $this->ajaxReturn($data);
+        }
+        $member_id = session('USER_KEY_ID');
+        $r = M('member_info')->where(array('member_id'=>$member_id))->save(array('head_url'=>$head_url));
+        if($r){
+            $data['status']= 1;
+            $data['info']="修改成功";
+            $this->ajaxReturn($data);
+        }else{
+            $data['status']= 0;
+            $data['info']="修改失败";
+            $this->ajaxReturn($data);
+        }
+    }
 
 
 

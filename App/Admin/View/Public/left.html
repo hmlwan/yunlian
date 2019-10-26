@@ -49,14 +49,12 @@
                  <li>
                     <a href="#"><i class="iconfont">&#xe614;</i><span class="fsize">系统管理</span></a>
                     <ul class="sub-menu">
-
-                        	<volist name='sys_nav' id='vo'>
-                        		<li><a href="{$vo.nav_url}#0#{$key}"><i class="iconfont">{$vo.nav_e}</i>&nbsp;{$vo.nav_name}</a></li>
-                            <!--<li><a href="system.html"><i class="icon-font">&#xe037;</i>清理缓存</a></li>
-                            <li><a href="system.html"><i class="icon-font">&#xe046;</i>数据备份</a></li>
-                            <li><a href="system.html"><i class="icon-font">&#xe045;</i>数据还原</a></li>-->
-                            </volist>
-
+                        <volist name='sys_nav' id='vo'>
+                            <li><a href="{$vo.nav_url}#0#{$key}"><i class="iconfont">{$vo.nav_e}</i>&nbsp;{$vo.nav_name}</a></li>
+                        <!--<li><a href="system.html"><i class="icon-font">&#xe037;</i>清理缓存</a></li>
+                        <li><a href="system.html"><i class="icon-font">&#xe046;</i>数据备份</a></li>
+                        <li><a href="system.html"><i class="icon-font">&#xe045;</i>数据还原</a></li>-->
+                        </volist>
                     </ul>
                 </li>
                </notempty>
@@ -162,12 +160,22 @@
                         </ul>
                     </li>
                 </notempty>
+                <notempty name='exchange_nav'>
+                    <li>
+                        <a href="#"><i class="iconfont">&#xe650;</i><span class="fsize">兑换</span></a>
+                        <ul class="sub-menu">
+                            <volist name='exchange_nav' id='vo'>
+                                <li><a href="{$vo.nav_url}#11#{$key}"><i class="iconfont">{$vo.nav_e}</i>&nbsp;{$vo.nav_name}</a></li>
+                            </volist>
+                        </ul>
+                    </li>
+                </notempty>
                 <notempty name='admin_nav'>
                     <li>
                         <a href="#"><i class="iconfont">&#xe64d;</i><span class="fsize">管理员管理</span></a>
                         <ul class="sub-menu">
                             <volist name='admin_nav' id='vo'>
-                                <li><a href="{$vo.nav_url}#11#{$key}"><i class="iconfont">{$vo.nav_e}</i>&nbsp;{$vo.nav_name}</a></li>
+                                <li><a href="{$vo.nav_url}#12#{$key}"><i class="iconfont">{$vo.nav_e}</i>&nbsp;{$vo.nav_name}</a></li>
                             </volist>
                         </ul>
                     </li>

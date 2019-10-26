@@ -42,14 +42,15 @@
                         <tr>
                             <td>{$vo['message_id']}</td>
                             <td>
-                                <if condition="$vo['type'] eq 1">
-                                    【系统消息】
-                                <else/>
-
-                                </if>
+                                <switch name="vo['type']">
+                                    <case value="1">【系统消息】</case>
+                                    <case value="2">【签到消息】</case>
+                                    <case value="3">【推广消息】</case>
+                                    <case value="4">【兑换商品消息】</case>
+                                </switch>
                             </td>
 							<td>{$vo['title']||mb_substr=0,9,"utf-8"}</td>
-                            <td>{$vo['content']|mb_substr=0,20,"utf-8"}</td>
+                            <td>{$vo['content']|html_entity_decode }</td>
                             <td>{$vo['add_time']|date="Y-m-d H:i:s",###}</td>
                             <td>{$vo.phone}({$vo.member_id})</td>
                             <td><if condition="$vo['is_read'] eq 1">

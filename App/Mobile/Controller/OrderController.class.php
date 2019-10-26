@@ -108,7 +108,8 @@ class OrderController extends HomeController {
                 'receipt_phone' => $mem_address_info['receipt_phone'],
                 'receipt_address' => $mem_address_info['receipt_address'],
                 'status' => 0,
-                'add_time' => time()
+                'add_time' => time(),
+                'currency_id' => $good_info['currency_id']
             );
             $r = M("order")->add($order_data);
             if($r){
