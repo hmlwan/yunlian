@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-10-26 21:28:11
+Date: 2019-10-27 21:48:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3650,11 +3650,12 @@ CREATE TABLE `blue_exchange_freeze` (
   `freeze_time` int(11) DEFAULT NULL COMMENT '冻结时间',
   `desc` varchar(1024) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_exchange_freeze
 -- ----------------------------
+INSERT INTO `blue_exchange_freeze` VALUES ('1', '9', '2147483647', '1', '1572163905', '官方封禁');
 
 -- ----------------------------
 -- Table structure for `blue_exchange_order`
@@ -3674,7 +3675,7 @@ CREATE TABLE `blue_exchange_order` (
   `zfb_username` varchar(50) DEFAULT NULL COMMENT '卖家姓名',
   `price` decimal(20,2) DEFAULT NULL COMMENT '价格',
   `num` int(11) DEFAULT NULL COMMENT '数量',
-  `status` tinyint(6) DEFAULT NULL COMMENT '1:买家打款中 2:卖家确认中 3：交易完成 4：争执中 5:',
+  `status` tinyint(6) DEFAULT NULL COMMENT '1:买家打款中 2:卖家确认中 3：交易结束 4：争执中 ',
   `add_time` int(11) DEFAULT NULL COMMENT '下单时间',
   `pay_time` int(11) DEFAULT NULL COMMENT '付款时间',
   `dispute_time` int(11) DEFAULT NULL COMMENT '争执时间',
@@ -3723,7 +3724,8 @@ CREATE TABLE `blue_exchange_pub` (
   `zfb_username` varchar(50) DEFAULT NULL COMMENT '姓名',
   `price` decimal(20,2) DEFAULT NULL COMMENT '价格',
   `num` int(11) DEFAULT '0' COMMENT '数量',
-  `status` tinyint(4) DEFAULT NULL COMMENT '1:发布中（刚发布未产生交易）2:进行中（正在交易） 3:取消挂单（主动买卖家取消挂单）4:交易成功5:交易失败',
+  `sum_price` decimal(20,2) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL COMMENT '1:发布中（刚发布未产生交易）2:进行中（正在交易） 3:取消挂单（主动买卖家取消挂单）4:交易成功5:交易失败6:冻结中7：已下架',
   `add_time` int(11) DEFAULT NULL COMMENT '发布时间',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='兑换挂单发布管理';
@@ -3758,7 +3760,7 @@ CREATE TABLE `blue_exhange_config` (
 -- ----------------------------
 -- Records of blue_exhange_config
 -- ----------------------------
-INSERT INTO `blue_exhange_config` VALUES ('1', '2', '100.00', '100.00', '100.00', '100.00', '9:00', '24:00', '1.00', '[\"100\",\"300\",\"500\",\"1000\",\"3000\",\"5000\",\"10000\"]', '24', '3', '1', '1', '1572080461');
+INSERT INTO `blue_exhange_config` VALUES ('1', '2', '100.00', '100.00', '100.00', '100.00', '9:00', '22:00', '1.00', '[\"100\",\"300\",\"500\",\"1000\",\"3000\",\"5000\",\"10000\"]', '24', '3', '1', '1', '1572173450');
 INSERT INTO `blue_exhange_config` VALUES ('2', '2', '100.00', '100.00', '100.00', '100.00', '9:00', '24:00', '1.00', null, '24', '3', '1', '1', null);
 
 -- ----------------------------
@@ -3915,6 +3917,23 @@ CREATE TABLE `blue_member_address` (
 -- Records of blue_member_address
 -- ----------------------------
 INSERT INTO `blue_member_address` VALUES ('1', '9', 'hmlwan', '15179811532', '深圳市南山区腾讯大厦17');
+
+-- ----------------------------
+-- Table structure for `blue_member_exchange_volume`
+-- ----------------------------
+DROP TABLE IF EXISTS `blue_member_exchange_volume`;
+CREATE TABLE `blue_member_exchange_volume` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) DEFAULT NULL,
+  `type` tinyint(4) DEFAULT NULL COMMENT '类型 1：买单 2：卖单',
+  `total_num` int(11) DEFAULT NULL COMMENT '成交总数量',
+  `single_order_num` int(11) DEFAULT NULL COMMENT '成交单数',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='兑换成交量/单数';
+
+-- ----------------------------
+-- Records of blue_member_exchange_volume
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `blue_member_goods`

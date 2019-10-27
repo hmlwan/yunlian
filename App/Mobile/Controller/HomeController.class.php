@@ -21,6 +21,7 @@ class HomeController extends CommonController {
 
   		}
 
+
   		 // 添加用户真实姓名等
   		$this->auth = M('Member')->where('member_id ='.$_SESSION['USER_KEY_ID'])->find();
   		if (empty($this->auth)){
@@ -30,13 +31,8 @@ class HomeController extends CommonController {
  		
  		//修正会员各个币种信息  currency_user
  		$currency=M('Currency')->select();
-// 		foreach ($currency as $k=>$v){
-// 			$rs=$this->getCurrencyUser($_SESSION['USER_KEY_ID'], $v['currency_id']);
-// 			if(!$rs){
-// 				$this->addCurrencyUser($_SESSION['USER_KEY_ID'],$v['currency_id']);
-// 			}
-// 		}
-// 		$this->jiedong();
+
+
 	}
     public function get_member_id(){
         return $_SESSION['USER_KEY_ID'];

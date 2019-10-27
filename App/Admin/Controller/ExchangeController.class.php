@@ -46,19 +46,21 @@ class ExchangeController extends AdminController
             $this->assign ('cur_list', $cur_list );
             $this->display ();
         }
-
     }
 
     /*管理发布*/
     public function pub(){
-        $model = M ('currency' );
-        $string = I('string');
+        $model = M ('exchange_pub' );
+        $phone = I('phone');
+        $type = I('type');
 
         $where = array();
-        if($string){
-            $where["_string"] = "currency_name like %$string% OR currency_en like %$string%" ;
+        if($phone){
+            $where["phone"] = $phone;
         }
-
+        if($type){
+            $where["type"] = $type;
+        }
         // 查询满足要求的总记录数
         $count = $model->where ( $where )->count ();
         // 实例化分页类 传入总记录数和每页显示的记录数
@@ -70,26 +72,41 @@ class ExchangeController extends AdminController
         $field = "*";
         $info = $model->field ( $field )
             ->where ( $where )
-            ->order ("sort asc" )
+            ->order ("add_time desc" )
             ->limit ( $Page->firstRow . ',' . $Page->listRows )
             ->select ();
-
+        foreach ($info as &$value){
+            if($value['status'] == 1){
+                if($this->ex_config['invalid_time'] > 0){
+                    $time =  $this->ex_config['invalid_time'] * 3600 + $value['add_time'];
+                    if($time > time()){
+                        $value['status'] = 7;
+                    }
+                }
+            }
+            $value['currency_name'] = M('currency')->where(array('currency_id'=>$value['currency_id']))->getField('currency_name');
+        }
         $this->assign ('list', $info ); // 赋值数据集
         $this->assign ('page', $show ); // 赋值分页输出
         $this->display ();
     }
     /*发布下架*/
     public function down(){
-        
+
     }
     /*订单交易*/
     public function order(){
-        $model = M ('currency' );
-        $string = I('string');
+        $model = M ('exchange_order' );
+
+        $phone = I('phone');
+        $type = I('type');
 
         $where = array();
-        if($string){
-            $where["_string"] = "currency_name like %$string% OR currency_en like %$string%" ;
+        if($phone){
+            $where["phone"] = $phone;
+        }
+        if($type){
+            $where["type"] = $type;
         }
 
         // 查询满足要求的总记录数
@@ -103,22 +120,29 @@ class ExchangeController extends AdminController
         $field = "*";
         $info = $model->field ( $field )
             ->where ( $where )
-            ->order ("sort asc" )
+            ->order ("add_time desc" )
             ->limit ( $Page->firstRow . ',' . $Page->listRows )
             ->select ();
-
+        foreach ($info as &$value){
+            $value['currency_name'] = M('currency')->where(array('currency_id'=>$value['currency_id']))->getField('currency_name');
+        }
         $this->assign ('list', $info ); // 赋值数据集
         $this->assign ('page', $show ); // 赋值分页输出
         $this->display ();
     }
+    /*投诉/申诉判定*/
+    public function judge(){
+        $this->display ();
+    }
+
     /*冻结账号*/
     public function freeze_account(){
         $model = M ('exchange_freeze' );
-        $string = I('string');
+        $phone = I('phone');
 
         $where = array();
-        if($string){
-            $where["_string"] = "currency_name like %$string% OR currency_en like %$string%" ;
+        if($phone){
+            $where["phone"] = $phone ;
         }
 
         // 查询满足要求的总记录数
@@ -132,49 +156,45 @@ class ExchangeController extends AdminController
         $field = "*";
         $info = $model->field ( $field )
             ->where ( $where )
-            ->order ("freeze_time asc" )
+            ->order ("freeze_time desc" )
             ->limit ( $Page->firstRow . ',' . $Page->listRows )
             ->select ();
-
         $this->assign ('list', $info ); // 赋值数据集
         $this->assign ('page', $show ); // 赋值分页输出
         $this->display ();
     }
 
-    public function edit(){
-        $db = M("freeze_time");
+    public function freeze_edit(){
+        $db = M("exchange_freeze");
         if(IS_POST){
-            $id = I('post.currency_id','','');
-
+            $id = I('post.id','','');
+            $phone = I('phone');
             if($save_data = $db->create()){
-                if($_FILES["Filedata"]["tmp_name"]){
-                    $currency_logo  = $this->upload($_FILES["Filedata"]);
-                }else{
-                    $currency_logo = I('currency_logo');
-                }
-                $save_data['currency_logo'] = $currency_logo;
-                $save_data['create_time'] = time();
+                $save_data['freeze_time'] = time();
                 if($id){ /*编辑*/
-                    $res = $db->where(array('currency_id'=>$id))->save($save_data);
+                    $res = $db->where(array('id'=>$id))->save($save_data);
                 }else{ /*新增*/
+                    $is_exist = M('member')->where(array('phone'=>$phone))->find();
+                     if(!$is_exist){
+                         $this->error('该手机号不存在');
+                     }
+                    $save_data['member_id'] = $is_exist['member_id'];
                     $res = $db->add($save_data);
                 }
                 if($res){
-                    $this->success('操作成功',U('index'));
+                    $this->success('操作成功',U('freeze_account#11#3'));
                 }else{
                     $this->error('操作失败');
                 }
             }
 
         }else{
-            $currency_id = I('get.currency_id');
-            $res = $db->where(array('currency_id'=>$currency_id))->find();
+            $id = I('get.id');
+            $res = $db->where(array('id'=>$id))->find();
             $this->assign('info',$res);
             $this->display();
         }
     }
-
-
     public function del(){
         if(empty($_POST['id'])){
             $info['status'] = -1;

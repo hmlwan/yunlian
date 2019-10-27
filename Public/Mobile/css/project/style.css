@@ -2356,7 +2356,7 @@ div::-webkit-scrollbar {
 }
 .tousu .wyts{
     width: 100%;
-    margin: 0 auto 18rem;
+    margin: 0 auto 1rem;
 }
 .tousu .wyts .wyts_title {
     font-size: .35rem;
@@ -2436,9 +2436,28 @@ div::-webkit-scrollbar {
     color:#fff
 }
 
+/*没有订单*/
+.no_ex_pub_data{
+    position: fixed;
+    width: 60%;
+    left: 20%;
+    top: 30%;
+    z-index: 101;
+    text-align: center;
 
-
-
+}
+.no_ex_pub_data img{
+    width: 3rem;
+    height: 2.5rem;
+    display: inline-block;
+}
+.no_ex_pub_data .text{
+    font-size: .28rem;
+    padding-top: .1rem;
+}
+.no_ex_pub_data.limit_tips .text{
+    color:#fff
+}
 
 
 
