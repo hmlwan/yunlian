@@ -12,8 +12,8 @@ class ExchangeController extends HomeController {
 	}
 	/*我要买*/
 	public function buyview(){
-	    dd($_SESSION);
-        $data = $this->get_exchange_pub(1);
+
+        $data = $this->get_exchange_pub(2);
         $this->assign('list',$data['list']);
         $this->assign('limit',json_encode($data['limit']));
         $this->assign('unit_price',$data['unit_price']);
@@ -23,7 +23,7 @@ class ExchangeController extends HomeController {
     }
     /*我要卖*/
     public function saleview(){
-        $data = $this->get_exchange_pub(2);
+        $data = $this->get_exchange_pub(1);
         $this->assign('list',$data['list']);
         $this->assign('limit',json_encode($data['limit']));
         $this->assign('unit_price',$data['unit_price']);
@@ -133,30 +133,62 @@ class ExchangeController extends HomeController {
             'status' => 1,
             'add_time' => time()
         );
+        $mem_info = D("Member")->get_info_by_id($member_id);
         if($type == 2){
-            $mem_info = D("Member")->get_info_by_id($member_id);
             $data['zfb_no'] = $mem_info['zfb_no'];
             $data['zfb_username'] = $mem_info['true_name'];
         }
+
         $db = M('exchange_pub');
         $r = $db->add($data);
         if($r){
             $data['status'] = 1;
-            $data['info'] = '委托成功';
+            $data['info'] = '挂单成功';
             $this->ajaxReturn($data);
         }else{
             $data['status'] = 0;
-            $data['info'] = '委托失败';
+            $data['info'] = '挂单失败';
             $this->ajaxReturn($data);
         }
 
     }
-
-
     /*委托单*/
     public function orderticket(){
+
+        $member_id = $_SESSION['USER_KEY_ID'];
+        $db = M('exchange_pub');
+
+        $list = $db
+            ->where(array('member_id'=>$member_id,'status'=>1))
+            ->order("add_time desc")
+            ->select();
+
+        $this->assign('list',$list);
         $this->display();
     }
+    /*撤销*/
+    public  function pub_cancel(){
+        $member_id = $_SESSION['USER_KEY_ID'];
+        $db = M('exchange_pub');
+
+        $id = I('id');
+        if(!$id){
+            $data['status'] = 0;
+            $data['info'] = '未知错误';
+            $this->ajaxReturn($data);
+        }
+        $r = $db->where(array('id'=>$id))->save(array('status'=>3));
+        if($r){
+            $data['status'] = 1;
+            $data['info'] = '撤销成功';
+            $this->ajaxReturn($data);
+        }else{
+            $data['status'] = 0;
+            $data['info'] = '撤销失败';
+            $this->ajaxReturn($data);
+        }
+    }
+
     /*订单*/
     public function orderview(){
         $this->display();
