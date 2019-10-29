@@ -55,8 +55,8 @@
                 <volist name='info' id='vo'>
                     <tr>
                         <td>{$vo['currency_name']}</td>
-                        <td><input  value="{$vo['num']}" type="text" id="num{$vo['currency_id']}"/></td>
-                        <td><input value="{$vo['forzen_num']}" type="text" id="forzen_num{$vo['currency_id']}"/></td>
+                        <td><input  value="{$vo['num']}" class="common-text" type="text" id="num{$vo['currency_id']}"/></td>
+                        <td><input value="{$vo['forzen_num']}" class="common-text" type="text" id="forzen_num{$vo['currency_id']}"/></td>
                         <td><a onclick="update({$vo['currency_id']},num{$vo['currency_id']})">修改</a></td>
                     </tr>
                 </volist>

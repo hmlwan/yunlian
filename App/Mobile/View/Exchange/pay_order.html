@@ -5,16 +5,16 @@
     <header>
         <div class="header_bt">
             <div class="header_f"><a href="javascript:history.back()" class="header_fh"></a></div>
-            <div class="header_c">付款订单</div><i class="dh_r_help pop_up">投诉</i>
+            <div class="header_c"><if condition="$info['type'] eq 1">付款<else />卖出</if>订单</div><i class="dh_r_help pop_up">投诉</i>
         </div>
         <div style="height: .74rem;clear: both;"></div>
     </header>
    <div class="fkdd">
        <div class="fkdd_c">
             <div class="fkdd_l">
-                <p class="money">￥ 500</p>
-                <p>单价&nbsp;<span>1元</span></p>
-                <p>数量&nbsp;<span>500云链</span></p>
+                <p class="money">￥ {$info.sum_price}</p>
+                <p>单价&nbsp;<span>{$info.price}元</span></p>
+                <p>数量&nbsp;<span>{$info.num}{$info.currency_name}</span></p>
             </div>
            <div class="fkdd_r">
                 <i></i>
@@ -22,26 +22,32 @@
        </div>
        <div class="uinfo">
            <ul>
-               <li class="uinfo_h">请使用本人(张飞)支付宝往以下账号自行转账500元</li>
+               <li class="uinfo_h">
+                   <if condition="$info['type'] eq 1">
+                       请使用本人支付宝往以下账号自行转账{$info.sum_price}元
+                    <else />
+                        请确认以下信息是否正确,并等待对方转账
+                   </if>
+               </li>
                <li>
                    <span>支付方式</span>
                    <span><i class="zfb"></i><em>支付宝</em></span>
                </li>
                <li>
                    <span>收款人</span>
-                   <span><em>刘德华</em><i></i></span>
+                   <span><em>{$info.zfb_username}</em><i></i></span>
                </li>
                <li>
                    <span>支付宝</span>
-                   <span><em>34654684645@qq.com</em><i></i></span>
+                   <span><em>{$info.zfb_no}</em><i></i></span>
                </li>
                <li>
                    <span>对方手机号</span>
-                   <span><em>18708656464</em><i></i></span>
+                   <span><em><if condition="$info['type'] eq 1">{$info.sale_mem_phone}<else />{$info.buy_mem_phone}</if></em><i></i></span>
                </li>
                <li>
                    <span>订单号</span>
-                   <span><em>11201910084646</em><i></i></span>
+                   <span><em>{$info.order_no}</em><i></i></span>
                </li>
            </ul>
        </div>
@@ -49,9 +55,13 @@
            <p>1.在转账过程中请勿备注YL、云链、云链口袋等信息，防止汇款被拦截支付宝被冻结等问题</p>
            <p>2.如未付款请问点击我已付款成功防止账号被冻结</p>
        </div>
+       <input type="hidden" name="interval_times" value="{$interval_times}">
+       <input type="hidden" name="status" value="{$info.status}">
+       <input type="hidden" name="type" value="{$info.type}">
        <div class="dd_btn">
-            <span class="djs"><i>0</i>时<i>59</i>分钟<i>59</i>秒</span>
-            <span class="text">我已向对方付款</span>
+            <!--<span class="djs"><i class="h">00</i>时<i class="m">59</i>分钟<i class="s">59</i>秒</span>-->
+            <span class="djs"></span>
+            <span class="text" onclick="confirm({$info.id})"><if condition="$info['type'] eq 1">我已向对方付款<else />我已收到款</if></span>
        </div>
    </div>
 </div>
@@ -72,31 +82,28 @@
 <div style="height: .9rem;"></div>
 <div class="footer_main">
     <ul>
-        <li class="footer_fl">
-            <a href="index.html">
-                省券
-            </a>
-        </li>
-        <li class="footer_f2">
-            <a href="javascript:;">
-                福利
-            </a>
-        </li>
-        <li class="footer_f3 footer_active_f3">
-            <a href="b2c_fenlei_01.html">
+        <a href="index.html">
+            <li class="footer_fl">省券</li>
+        </a>
+        <a href="{:U('Welfare/outindex')}">
+            <li class="footer_f2">福利</li>
+        </a>
+        <a href="{:U('Exchange/buyview')}">
+            <li class="footer_f3 footer_active_f3">
                 兑换
-            </a>
-        </li>
-        <li class="footer_f4">
-            <a href="b2c_fenlei_01.html">
+            </li>
+        </a>
+
+        <a href="b2c_fenlei_01.html">
+            <li class="footer_f4">
                 开箱
-            </a>
-        </li>
-        <li class="footer_f5">
-            <a href="{:U('Member/index')}">
+            </li>
+        </a>
+        <a href="{:U('Member/index')}">
+            <li class="footer_f5">
                 我的
-            </a>
-        </li>
+            </li>
+        </a>
     </ul>
 </div>
 
@@ -110,14 +117,81 @@
     $(".cancel").click(function () {
         $(".dh_tips").hide();
         $(".zhezhao_h").attr('class','zhezhao_h');
-    })
+    });
     $(".dh_tips .tips").find('i').click(function () {
         if($(this).find('em').attr('class') == 'active' ){
             $(this).find('em').attr('class','');
         }else{
             $(this).find('em').attr('class','active')
         }
-    })
+    });
+    var SysSecond;
+    var InterValObj;
+
+
+    SysSecond = parseInt($("input[name='interval_times']").val()); //这里获取倒计时的起始时间
+    InterValObj = window.setInterval(SetRemainTime, 1000); //间隔函数，1秒执行
+    var status = $("input[name='status']").val();
+    var type = $("input[name='type']").val();
+
+    //将时间减去1秒，计算天、时、分、秒
+    function SetRemainTime() {
+        if (SysSecond > 0) {
+            SysSecond = SysSecond - 1;
+            var second = Math.floor(SysSecond % 60);            // 计算秒
+            var minite = Math.floor((SysSecond / 60) % 60);      //计算分
+            var hour = Math.floor((SysSecond / 3600) % 24);      //计算小时
+            var day = Math.floor((SysSecond / 3600) / 24);       //计算天
+
+            var hourDiv = "<i class='h'>" + hour + "</i>" + "时";
+            var miniteDiv = "<i class='m'>" + minite  + "</i>"+ "分";
+            var secondDiv = "<i class='s'>" + second  + "</i>"+ "秒";
+//            var dayDiv = "<span id='daySpan'>" + day + "天" + "</span>";
+//
+            $(".dd_btn .djs").html(hourDiv + miniteDiv + secondDiv);
+//            $("#remainTime").html(dayDiv + hourDiv + minite + "分" + second + "秒");
+            //当不足1小时时隐藏小时
+//            if (hour === 0) {
+//                $('#hourSpan').css('display', 'none');
+//            }
+//            //当不足1天时隐藏天
+//            if (day === 0) {
+//                $('#daySpan').css('display', 'none');
+//            }
+        }else{
+            window.clearInterval(InterValObj);
+            //这里可以添加倒计时时间为0后需要执行的事件
+            $("input[name='interval_times']").val(0);
+            $(".dd_btn .djs").text('恶意超时');
+            if(status == 1){
+                $(".dd_btn .text").text('请联系对方确认');
+            }else if(status == 2){
+                $(".dd_btn .text").text('请联系对方确认');
+            }
+        }
+    }
+    function confirm(id) {
+
+        var interval_times = $("input[name='interval_times']").val();
+        if(interval_times == 0){
+            layer.msg("请联系对方确认");
+            return ;
+        }
+        $.post("{:U('Exchange/receive_confirm')}",{
+            id:id,type:type
+        },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon:1});
+                window.setTimeout(function(){
+                    window.location="{:U('Exchange/orderticket')}";
+                },1000);
+            }else{
+                layer.msg(data.info);
+                return false;
+            }
+        })
+    }
+
 
 </script>
 <include file="Public:footer"/>

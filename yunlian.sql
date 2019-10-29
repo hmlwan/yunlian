@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-10-27 21:48:35
+Date: 2019-10-29 21:43:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3617,7 +3617,7 @@ CREATE TABLE `blue_currency` (
 -- ----------------------------
 -- Records of blue_currency
 -- ----------------------------
-INSERT INTO `blue_currency` VALUES ('2', '云链币', '/Uploads/Public/Uploads/2019-10-04/5d96fab939a76.png', 'YLB', '0', '1', '1570175685');
+INSERT INTO `blue_currency` VALUES ('2', '云链', '/Uploads/Public/Uploads/2019-10-04/5d96fab939a76.png', 'YLB', '0', '1', '1570175685');
 
 -- ----------------------------
 -- Table structure for `blue_currency_user`
@@ -3631,12 +3631,13 @@ CREATE TABLE `blue_currency_user` (
   `forzen_num` decimal(20,2) NOT NULL COMMENT '冻结数量',
   `status` tinyint(4) NOT NULL,
   PRIMARY KEY (`cu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of blue_currency_user
 -- ----------------------------
-INSERT INTO `blue_currency_user` VALUES ('2', '9', '2', '4001.00', '0.00', '1');
+INSERT INTO `blue_currency_user` VALUES ('2', '9', '2', '3701.00', '0.00', '1');
+INSERT INTO `blue_currency_user` VALUES ('3', '10', '2', '5000.00', '0.00', '1');
 
 -- ----------------------------
 -- Table structure for `blue_exchange_freeze`
@@ -3655,7 +3656,7 @@ CREATE TABLE `blue_exchange_freeze` (
 -- ----------------------------
 -- Records of blue_exchange_freeze
 -- ----------------------------
-INSERT INTO `blue_exchange_freeze` VALUES ('1', '9', '2147483647', '1', '1572163905', '官方封禁');
+INSERT INTO `blue_exchange_freeze` VALUES ('1', '10', '2147483647', '1', '1572163905', '官方封禁');
 
 -- ----------------------------
 -- Table structure for `blue_exchange_order`
@@ -3667,25 +3668,27 @@ CREATE TABLE `blue_exchange_order` (
   `order_no` varchar(200) DEFAULT NULL,
   `type` tinyint(4) DEFAULT NULL COMMENT '1:买单 2：卖单',
   `buy_mem_id` int(11) DEFAULT NULL COMMENT '买家id',
-  `buy_mem_phone` int(11) DEFAULT NULL COMMENT '买家手机号',
+  `buy_mem_phone` varchar(11) DEFAULT NULL COMMENT '买家手机号',
   `sale_mem_id` int(11) DEFAULT NULL COMMENT '卖家id',
-  `sale_mem_phone` int(11) DEFAULT NULL COMMENT '卖家手机号',
+  `sale_mem_phone` varchar(11) DEFAULT NULL COMMENT '卖家手机号',
   `currency_id` int(11) DEFAULT NULL COMMENT '币种id',
   `zfb_no` varchar(200) DEFAULT NULL COMMENT '卖家支付宝',
   `zfb_username` varchar(50) DEFAULT NULL COMMENT '卖家姓名',
   `price` decimal(20,2) DEFAULT NULL COMMENT '价格',
   `num` int(11) DEFAULT NULL COMMENT '数量',
-  `status` tinyint(6) DEFAULT NULL COMMENT '1:买家打款中 2:卖家确认中 3：交易结束 4：争执中 ',
+  `sum_price` decimal(20,2) DEFAULT NULL,
+  `status` tinyint(6) DEFAULT NULL COMMENT '1:买家打款中 2:卖家确认中 3：交易结束 4：争执中 5:交易失败，未付款',
   `add_time` int(11) DEFAULT NULL COMMENT '下单时间',
   `pay_time` int(11) DEFAULT NULL COMMENT '付款时间',
   `dispute_time` int(11) DEFAULT NULL COMMENT '争执时间',
   `complete_time` int(11) DEFAULT NULL COMMENT '完成时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='兑换交易订单';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='兑换交易订单';
 
 -- ----------------------------
 -- Records of blue_exchange_order
 -- ----------------------------
+INSERT INTO `blue_exchange_order` VALUES ('1', '1', '1111572354094001', '1', '10', '15179811532', '9', '15179811531', '2', '15179822523', '刘德华', '1.00', '300', '300.00', '1', '1572354094', null, null, null);
 
 -- ----------------------------
 -- Table structure for `blue_exchange_orde_dispute_result`
@@ -3728,11 +3731,13 @@ CREATE TABLE `blue_exchange_pub` (
   `status` tinyint(4) DEFAULT NULL COMMENT '1:发布中（刚发布未产生交易）2:进行中（正在交易） 3:取消挂单（主动买卖家取消挂单）4:交易成功5:交易失败6:冻结中7：已下架',
   `add_time` int(11) DEFAULT NULL COMMENT '发布时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='兑换挂单发布管理';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='兑换挂单发布管理';
 
 -- ----------------------------
 -- Records of blue_exchange_pub
 -- ----------------------------
+INSERT INTO `blue_exchange_pub` VALUES ('1', '1111572267341001', '2', '9', '2147483647', '2', '15179822523', '刘德华', '1.00', '300', '300.00', '2', '1572267341');
+INSERT INTO `blue_exchange_pub` VALUES ('2', '1111572268319001', '1', '9', '2147483647', '2', null, null, '1.00', '500', '500.00', '1', '1572268319');
 
 -- ----------------------------
 -- Table structure for `blue_exhange_config`
@@ -3760,7 +3765,7 @@ CREATE TABLE `blue_exhange_config` (
 -- ----------------------------
 -- Records of blue_exhange_config
 -- ----------------------------
-INSERT INTO `blue_exhange_config` VALUES ('1', '2', '100.00', '100.00', '100.00', '100.00', '9:00', '22:00', '1.00', '[\"100\",\"300\",\"500\",\"1000\",\"3000\",\"5000\",\"10000\"]', '24', '3', '1', '1', '1572173450');
+INSERT INTO `blue_exhange_config` VALUES ('1', '2', '100.00', '100.00', '100.00', '100.00', '9:00', '22:00', '1.00', '[\"100\",\"300\",\"500\",\"1000\",\"3000\",\"5000\",\"10000\"]', '72', '3', '1', '1', '1572353983');
 INSERT INTO `blue_exhange_config` VALUES ('2', '2', '100.00', '100.00', '100.00', '100.00', '9:00', '24:00', '1.00', null, '24', '3', '1', '1', null);
 
 -- ----------------------------
@@ -3893,12 +3898,13 @@ CREATE TABLE `blue_member` (
   `unique_code` varchar(50) DEFAULT NULL COMMENT '唯一值',
   PRIMARY KEY (`member_id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_member
 -- ----------------------------
-INSERT INTO `blue_member` VALUES ('9', '123456', 'e10adc3949ba59abbe56e057f20f883e', '1000000', '测试', null, '15179811531', '127.0.0.1', '1563933002', '127.0.0.1', '1571478651', '50.00', '0.00', '0', '1', '1000000');
+INSERT INTO `blue_member` VALUES ('9', '123456', 'e10adc3949ba59abbe56e057f20f883e', '1000000', '测试', null, '15179811531', '127.0.0.1', '1563933002', '127.0.0.1', '1572356377', '50.00', '0.00', '0', '1', '1000001');
+INSERT INTO `blue_member` VALUES ('10', 'hmlwan', 'e10adc3949ba59abbe56e057f20f883e', '1000001', 'hmlwan', null, '15179811532', null, '1563933002', '127.0.0.1', '1572354037', '0.00', '0.00', '0', '1', '1000003');
 
 -- ----------------------------
 -- Table structure for `blue_member_address`
@@ -3925,9 +3931,10 @@ DROP TABLE IF EXISTS `blue_member_exchange_volume`;
 CREATE TABLE `blue_member_exchange_volume` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` int(11) DEFAULT NULL,
-  `type` tinyint(4) DEFAULT NULL COMMENT '类型 1：买单 2：卖单',
+  `type` tinyint(4) DEFAULT NULL COMMENT '类型 1：挂买单 2：挂卖单',
   `total_num` int(11) DEFAULT NULL COMMENT '成交总数量',
   `single_order_num` int(11) DEFAULT NULL COMMENT '成交单数',
+  `currency_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='兑换成交量/单数';
 
@@ -3998,12 +4005,13 @@ CREATE TABLE `blue_member_info` (
   `cert_num` tinyint(5) DEFAULT NULL COMMENT '剩余认证次数',
   `is_cert` tinyint(4) DEFAULT '0' COMMENT '是否认证 1：是 0：否',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_member_info
 -- ----------------------------
 INSERT INTO `blue_member_info` VALUES ('3', '9', '252255225522', '雪中行者', '15179822523', '刘德华', '3625225225522555', '2', '/Public/Mobile/images/tx3.png', '1570358334', '5', '1');
+INSERT INTO `blue_member_info` VALUES ('4', '10', '36258223564232', '郭富城123', '15179811532', '郭富城', '3624011995396038251', '2', null, '1572269108', '5', '1');
 
 -- ----------------------------
 -- Table structure for `blue_message`

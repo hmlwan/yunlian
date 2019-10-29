@@ -42,14 +42,20 @@ class ExchangeController extends HomeController {
         $time = time();
         if($this->ex_config['invalid_time'] > 0){
             $time = $time - $this->ex_config['invalid_time'] * 3600;
-            $where['add_time'] = array('elt' ,$time);
+            $where['add_time'] = array('EGT' ,$time);
         }
+
         $list = M('exchange_pub')->where($where)->order("add_time desc")->select();
+
         $m_volum_db = M("member_exchange_volume");
         if($list){
             foreach ($list as &$value){
                 $volum_num = $m_volum_db
-                    ->where(array('member_id'=>$value['member_id'],'type'=>$type))
+                    ->where(array(
+                        'member_id'=>$value['member_id'],
+                        'type'=>$type,
+                        'currency_id'=>$value['currency_id'])
+                    )
                     ->find();
                 $total_num = 0;
                 $single_order_num = 0;
@@ -94,6 +100,7 @@ class ExchangeController extends HomeController {
         $USER_KEY = $_SESSION['USER_KEY'];
         $type = I('type');
         $num = I('num');
+
         $unit_price = I('unit_price');
         if($num < 0){
             $data['status'] = 0;
@@ -121,8 +128,24 @@ class ExchangeController extends HomeController {
         }
 
         $sum_price = $unit_price * $num;
+        /*挂卖单 判断币数量*/
+        if($type == 2){
+            $currency_info = M('currency_user')
+                ->where(array('member_id'=>$member_id,'currency_id'=>$this->ex_config['currency_id']))
+                ->find();
+            if($currency_info['num'] < $sum_price){
+                $data['status'] = 0;
+                $data['info'] = '币种数量不足';
+                $this->ajaxReturn($data);
+            }
+        }
+        $db = M('exchange_pub');
+        $order_no = '111'.time().'001';
+        if($db->where(array('order_no'=>$order_no))->find()){
+            $order_no = '111'.time().'002';
+        }
         $data = array(
-            'order_no' => '',
+            'order_no' => $order_no,
             'type' => $type,
             'member_id' => $member_id,
             'phone' => $USER_KEY,
@@ -139,9 +162,14 @@ class ExchangeController extends HomeController {
             $data['zfb_username'] = $mem_info['true_name'];
         }
 
-        $db = M('exchange_pub');
+
         $r = $db->add($data);
         if($r){
+            if($type == 2){
+                M('currency_user')
+                    ->where(array('member_id'=>$member_id,'currency_id'=>$this->ex_config['currency_id']))
+                    ->setDec('num',$sum_price);
+            }
             $data['status'] = 1;
             $data['info'] = '挂单成功';
             $this->ajaxReturn($data);
@@ -188,19 +216,196 @@ class ExchangeController extends HomeController {
             $this->ajaxReturn($data);
         }
     }
+    /*交易*/
+    public function deal_ex(){
+        $member_id = $_SESSION['USER_KEY_ID'];
+        $type = I('type');
+        $id = I('id');
+        if(!$id){
+            $data['status'] = 0;
+            $data['info'] = '未知错误';
+            $this->ajaxReturn($data);
+        }
+        $ex_pub_db = M('exchange_pub');
+
+        $pub_info = $ex_pub_db->where(array('id'=>$id))->find();
+        $mem_db = D("Member");
+        if($type == 1){
+            $msg = "购买";
+            $buy_mem_id = $member_id;
+            $sale_mem_id = $pub_info['member_id'];
+        }else{
+            $msg = "出售";
+            $buy_mem_id = $pub_info['member_id'];
+            $sale_mem_id = $member_id;
+        }
+        $buy_mem_info = $mem_db->get_info_by_id($buy_mem_id);
+        $sale_mem_info = $mem_db->get_info_by_id($sale_mem_id);
+
+        if($pub_info['member_id'] == $member_id){
+            $data['status'] = 0;
+            $data['info'] = '不能'.$msg.'自己发布的挂单';
+            $this->ajaxReturn($data);
+        }
+        $ex_order_db = M('exchange_order');
+
+        $order_no = '111'.time().'001';
+        if($ex_order_db->where(array('order_no'=>$order_no))->find()){
+            $order_no = '111'.time().'002';
+        }
+        $save_data = array(
+            'pub_id' => $pub_info['id'],
+            'order_no' => $order_no,
+            'type' => $type,
+            'buy_mem_id' => $buy_mem_id,
+            'buy_mem_phone' => $buy_mem_info['phone'],
+            'sale_mem_id' =>$sale_mem_id,
+            'sale_mem_phone' => $sale_mem_info['phone'],
+            'currency_id' => $pub_info['currency_id'],
+            'zfb_no' => $sale_mem_info['zfb_no'],
+            'zfb_username' => $sale_mem_info['true_name'],
+            'price' => $pub_info['price'],
+            'num' => $pub_info['num'],
+            'status' => 1,
+            'add_time' => time(),
+            'sum_price' => $pub_info['price'] *  $pub_info['num']
+        );
+        $res = $ex_order_db->add($save_data);
+        if(!$res ){
+            $data['status'] = 0;
+            $data['info'] = '下单失败';
+            $this->ajaxReturn($data);
+        }else{
+            $ex_pub_db->where(array('id'=>$id))->save(array('status'=>2));
+            $data['status'] = 1;
+            $data['info'] = '下单成功';
+            $data['data'] = $res;
+            $this->ajaxReturn($data);
+        }
+    }
 
     /*订单*/
     public function orderview(){
+        $ex_order_db = M('exchange_order');
+        $member_id = $_SESSION['USER_KEY_ID'];
+        $where['buy_mem_id'] = $member_id;
+        $where['sale_mem_id'] = $member_id;
+        $where['_logic'] = "OR";
+
+        $list = $ex_order_db
+            ->where($where)
+            ->order("status asc,add_time desc")
+            ->select();
+
+        foreach ($list as &$value){
+            if($value['type'] == 1){
+                $show_name_id = $value['sale_mem_id'];
+            }else{
+                $show_name_id = $value['buy_mem_id'];
+            }
+            $show_name = M("member_info")->where(array('member_id'=>$show_name_id))->getField('nick_name');
+            $value['show_name'] = $show_name;
+            $value['currency_name'] = M('currency')->where(array('currency_id'=>$value['currency_id']))->getField('currency_name');
+        }
+
+        $this->assign('list',$list);
         $this->display();
     }
     /*购买云链*/
     public function buy_detail(){
+        $id = I('id');
+        $member_id = $_SESSION['USER_KEY_ID'];
+
+        if(!$id){
+            $this->display('Public:404');
+        }
+        $db = M('exchange_pub');
+        $pub_info = $db->where(array('id'=>$id))->find();
+
+        $pub_mem_id = $pub_info['member_id'];
+        $pub_mem = D("Member")->get_info_by_id($pub_mem_id);
+
+        /*单数*/
+        $volume = M('member_exchange_volume')
+            ->where(array(
+                'member_id' => $pub_mem_id,
+                'type'=> $pub_info['type'],
+                'currency_id' => $pub_info['currency_id']
+                )
+            )
+            ->find();
+        $pub_mem["total_num"] = $volume['total_num'] ? $volume['total_num'] :0;
+        $pub_mem["single_order_num"] = $volume['single_order_num']?$volume['single_order_num']:0;
+        $pub_mem["currency_name"] = M('currency')->where(array('id'=>$pub_info['currency_id']))->getField('currency_name');
+
+        /*出售*/
+        if($pub_info['type'] == 1){
+            $m_info =  D("Member")->get_info_by_id($member_id);
+            $pub_info['zfb_no'] = $m_info['zfb_no'];
+            $pub_info['true_name'] = $m_info['true_name'];
+        }
+
+        $this->assign('pub_info',$pub_info);
+        $this->assign('pub_mem',$pub_mem);
         $this->display();
     }
     /*付款订单*/
     public function pay_order(){
+        $order_id = I('order_id');
+        $ex_order_db = M('exchange_order');
+        $info = $ex_order_db->where(array('id'=>$order_id))->find();
+        $info['currency_name'] = M("currency")->where(array('currency_id'=>$info['currency_id']))
+            ->getField('currency_name');
+        $interval_times = 0;
+        /*判断状态*/
+        /*未付款，付款倒计时*/
+        if($info['status'] == 1){
+            $interval_times = time()- $info['add_time'];
+            if($interval_times > 60*60){
+                $interval_times = 0;
+            }else{
+                $interval_times = 60*60 - $interval_times;
+            }
+        }
+
+        /*已付款，确认倒计时*/
+        if($info['status'] == 2){
+            $interval_times = time()-$info['pay_time'];
+            if($interval_times > 12*60*60){
+                $interval_times = 0;
+            }else{
+                $interval_times = 12*60*60 - $interval_times;
+            }
+        }
+        /*投诉，倒计时*/
+        if($info['status'] == 4){
+            $interval_times = time()-$info['dispute_time'];
+            if($interval_times > 12*60*60){
+                $interval_times = 0;
+            }else{
+                $interval_times = 12*60*60 - $interval_times;
+            }
+        }
+        $this->assign('info',$info);
+        $this->assign('interval_times',$interval_times);
         $this->display();
     }
+
+    /*确认操作*/
+    public function receive_confirm(){
+        $id = I('id');
+        $type= I('type');
+        $member_id = $_SESSION['USER_KEY_ID'];
+        $ex_order_db = M('exchange_order');
+
+        $ex_order_info = $ex_order_db->where(array('id'=>$id))->find();
+        
+
+
+
+    }
+
+
     /*交易完成*/
     public function pay_complete(){
         $this->display();

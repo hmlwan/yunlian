@@ -1761,13 +1761,13 @@ div::-webkit-scrollbar {
     font-size: .3rem;
     font-weight: bold;
     color:#3373ed;
-    padding-bottom: 5px;
+
 }
 .dhsc .buy_cont .buy_item .buy_btn{
-    padding: .05rem .35rem;
+    padding: .07rem .45rem;
     background-color: #2891e4;
-    border-radius: 3px;
-    font-size: .25rem;
+    border-radius: 2px;
+    font-size: .24rem;
     color: #fff;
 }
 .dhsc .buy_item .buy_l{
@@ -1960,8 +1960,8 @@ div::-webkit-scrollbar {
 .wtd .wtd_h{
     font-size: .24rem;
     color:#8e9fa9;
-    height: .6rem;
-    line-height: .6rem;
+    height: .55rem;
+    line-height: .55rem;
     overflow: hidden;
 
 }
@@ -1977,8 +1977,8 @@ div::-webkit-scrollbar {
     padding: 0 .2rem;
 }
 .wtd .wtd_m p{
-    height: .55rem;
-    line-height: .55rem;
+    height: .5rem;
+    line-height: .5rem;
     display: flex;
     justify-content:space-between;
     font-size: .24rem;
@@ -2009,7 +2009,8 @@ div::-webkit-scrollbar {
 .wtd .red{
     color:#d14b64;
     font-weight: bold;
-    font-size: .29rem
+    font-size: .3rem;
+    padding-right: .1rem;
 }
 .wtd .dark{
     color:#1f3f58;
@@ -2166,8 +2167,8 @@ div::-webkit-scrollbar {
     margin: .15rem 0 .25rem;
 }
 .dhsc .agree i{
-    width: .32rem;
-    height: .32rem;
+    width: .25rem;
+    height: .25rem;
     display: inline-block;
     background-color: #d2d2d2;
     vertical-align: middle;
@@ -2181,8 +2182,8 @@ div::-webkit-scrollbar {
 .dhsc .buy_btn{
     width: 92%;
     margin: 0 auto;
-    height: .8rem;
-    line-height: .8rem;
+    height: .75rem;
+    line-height: .75rem;
     background-color: #02a9f1;
     color:#fff;
     font-size: .28rem;
@@ -2315,10 +2316,10 @@ div::-webkit-scrollbar {
 .dh_tips{
     position: fixed;
     width: 88%;
-    top:30%;
+    top:28%;
     left: 6%;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 2px;
     z-index: 101;
 }
 .dh_tips div{
@@ -2339,13 +2340,13 @@ div::-webkit-scrollbar {
 }
 
 .dh_tips div .btn{
-    font-size: .25rem;
+    font-size: .28rem;
     text-align: right;
     color:#3a7da7
 }
 .dh_tips div .btn span:first-child{
     color: #2b4453;
-    margin-right: .3rem;
+    margin-right: .5rem;
     display: inline-block;
 }
 
@@ -2527,8 +2528,8 @@ div::-webkit-scrollbar {
 /*底部-top*/
 .footer_main{position: fixed;left:0;bottom:0;width: 100%;height: .9rem;background-color: #fff;z-index: 9;}
 .footer_main ul{width: 100%;font-size: .2rem;}
-.footer_main ul li{float:left;width: 20%;padding: .55rem 0 .1rem 0;text-align: center;position: relative;}
-.footer_main ul li a{color: #000;}
+.footer_main ul li{float:left;width: 20%;color: #000; padding: .55rem 0 .1rem 0;text-align: center;position: relative;}
+/*.footer_main ul li a{color: #000;}*/
 .footer_main ul li.footer_fl{background: url("../../images/yhj-wxz.png") center .05rem no-repeat;background-size: .43rem;}
 .footer_main ul li.footer_f2{background: url("../../images/fl-wxz.png") center .05rem no-repeat;background-size: .43rem;}
 .footer_main ul li.footer_f3{background: url("../../images/dh-wxz.png") center .05rem no-repeat;background-size: .43rem;}
