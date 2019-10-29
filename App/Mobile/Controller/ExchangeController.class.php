@@ -298,16 +298,18 @@ class ExchangeController extends HomeController {
             ->select();
 
         foreach ($list as &$value){
-            if($value['type'] == 1){
+
+            if($value['buy_mem_id'] == $member_id){
+                $value['type'] =  1;
                 $show_name_id = $value['sale_mem_id'];
-            }else{
+            }else if($value['sale_mem_id'] == $member_id){
+                $value['type'] = 2;
                 $show_name_id = $value['buy_mem_id'];
             }
             $show_name = M("member_info")->where(array('member_id'=>$show_name_id))->getField('nick_name');
             $value['show_name'] = $show_name;
             $value['currency_name'] = M('currency')->where(array('currency_id'=>$value['currency_id']))->getField('currency_name');
         }
-
         $this->assign('list',$list);
         $this->display();
     }
@@ -354,6 +356,14 @@ class ExchangeController extends HomeController {
         $order_id = I('order_id');
         $ex_order_db = M('exchange_order');
         $info = $ex_order_db->where(array('id'=>$order_id))->find();
+        $member_id = $_SESSION['USER_KEY_ID'];
+        if($info['buy_mem_id'] == $member_id){
+            $info['type'] =  1;
+
+        }else if($info['sale_mem_id'] == $member_id){
+            $info['type'] = 2;
+        }
+
         $info['currency_name'] = M("currency")->where(array('currency_id'=>$info['currency_id']))
             ->getField('currency_name');
         $interval_times = 0;
